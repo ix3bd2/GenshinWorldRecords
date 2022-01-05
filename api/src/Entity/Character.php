@@ -3,14 +3,17 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\characterRepository;
+use App\Repository\CharacterRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: characterRepository::class)]
-#[ApiResource]
-class character
+#[ApiResource(
+    collectionOperations: ['get'],
+    itemOperations: ['get'],
+)]
+class Character
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -61,6 +64,9 @@ class character
 
     #[ORM\OneToMany(mappedBy: 'character', targetEntity: Team::class)]
     private $team;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $videoUrl;
 
     public function __construct()
     {
@@ -266,6 +272,18 @@ class character
                 $team->setCharacter(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getVideoUrl(): ?string
+    {
+        return $this->videoUrl;
+    }
+
+    public function setVideoUrl(?string $videoUrl): self
+    {
+        $this->videoUrl = $videoUrl;
 
         return $this;
     }

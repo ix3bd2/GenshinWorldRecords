@@ -9,8 +9,10 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: WeaponRepository::class)]
-#[ApiResource]
-class Weapon
+#[ApiResource(
+    collectionOperations: ['get'],
+    itemOperations: ['get'],
+)]class Weapon
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

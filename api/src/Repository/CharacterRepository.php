@@ -12,7 +12,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method character[]    findAll()
  * @method character[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class characterRepository extends ServiceEntityRepository
+class CharacterRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
