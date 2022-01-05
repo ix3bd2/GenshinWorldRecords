@@ -48,6 +48,12 @@ class Team
     #[ORM\Column(type: 'integer', nullable: true)]
     private $talentAA;
 
+    #[ORM\ManyToOne(targetEntity: weapon::class, inversedBy: 'teams')]
+    private $weapon;
+
+    #[ORM\ManyToOne(targetEntity: character::class, inversedBy: 'team')]
+    private $character;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -181,6 +187,30 @@ class Team
     public function setTalentAA(?int $talentAA): self
     {
         $this->talentAA = $talentAA;
+
+        return $this;
+    }
+
+    public function getWeapon(): ?weapon
+    {
+        return $this->weapon;
+    }
+
+    public function setWeapon(?weapon $weapon): self
+    {
+        $this->weapon = $weapon;
+
+        return $this;
+    }
+
+    public function getCharacter(): ?character
+    {
+        return $this->character;
+    }
+
+    public function setCharacter(?character $character): self
+    {
+        $this->character = $character;
 
         return $this;
     }

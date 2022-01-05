@@ -3,12 +3,14 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\CharactersRepository;
+use App\Repository\characterRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: CharactersRepository::class)]
+#[ORM\Entity(repositoryClass: characterRepository::class)]
 #[ApiResource]
-class Characters
+class character
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -53,6 +55,17 @@ class Characters
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private $talentAA;
+
+    #[ORM\ManyToOne(targetEntity: Weapon::class, inversedBy: 'character')]
+    private $weapon;
+
+    #[ORM\OneToMany(mappedBy: 'character', targetEntity: Team::class)]
+    private $team;
+
+    public function __construct()
+    {
+        $this->team = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -211,6 +224,48 @@ class Characters
     public function setTalentAA(?int $talentAA): self
     {
         $this->talentAA = $talentAA;
+
+        return $this;
+    }
+
+    public function getWeapon(): ?Weapon
+    {
+        return $this->weapon;
+    }
+
+    public function setWeapon(?Weapon $weapon): self
+    {
+        $this->weapon = $weapon;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Team[]
+     */
+    public function getTeam(): Collection
+    {
+        return $this->team;
+    }
+
+    public function addTeam(Team $team): self
+    {
+        if (!$this->team->contains($team)) {
+            $this->team[] = $team;
+            $team->setCharacter($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTeam(Team $team): self
+    {
+        if ($this->team->removeElement($team)) {
+            // set the owning side to null (unless already changed)
+            if ($team->getCharacter() === $this) {
+                $team->setCharacter(null);
+            }
+        }
 
         return $this;
     }
