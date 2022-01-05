@@ -51,10 +51,10 @@ class Team
     #[ORM\Column(type: 'integer', nullable: true)]
     private $talentAA;
 
-    #[ORM\ManyToOne(targetEntity: weapon::class, inversedBy: 'teams')]
+    #[ORM\ManyToOne(targetEntity: Weapon::class, inversedBy: 'teams')]
     private $weapon;
 
-    #[ORM\ManyToOne(targetEntity: character::class, inversedBy: 'team')]
+    #[ORM\ManyToOne(targetEntity: Character::class, inversedBy: 'team')]
     private $character;
 
     public function getId(): ?int

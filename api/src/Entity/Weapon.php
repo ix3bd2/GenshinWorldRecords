@@ -25,7 +25,7 @@ use Doctrine\ORM\Mapping as ORM;
     #[ORM\Column(type: 'text', nullable: true)]
     private $img;
 
-    #[ORM\OneToMany(mappedBy: 'weapon', targetEntity: character::class)]
+    #[ORM\OneToMany(mappedBy: 'weapon', targetEntity: Character::class)]
     private $character;
 
     #[ORM\OneToMany(mappedBy: 'weapon', targetEntity: Team::class)]
