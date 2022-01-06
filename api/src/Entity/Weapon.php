@@ -31,6 +31,18 @@ use Doctrine\ORM\Mapping as ORM;
     #[ORM\OneToMany(mappedBy: 'weapon', targetEntity: Team::class)]
     private $teams;
 
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $rarity;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $atk;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $substate;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $passive;
+
     public function __construct()
     {
         $this->character = new ArrayCollection();
@@ -122,6 +134,54 @@ use Doctrine\ORM\Mapping as ORM;
                 $team->setWeapon(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getRarity(): ?int
+    {
+        return $this->rarity;
+    }
+
+    public function setRarity(?int $rarity): self
+    {
+        $this->rarity = $rarity;
+
+        return $this;
+    }
+
+    public function getAtk(): ?int
+    {
+        return $this->atk;
+    }
+
+    public function setAtk(?int $atk): self
+    {
+        $this->atk = $atk;
+
+        return $this;
+    }
+
+    public function getSubstate(): ?string
+    {
+        return $this->substate;
+    }
+
+    public function setSubstate(?string $substate): self
+    {
+        $this->substate = $substate;
+
+        return $this;
+    }
+
+    public function getPassive(): ?string
+    {
+        return $this->passive;
+    }
+
+    public function setPassive(?string $passive): self
+    {
+        $this->passive = $passive;
 
         return $this;
     }
