@@ -68,9 +68,23 @@ class Character
     #[ORM\Column(type: 'text', nullable: true)]
     private $videoUrl;
 
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $banner;
+
+    #[ORM\ManyToMany(targetEntity: Artifact::class, inversedBy: 'characters')]
+    private $artifacts;
+
+    #[ORM\ManyToMany(targetEntity: Buff::class, inversedBy: 'characters')]
+    private $buff;
+
+    #[ORM\ManyToOne(targetEntity: Element::class, inversedBy: 'characters')]
+    private $element;
+
     public function __construct()
     {
         $this->team = new ArrayCollection();
+        $this->artifacts = new ArrayCollection();
+        $this->buff = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -284,6 +298,78 @@ class Character
     public function setVideoUrl(?string $videoUrl): self
     {
         $this->videoUrl = $videoUrl;
+
+        return $this;
+    }
+
+    public function getBanner(): ?string
+    {
+        return $this->banner;
+    }
+
+    public function setBanner(?string $banner): self
+    {
+        $this->banner = $banner;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Artifact[]
+     */
+    public function getArtifacts(): Collection
+    {
+        return $this->artifacts;
+    }
+
+    public function addArtifact(Artifact $artifact): self
+    {
+        if (!$this->artifacts->contains($artifact)) {
+            $this->artifacts[] = $artifact;
+        }
+
+        return $this;
+    }
+
+    public function removeArtifact(Artifact $artifact): self
+    {
+        $this->artifacts->removeElement($artifact);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Buff[]
+     */
+    public function getBuff(): Collection
+    {
+        return $this->buff;
+    }
+
+    public function addBuff(Buff $buff): self
+    {
+        if (!$this->buff->contains($buff)) {
+            $this->buff[] = $buff;
+        }
+
+        return $this;
+    }
+
+    public function removeBuff(Buff $buff): self
+    {
+        $this->buff->removeElement($buff);
+
+        return $this;
+    }
+
+    public function getElement(): ?Element
+    {
+        return $this->element;
+    }
+
+    public function setElement(?Element $element): self
+    {
+        $this->element = $element;
 
         return $this;
     }
