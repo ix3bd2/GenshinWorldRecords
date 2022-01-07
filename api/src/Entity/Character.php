@@ -80,6 +80,9 @@ class Character
     #[ORM\ManyToOne(targetEntity: Element::class, inversedBy: 'characters')]
     private $element;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $weaponRefine;
+
     public function __construct()
     {
         $this->team = new ArrayCollection();
@@ -370,6 +373,18 @@ class Character
     public function setElement(?Element $element): self
     {
         $this->element = $element;
+
+        return $this;
+    }
+
+    public function getWeaponRefine(): ?string
+    {
+        return $this->weaponRefine;
+    }
+
+    public function setWeaponRefine(?string $weaponRefine): self
+    {
+        $this->weaponRefine = $weaponRefine;
 
         return $this;
     }

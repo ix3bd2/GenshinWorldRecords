@@ -43,6 +43,9 @@ use Doctrine\ORM\Mapping as ORM;
     #[ORM\Column(type: 'text', nullable: true)]
     private $passive;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $type;
+
     public function __construct()
     {
         $this->character = new ArrayCollection();
@@ -182,6 +185,18 @@ use Doctrine\ORM\Mapping as ORM;
     public function setPassive(?string $passive): self
     {
         $this->passive = $passive;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(?string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }
