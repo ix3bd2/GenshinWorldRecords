@@ -83,6 +83,9 @@ class Character
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $weaponRefine;
 
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $bannerBg;
+
     public function __construct()
     {
         $this->team = new ArrayCollection();
@@ -385,6 +388,18 @@ class Character
     public function setWeaponRefine(?string $weaponRefine): self
     {
         $this->weaponRefine = $weaponRefine;
+
+        return $this;
+    }
+
+    public function getBannerBg(): ?string
+    {
+        return $this->bannerBg;
+    }
+
+    public function setBannerBg(?string $bannerBg): self
+    {
+        $this->bannerBg = $bannerBg;
 
         return $this;
     }
