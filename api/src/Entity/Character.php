@@ -10,8 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: characterRepository::class)]
 #[ApiResource(
-    collectionOperations: ['get'],
-    itemOperations: ['get'],
+
 )]
 class Character
 {
@@ -71,12 +70,6 @@ class Character
     #[ORM\Column(type: 'text', nullable: true)]
     private $banner;
 
-    #[ORM\ManyToMany(targetEntity: Artifact::class, inversedBy: 'characters')]
-    private $artifacts;
-
-    #[ORM\ManyToMany(targetEntity: Buff::class, inversedBy: 'characters')]
-    private $buff;
-
     #[ORM\ManyToOne(targetEntity: Element::class, inversedBy: 'characters')]
     private $element;
 
@@ -86,11 +79,12 @@ class Character
     #[ORM\Column(type: 'text', nullable: true)]
     private $bannerBg;
 
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $rarity;
+
     public function __construct()
     {
         $this->team = new ArrayCollection();
-        $this->artifacts = new ArrayCollection();
-        $this->buff = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -320,54 +314,6 @@ class Character
         return $this;
     }
 
-    /**
-     * @return Collection|Artifact[]
-     */
-    public function getArtifacts(): Collection
-    {
-        return $this->artifacts;
-    }
-
-    public function addArtifact(Artifact $artifact): self
-    {
-        if (!$this->artifacts->contains($artifact)) {
-            $this->artifacts[] = $artifact;
-        }
-
-        return $this;
-    }
-
-    public function removeArtifact(Artifact $artifact): self
-    {
-        $this->artifacts->removeElement($artifact);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Buff[]
-     */
-    public function getBuff(): Collection
-    {
-        return $this->buff;
-    }
-
-    public function addBuff(Buff $buff): self
-    {
-        if (!$this->buff->contains($buff)) {
-            $this->buff[] = $buff;
-        }
-
-        return $this;
-    }
-
-    public function removeBuff(Buff $buff): self
-    {
-        $this->buff->removeElement($buff);
-
-        return $this;
-    }
-
     public function getElement(): ?Element
     {
         return $this->element;
@@ -400,6 +346,18 @@ class Character
     public function setBannerBg(?string $bannerBg): self
     {
         $this->bannerBg = $bannerBg;
+
+        return $this;
+    }
+
+    public function getRarity(): ?int
+    {
+        return $this->rarity;
+    }
+
+    public function setRarity(?int $rarity): self
+    {
+        $this->rarity = $rarity;
 
         return $this;
     }

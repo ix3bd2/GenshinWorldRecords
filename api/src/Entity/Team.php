@@ -59,15 +59,11 @@ class Team
     #[ORM\ManyToOne(targetEntity: Character::class, inversedBy: 'team')]
     private $character;
 
-    #[ORM\ManyToMany(targetEntity: Artifact::class, inversedBy: 'teams')]
-    private $artifact;
-
     #[ORM\ManyToOne(targetEntity: Element::class, inversedBy: 'teams')]
     private $element;
 
     public function __construct()
     {
-        $this->artifact = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -227,30 +223,6 @@ class Team
     public function setCharacter(?character $character): self
     {
         $this->character = $character;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Artifact[]
-     */
-    public function getArtifact(): Collection
-    {
-        return $this->artifact;
-    }
-
-    public function addArtifact(Artifact $artifact): self
-    {
-        if (!$this->artifact->contains($artifact)) {
-            $this->artifact[] = $artifact;
-        }
-
-        return $this;
-    }
-
-    public function removeArtifact(Artifact $artifact): self
-    {
-        $this->artifact->removeElement($artifact);
 
         return $this;
     }

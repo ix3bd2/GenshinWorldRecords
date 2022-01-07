@@ -32,16 +32,9 @@ class Artifact
     #[ORM\Column(type: 'text', nullable: true)]
     private $fullset;
 
-    #[ORM\ManyToMany(targetEntity: Character::class, mappedBy: 'artifacts')]
-    private $characters;
-
-    #[ORM\ManyToMany(targetEntity: Team::class, mappedBy: 'artifact')]
-    private $teams;
-
     public function __construct()
     {
         $this->characters = new ArrayCollection();
-        $this->teams = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -93,60 +86,6 @@ class Artifact
     public function setFullset(?string $fullset): self
     {
         $this->fullset = $fullset;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Character[]
-     */
-    public function getCharacters(): Collection
-    {
-        return $this->characters;
-    }
-
-    public function addCharacter(Character $character): self
-    {
-        if (!$this->characters->contains($character)) {
-            $this->characters[] = $character;
-            $character->addArtifact($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCharacter(Character $character): self
-    {
-        if ($this->characters->removeElement($character)) {
-            $character->removeArtifact($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Team[]
-     */
-    public function getTeams(): Collection
-    {
-        return $this->teams;
-    }
-
-    public function addTeam(Team $team): self
-    {
-        if (!$this->teams->contains($team)) {
-            $this->teams[] = $team;
-            $team->addArtifact($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTeam(Team $team): self
-    {
-        if ($this->teams->removeElement($team)) {
-            $team->removeArtifact($this);
-        }
 
         return $this;
     }
