@@ -29,7 +29,7 @@ class Artifact
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $halfset;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[ORM\Column(type: 'text', nullable: true)]
     private $fullset;
 
     #[ORM\ManyToMany(targetEntity: Character::class, mappedBy: 'artifacts')]
