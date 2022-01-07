@@ -62,6 +62,9 @@ class Team
     #[ORM\ManyToOne(targetEntity: Element::class, inversedBy: 'teams')]
     private $element;
 
+    #[ORM\Column(type: 'array', nullable: true)]
+    private $artifact = [];
+
     public function __construct()
     {
     }
@@ -235,6 +238,18 @@ class Team
     public function setElement(?Element $element): self
     {
         $this->element = $element;
+
+        return $this;
+    }
+
+    public function getArtifact(): ?array
+    {
+        return $this->artifact;
+    }
+
+    public function setArtifact(?array $artifact): self
+    {
+        $this->artifact = $artifact;
 
         return $this;
     }

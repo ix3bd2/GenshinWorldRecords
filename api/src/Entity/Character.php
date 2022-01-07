@@ -82,6 +82,12 @@ class Character
     #[ORM\Column(type: 'integer', nullable: true)]
     private $rarity;
 
+    #[ORM\Column(type: 'array', nullable: true)]
+    private $buff = [];
+
+    #[ORM\Column(type: 'array', nullable: true)]
+    private $artifact = [];
+
     public function __construct()
     {
         $this->team = new ArrayCollection();
@@ -358,6 +364,30 @@ class Character
     public function setRarity(?int $rarity): self
     {
         $this->rarity = $rarity;
+
+        return $this;
+    }
+
+    public function getBuff(): ?array
+    {
+        return $this->buff;
+    }
+
+    public function setBuff(?array $buff): self
+    {
+        $this->buff = $buff;
+
+        return $this;
+    }
+
+    public function getArtifact(): ?array
+    {
+        return $this->artifact;
+    }
+
+    public function setArtifact(?array $artifact): self
+    {
+        $this->artifact = $artifact;
 
         return $this;
     }
