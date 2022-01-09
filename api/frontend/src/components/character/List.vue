@@ -111,9 +111,10 @@ export default {
 <style>
 .card {
   margin: 3%;
- box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
+    0 6px 20px 0 rgba(255, 255, 255, 0.19);
   transition: ease-out 0.3s;
- }
+}
 .char-pp {
   position: initial;
   width: 25%;
@@ -136,8 +137,8 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.card:hover{
-     transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }
 </style>
