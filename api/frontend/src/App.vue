@@ -30,7 +30,7 @@ export default {
   color: white;
 }
 body {
-  background-color: #121212;
+  background-color: #0f1923;
 }
 .content {
   padding-top: 2%;

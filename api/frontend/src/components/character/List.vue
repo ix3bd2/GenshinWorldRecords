@@ -24,7 +24,7 @@
       >
         <div>{{ changeColor(item["element"]["name"]) }}</div>
 
-        <div class="card bg-dark" v-bind:style="{ border: color }">
+        <div class="card" v-bind:style="{ border: color }">
           <div>
             <img
               class="card-img-top"
@@ -114,6 +114,7 @@ export default {
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
     0 6px 20px 0 rgba(255, 255, 255, 0.19);
   transition: ease-out 0.3s;
+  background-color: #1a2430;
 }
 .char-pp {
   position: initial;
@@ -123,7 +124,7 @@ export default {
 }
 .char-element {
   width: 9%;
-  background-color: black;
+  background-color: #19232f;
   position: absolute;
   transform: translate(-300%, -120%);
   border-radius: 50%;
