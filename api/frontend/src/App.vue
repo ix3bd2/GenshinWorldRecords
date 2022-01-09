@@ -1,15 +1,16 @@
 <template>
   <div id="app">
+    <the-nav-bar/>
     <router-view />
-    
   </div>
 </template>
 
 <script>
-
+import TheNavBar from './components/ui/TheNavBar.vue'
 export default {
   name: 'App',
   components: {
+    'the-nav-bar':TheNavBar
   }
 }
 </script>
@@ -21,6 +22,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

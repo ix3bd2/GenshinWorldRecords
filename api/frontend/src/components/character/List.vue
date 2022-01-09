@@ -5,18 +5,18 @@
     <div
       v-if="isLoading"
       class="alert alert-info">Loading...</div>
-    <div
+    <!-- <div
       v-if="deletedItem"
-      class="alert alert-success">{{ deletedItem['@id'] }} deleted.</div>
-    <div
+      class="alert alert-success">{{ deletedItem['@id'] }} deleted.</div> -->
+    <!-- <div
       v-if="error"
-      class="alert alert-danger">{{ error }}</div>
+      class="alert alert-danger">{{ error }}</div> -->
 
-    <p>
+    <!-- p>
       <router-link
         :to="{ name: 'CharacterCreate' }"
         class="btn btn-primary">Create</router-link>
-    </p>
+    </p> -->
 
     <table class="table table-responsive table-striped table-hover">
       <thead>
@@ -63,7 +63,8 @@
             {{ item['name'] }}
         </td>
         <td>
-            {{ item['img'] }}
+            <img  v-bind:src="item['img']" >
+
         </td>
         <td>
             {{ item['atk'] }}
@@ -138,7 +139,7 @@
             {{ item['videoUrl'] }}
         </td>
         <td>
-            {{ item['banner'] }}
+            <img  v-bind:src="item['banner']" >
         </td>
         <td>
             <template>

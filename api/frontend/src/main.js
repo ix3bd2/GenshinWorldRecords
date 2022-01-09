@@ -28,5 +28,5 @@ export const store = new Vuex.Store({
 new Vue({
     store: store,
     router,
-    render: h => h(App)
-})
+    render: h => h(App),
+}).$mount('#app')

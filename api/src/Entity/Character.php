@@ -9,9 +9,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CharacterRepository::class)]
-#[ApiResource(
+#[ApiResource(attributes: ["pagination_enabled" => false])]
 
-)]
 class Character
 {
     #[ORM\Id]
