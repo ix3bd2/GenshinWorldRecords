@@ -1,7 +1,13 @@
 <template>
   <div id="app">
     <the-nav-bar />
-     <router-view class="content" />
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10"><router-view class="content" /></div>
+        <div class="col-1"></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -21,11 +27,12 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: white;
 }
-.content{
-  padding-left: 10%;
-  padding-right: 10%;
+body {
+  background-color: #121212;
+}
+.content {
   padding-top: 2%;
   padding-bottom: 2%;
 }
