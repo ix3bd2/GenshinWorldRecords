@@ -7,83 +7,109 @@ use App\Repository\CharacterRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CharacterRepository::class)]
-#[ApiResource(attributes: ["pagination_enabled" => false])]
+#[ApiResource(attributes: ["pagination_enabled" => false],normalizationContext: ['groups' => ['character']])
+]
 
 class Character
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups("character")]
     private $id;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $name;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'text', nullable: true)]
     private $img;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $atk;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $def;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $hp;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'float', nullable: true)]
     private $er;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $em;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'float', nullable: true)]
     private $cr;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'float', nullable: true)]
     private $cd;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'float', nullable: true)]
     private $ed;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $talentE;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $talentQ;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $talentAA;
 
+    #[Groups("character")]
     #[ORM\ManyToOne(targetEntity: Weapon::class, inversedBy: 'character')]
     private $weapon;
 
+    #[Groups("character")]
     #[ORM\OneToMany(mappedBy: 'character', targetEntity: Team::class)]
     private $team;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'text', nullable: true)]
     private $videoUrl;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'text', nullable: true)]
     private $banner;
 
+    #[Groups("character")]
     #[ORM\ManyToOne(targetEntity: Element::class, inversedBy: 'characters')]
     private $element;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $weaponRefine;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'text', nullable: true)]
     private $bannerBg;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $rarity;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'array', nullable: true)]
     private $buff = [];
 
+    #[Groups("character")]
     #[ORM\Column(type: 'array', nullable: true)]
     private $artifact = [];
 

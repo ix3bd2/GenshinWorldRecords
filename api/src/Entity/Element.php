@@ -7,6 +7,7 @@ use App\Repository\ElementRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ElementRepository::class)]
 #[ApiResource(
@@ -20,10 +21,13 @@ class Element
     #[ORM\Column(type: 'integer')]
     private $id;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $name;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'text', nullable: true)]
+    
     private $img;
 
     #[ORM\OneToMany(mappedBy: 'element', targetEntity: Character::class)]

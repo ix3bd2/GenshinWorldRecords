@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <the-nav-bar/>
-    <router-view />
+    <the-nav-bar />
+     <router-view class="content" />
   </div>
 </template>
 
 <script>
-import TheNavBar from './components/ui/TheNavBar.vue'
+import TheNavBar from "./components/ui/TheNavBar.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    'the-nav-bar':TheNavBar
-  }
-}
+    "the-nav-bar": TheNavBar,
+  },
+};
 </script>
 
 <style>
@@ -22,5 +22,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+.content{
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 </style>
