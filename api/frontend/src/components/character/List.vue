@@ -45,7 +45,7 @@
             />
           </div>
           <div class="card-body">
-            <h5 class="card-title">{{ item["name"] }}</h5>
+            <h5 class="card-title">{{ filterName(item["name"]) }}</h5>
             <h7 class="card-body" style="color: #212529">{{ item["name"] }}</h7>
           </div>
         </div>
@@ -82,6 +82,9 @@ export default {
     ...mapActions({
       getPage: "character/list/default",
     }),
+    filterName(name){
+      return name.replace('-'," ")
+    },
     changeColor(element) {
       if (element == "Geo") {
         this.color = "2px solid #e0ba4f";
