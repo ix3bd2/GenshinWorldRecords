@@ -1,0 +1,35 @@
+# The required plugins and platforms are saved in package.json and will automatically installed when running:
+# cordova prepare or cordova build
+
+# Git is not able handle node_modules because of the many changes
+node_modules
+
+# Platforms takes up quite some space and includes builds as well
+platforms
+
+# Plugins
+/plugins
+
+# Automatically generated files used for updates and builds
+package-lock.json
+
+# Python
+**/__pycache__
+
+# Visual Studio
+.vs
+.vscode
+
+# OS X
+.DS_Store
+
+# Auto generated panorama's and videos
+**/panoramas/*
+**/socials/*
+**/resized/*
+
+# Lock files
+*.jpg.lock
+
+# Local Settings
+_settings.js
