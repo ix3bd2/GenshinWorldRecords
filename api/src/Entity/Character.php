@@ -26,10 +26,6 @@ class Character
     private $name;
 
     #[Groups("character")]
-    #[ORM\Column(type: 'text', nullable: true)]
-    private $img;
-
-    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $atk;
 
@@ -86,20 +82,12 @@ class Character
     private $videoUrl;
 
     #[Groups("character")]
-    #[ORM\Column(type: 'text', nullable: true)]
-    private $banner;
-
-    #[Groups("character")]
     #[ORM\ManyToOne(targetEntity: Element::class, inversedBy: 'characters')]
     private $element;
 
     #[Groups("character")]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $weaponRefine;
-
-    #[Groups("character")]
-    #[ORM\Column(type: 'text', nullable: true)]
-    private $bannerBg;
 
     #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
@@ -131,18 +119,6 @@ class Character
     public function setName(?string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getImg(): ?string
-    {
-        return $this->img;
-    }
-
-    public function setImg(?string $img): self
-    {
-        $this->img = $img;
 
         return $this;
     }
@@ -333,18 +309,6 @@ class Character
         return $this;
     }
 
-    public function getBanner(): ?string
-    {
-        return $this->banner;
-    }
-
-    public function setBanner(?string $banner): self
-    {
-        $this->banner = $banner;
-
-        return $this;
-    }
-
     public function getElement(): ?Element
     {
         return $this->element;
@@ -365,18 +329,6 @@ class Character
     public function setWeaponRefine(?string $weaponRefine): self
     {
         $this->weaponRefine = $weaponRefine;
-
-        return $this;
-    }
-
-    public function getBannerBg(): ?string
-    {
-        return $this->bannerBg;
-    }
-
-    public function setBannerBg(?string $bannerBg): self
-    {
-        $this->bannerBg = $bannerBg;
 
         return $this;
     }
