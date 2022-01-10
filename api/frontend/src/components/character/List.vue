@@ -32,7 +32,7 @@
             />
             <img
               class="card-img-top char-pp"
-              v-bind:src="item['img']"
+              :src="require('@/assets/img/pPicture/' + item['name'] + '.jpg')"
               alt="Card image cap"
               v-bind:style="{ border: color }"
             />
