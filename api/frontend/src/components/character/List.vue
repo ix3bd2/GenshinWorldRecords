@@ -28,8 +28,7 @@
           <div>
             <img
               class="card-img-top"
-              v-bind:src="item['banner']"
-              alt="Card image cap"
+              :src="require('@/assets/img/miniBanners/' + item['name'] + '.jpg')"
             />
             <img
               class="card-img-top char-pp"
@@ -83,6 +82,7 @@ export default {
       getPage: "character/list/default",
     }),
     filterName(name){
+      console.log(name)
       return name.replace('-'," ")
     },
     changeColor(element) {
