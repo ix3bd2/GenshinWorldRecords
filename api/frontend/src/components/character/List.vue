@@ -123,7 +123,8 @@ export default {
   position: initial;
   width: 25%;
   border-radius: 50%;
-  transform: translate(-0%, -40%);
+  transform: translate(-0%, -40%)scale(1.05);
+
 }
 .char-element {
   width: 9%;
