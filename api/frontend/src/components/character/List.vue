@@ -28,7 +28,9 @@
           <div>
             <img
               class="card-img-top"
-              :src="require('@/assets/img/miniBanners/' + item['name'] + '.jpg')"
+              :src="
+                require('@/assets/img/miniBanners/' + item['name'] + '.jpg')
+              "
             />
             <img
               class="card-img-top char-pp"
@@ -41,6 +43,10 @@
               v-bind:src="item['element']['img']"
               alt="Card image cap"
               v-bind:style="{ border: color }"
+            />
+            <img
+              class="card-img-top char-nation"
+              :src="require('@/assets/img/nations/' + item['nation'] + '.png')"
             />
           </div>
           <div class="card-body">
@@ -81,9 +87,9 @@ export default {
     ...mapActions({
       getPage: "character/list/default",
     }),
-    filterName(name){
-      console.log(name)
-      return name.replace('-'," ")
+    filterName(name) {
+      console.log(name);
+      return name.replace("-", " ");
     },
     changeColor(element) {
       if (element == "Geo") {
@@ -123,8 +129,9 @@ export default {
   position: initial;
   width: 25%;
   border-radius: 50%;
-  transform: translate(-0%, -40%)scale(1.05);
-
+  transform: translate(-0%, -40%) scale(1.05);
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
+    0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
 .char-element {
   width: 9%;
@@ -132,9 +139,17 @@ export default {
   position: absolute;
   transform: translate(-300%, -120%);
   border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
+    0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
 .card-body {
   padding: 1px;
+}
+.char-nation {
+  position: absolute;
+  width: 36%;
+  left: 0%;
+  
 }
 .card-title {
   color: white;

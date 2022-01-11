@@ -100,6 +100,10 @@ class Character
     #[Groups("character")]
     #[ORM\Column(type: 'array', nullable: true)]
     private $artifact = [];
+    
+    #[Groups("character")]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $nation;
 
     public function __construct()
     {
@@ -365,6 +369,18 @@ class Character
     public function setArtifact(?array $artifact): self
     {
         $this->artifact = $artifact;
+
+        return $this;
+    }
+
+    public function getNation(): ?string
+    {
+        return $this->nation;
+    }
+
+    public function setNation(?string $nation): self
+    {
+        $this->nation = $nation;
 
         return $this;
     }
