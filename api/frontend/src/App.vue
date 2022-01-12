@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <the-nav-bar />
-    <div class="container-fluid">
+    <div class="container-content">
       <div class="row">
-        <div class="col-1"></div>
-        <div class="col-10"><router-view class="content" /></div>
-        <div class="col-1"></div>
-      </div>
+<!--         <div class="col-1"></div>
+ -->        <div class="col-12"><router-view class="content" /></div>
+<!--         <div class="col-1"></div>
+ -->      </div>
     </div>
   </div>
 </template>
@@ -32,8 +32,5 @@ export default {
 body {
   background-color: #0f1923;
 }
-.content {
-  padding-top: 2%;
-  padding-bottom: 2%;
-}
+
 </style>

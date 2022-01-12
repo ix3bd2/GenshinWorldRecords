@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="character-list">
     <h1>Character List</h1>
 
     <div v-if="isLoading" class="alert alert-info">Loading...</div>
@@ -160,5 +160,8 @@ export default {
 .card:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+.character-list{
+  padding:4%;
 }
 </style>
