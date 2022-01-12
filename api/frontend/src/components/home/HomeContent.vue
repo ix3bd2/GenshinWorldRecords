@@ -16,7 +16,8 @@
         <div class="col-5">
           <div class="row">
             <div class="col-12">
-              <div class="card mb-3 w-100">
+                <ul>
+              <li><div class="card mb-3 w-100">
                 <div class="card-body">
                   <p class="card-text">
                     With supporting text below as a natural lead-in to
@@ -24,11 +25,8 @@
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="card mb-3 w-100">
+              </li>
+              <li><div class="card mb-3 w-100">
                 <div class="card-body">
                   <p class="card-text">
                     With supporting text below as a natural lead-in to
@@ -36,11 +34,8 @@
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="card mb-3 w-100">
+              </li>
+              <li><div class="card mb-3 w-100">
                 <div class="card-body">
                   <p class="card-text">
                     With supporting text below as a natural lead-in to
@@ -48,6 +43,8 @@
                   </p>
                 </div>
               </div>
+              </li>
+                </ul>
             </div>
           </div>
         </div>
