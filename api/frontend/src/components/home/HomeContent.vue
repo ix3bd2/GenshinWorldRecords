@@ -93,6 +93,6 @@ export default {};
 .card-main-img{
     object-fit: cover;
     height: 100%;
-    object-position: 50%;
+    object-position: 0%;
 }
 </style>
