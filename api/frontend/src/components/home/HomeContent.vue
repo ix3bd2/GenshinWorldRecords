@@ -3,21 +3,16 @@
     <div class="home-content">
       <h2 class="title">2.4 Characters World Records</h2>
       <div class="row">
-        <div class="col-xl-7 col-lg-12">
-          <ul class="list">
-            <li>
+        <div class="col-xl-7 col-lg-12" style="margin-bottom: 1.5rem!important;">
               <div class="card card-main w-100">
                 <img class="card-img card-main-img" src="../../assets/img/fullBanners/Xiao.jpg" alt="Card image">
               </div>
-            </li>
-          </ul>
         </div>
-
         <div class="col-xl-5 col-lg-12">
           <div class="row">
             <div class="col-12">
-              <ul class="list">
-                <li>
+              <div class="row">
+                <div class="col-xl-12 col-md-6">
                   <div class="card card-side mb-2 w-100">
                     <div class="card-body">
                       <p class="card-text">
@@ -26,8 +21,8 @@
                       </p>
                     </div>
                   </div>
-                </li>
-                <li>
+                </div>
+                <div class="col-xl-12 col-md-6">
                   <div class="card card-side mb-2 w-100">
                     <div class="card-body">
                       <p class="card-text">
@@ -36,8 +31,8 @@
                       </p>
                     </div>
                   </div>
-                </li>
-                <li>
+                </div>
+                <div class="col-xl-12 col-md-6">
                   <div class="card card-side mb-2 w-100">
                     <div class="card-body">
                       <p class="card-text">
@@ -46,8 +41,18 @@
                       </p>
                     </div>
                   </div>
-                </li>
-              </ul>
+                </div>
+                <div class="col-xl-12 col-md-6">
+                  <div class="card card-side mb-2 w-100">
+                    <div class="card-body">
+                      <p class="card-text">
+                        With supporting text below as a natural lead-in to
+                        additional content.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -81,7 +86,7 @@ export default {};
   height: 122px;
 }
 .card-main {
-  height: 380px;
+  height: 460px;
   background-image: ("../../assets/img/fullBanners/Xiao.jpg");
   border-radius: 8px;
   background-size: cover;
