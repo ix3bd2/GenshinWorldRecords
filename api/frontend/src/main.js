@@ -5,6 +5,7 @@ import VueRouter from 'vue-router';
 import Vuex from 'vuex';
 import character from './store/modules/character/';
 import homePage from './components/home/HomePage.vue';
+import patchchar from './store/modules/patchchar/';
 
 Vue.use(Vuex)
 Vue.use(VueRouter)
@@ -26,7 +27,8 @@ const router = new VueRouter({
 export const store = new Vuex.Store({
     // ...
     modules: {
-        character
+        character,
+        patchchar
     }
 });
 new Vue({

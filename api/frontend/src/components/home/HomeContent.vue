@@ -3,58 +3,20 @@
     <div class="home-content">
       <h2 class="title">2.4 Characters World Records</h2>
       <div class="row">
-        <div class="col-xl-7 col-lg-12" style="margin-bottom: 1.5rem!important;">
-              <div class="card card-main w-100">
-                <img class="card-img card-main-img" src="../../assets/img/fullBanners/Xiao.jpg" alt="Card image">
-              </div>
+        <div
+          class="col-xl-7 col-lg-12"
+          style="margin-bottom: 1.5rem !important"
+        >
+          <div class="card card-main w-100">
+            <img
+              class="card-img card-main-img"
+              src="../../assets/img/fullBanners/Xiao.jpg"
+              alt="Card image"
+            />
+          </div>
         </div>
         <div class="col-xl-5 col-lg-12">
-          <div class="row">
-            <div class="col-12">
-              <div class="row">
-                <div class="col-xl-12 col-md-6">
-                  <div class="card card-side mb-2 w-100">
-                    <div class="card-body">
-                      <p class="card-text">
-                        With supporting text below as a natural lead-in to
-                        additional content.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-12 col-md-6">
-                  <div class="card card-side mb-2 w-100">
-                    <div class="card-body">
-                      <p class="card-text">
-                        With supporting text below as a natural lead-in to
-                        additional content.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-12 col-md-6">
-                  <div class="card card-side mb-2 w-100">
-                    <div class="card-body">
-                      <p class="card-text">
-                        With supporting text below as a natural lead-in to
-                        additional content.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-12 col-md-6">
-                  <div class="card card-side mb-2 w-100">
-                    <div class="card-body">
-                      <p class="card-text">
-                        With supporting text below as a natural lead-in to
-                        additional content.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <home-patch-char />
         </div>
       </div>
     </div>
@@ -62,7 +24,12 @@
 </template>
 
 <script>
-export default {};
+import HomePatchChar from "./HomePatchChar.vue";
+export default {
+  components: {
+    "home-patch-char": HomePatchChar,
+  },
+};
 </script>
 
 <style>
@@ -82,24 +49,18 @@ export default {};
 .list {
   list-style: none;
 }
-.card-side {
-  height: 122px;
-}
 .card-main {
   height: 460px;
   background-image: ("../../assets/img/fullBanners/Xiao.jpg");
   border-radius: 8px;
   background-size: cover;
-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;}
-.card-side {
-  border-radius: 8px;
-  background-color: #1a2430;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-.card-main-img{
-    object-fit: cover;
-    height: 100%;
-    object-position: 0%;
-    
+.card-main-img {
+  object-fit: cover;
+  height: 100%;
+  object-position: 0%;
 }
 </style>
