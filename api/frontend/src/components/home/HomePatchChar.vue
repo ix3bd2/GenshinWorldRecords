@@ -1,51 +1,19 @@
 <template  >
   <div>
-    <div v-for="item in items" :key="item['@id']">
-      <div class="row">
-        <div class="col-12">
-          <div class="row">
-            <div class="col-xl-12 col-md-6">
               <div class="card card-side mb-2 w-100">
                 <div class="card-body">
                   <p class="card-text">
-                    {{item['characters']["name"]}}
+                    {{ name }}
                   </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
-import { mapFields } from "vuex-map-fields";
 
 export default {
-  computed: {
-    ...mapFields("patchchar/del", {
-      deletedItem: "deleted",
-    }),
-    ...mapFields("patchchar/list", {
-      error: "error",
-      items: "items",
-      isLoading: "isLoading",
-      view: "view",
-    }),
-  },
-
-  mounted() {
-    this.getPage();
-  },
-
-  methods: {
-    ...mapActions({
-      getPage: "patchchar/list/default",
-    }),
-  },
+      props: ["name"],
 };
 </script>
 

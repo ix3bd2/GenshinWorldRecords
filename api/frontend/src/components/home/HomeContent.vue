@@ -26,7 +26,14 @@
           </div>
         </div>
         <div class="col-xl-5 col-lg-12">
-          <home-patch-char />
+        <div class="row">
+          <home-patch-char v-for="(item, index) in items"
+        :item="item"
+        :index="index"
+        :name="item['characters']['name']"
+        :key="item.id"  
+        class="col-xl-12 col-md-6" />
+        </div>
         </div>
       </div>
     </div>
@@ -34,12 +41,35 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+import { mapFields } from "vuex-map-fields";
 import HomePatchChar from "./HomePatchChar.vue";
 import { charactersMixin } from "../../mixins/charactersMixin";
 export default {
   mixins: [charactersMixin],
   components: {
     "home-patch-char": HomePatchChar,
+  },
+  computed: {
+    ...mapFields("patchchar/del", {
+      deletedItem: "deleted",
+    }),
+    ...mapFields("patchchar/list", {
+      error: "error",
+      items: "items",
+      isLoading: "isLoading",
+      view: "view",
+    }),
+  },
+
+  mounted() {
+    this.getPage();
+  },
+
+  methods: {
+    ...mapActions({
+      getPage: "patchchar/list/default",
+    }),
   },
 };
 </script>
