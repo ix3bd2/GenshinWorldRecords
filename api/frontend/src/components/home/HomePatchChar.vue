@@ -52,7 +52,6 @@ export default {
 <style>
 .card-side {
   height: 122px;
-  border-radius: 8px;
   background-color: #1a2430;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,

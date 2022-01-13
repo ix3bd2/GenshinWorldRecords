@@ -12,8 +12,9 @@
               class="card-img card-main-img"
               src="../../assets/img/fullBanners/Xiao.jpg"
               alt="Card image"
+              
             />
-            <div class="card-img-overlay">
+            <div class="card-img-overlay"  v-bind:style="{  border: getElementBorderColor('Anemo')  }">
               <div class="card-body-custom">
                 <h3 class="card-text card-text-custom">
                   Highest Plunge Damage
@@ -34,7 +35,9 @@
 
 <script>
 import HomePatchChar from "./HomePatchChar.vue";
+import { charactersMixin } from "../../mixins/charactersMixin";
 export default {
+  mixins: [charactersMixin],
   components: {
     "home-patch-char": HomePatchChar,
   },
@@ -61,7 +64,6 @@ export default {
 .card-main {
   height: 460px;
   background-image: ("../../assets/img/fullBanners/Xiao.jpg");
-  border-radius: 8px;
   background-size: cover;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
