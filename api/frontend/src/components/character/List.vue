@@ -22,9 +22,8 @@
         v-for="item in items"
         :key="item['@id']"
       >
-        <div >{{ borderColor(item["element"]["name"]) }}</div>
 
-        <div class="card" v-bind:style="{ border: color }">
+        <div class="card" v-bind:style="{ border: getElementBorderColor(item['element']['name']) }">
           <div>
             <img
               class="card-img-top"
@@ -36,13 +35,13 @@
               class="card-img-top char-pp"
               :src="require('@/assets/img/pPicture/' + item['name'] + '.jpg')"
               alt="Card image cap"
-              v-bind:style="{ border: color }"
+              v-bind:style="{  border: getElementBorderColor(item['element']['name'])  }"
             />
             <img
               class="card-img-top char-element"
               v-bind:src="item['element']['img']"
               alt="Card image cap"
-              v-bind:style="{ border: color }"
+              v-bind:style="{  border: getElementBorderColor(item['element']['name'])  }"
             />
             <img
               class="card-img-top char-nation"
@@ -72,13 +71,8 @@
 <script>
 import { mapActions } from "vuex";
 import { mapFields } from "vuex-map-fields";
-import { charactersMixin } from '../../mixins/charactersMixin'
+import { charactersMixin } from "../../mixins/charactersMixin";
 export default {
-  data(){
-    return{
-      color:"",
-    }
-  },
   mixins: [charactersMixin],
   computed: {
     ...mapFields("character/del", {
@@ -103,32 +97,8 @@ export default {
     filterName(name) {
       return name.replace("-", " ");
     },
-    borderColor(element) {
-      console.log('ssds')
-            if (element == "Geo") {
-                this.color = "2px solid #e0ba4f";
-            }
-            if (element == "Hydro") {
-                this.color = "2px solid #04e3fc";
-            }
-            if (element == "Cryo") {
-                this.color = "2px solid #97edf3";
-            }
-            if (element == "Pyro") {
-                this.color = "2px solid #f08445";
-            }
-            if (element == "Dendro") {
-                this.color = "2px solid #dfbafc";
-            }
-            if (element == "Electro") {
-                this.color = "2px solid #dfbafc";
-            }
-            if (element == "Anemo") {
-                this.color = "2px solid #95ecc2";
-            }
-    }
-}
-}
+  },
+};
 </script>
 <style>
 .card {
