@@ -90,14 +90,16 @@ export default {};
   background-image: ("../../assets/img/fullBanners/Xiao.jpg");
   border-radius: 8px;
   background-size: cover;
-}
+box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;}
 .card-side {
   border-radius: 8px;
   background-color: #1a2430;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .card-main-img{
     object-fit: cover;
     height: 100%;
     object-position: 0%;
+    
 }
 </style>
