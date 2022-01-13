@@ -1,19 +1,18 @@
 <template  >
   <div>
-              <div class="card card-side mb-2 w-100">
-                <div class="card-body">
-                  <p class="card-text">
-                    {{ name }}
-                  </p>
+    <div class="card card-side mb-2 w-100">
+      <div class="card-body">
+        <p class="card-text">
+          {{ name }}
+        </p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
-      props: ["name"],
+  props: ["name"],
 };
 </script>
 

@@ -12,9 +12,11 @@
               class="card-img card-main-img"
               src="../../assets/img/fullBanners/Xiao.jpg"
               alt="Card image"
-              
             />
-            <div class="card-img-overlay"  v-bind:style="{  border: getElementBorderColor('Anemo')  }">
+            <div
+              class="card-img-overlay"
+              v-bind:style="{ border: getElementBorderColor('Anemo') }"
+            >
               <div class="card-body-custom">
                 <h3 class="card-text card-text-custom">
                   Highest Plunge Damage
@@ -26,14 +28,16 @@
           </div>
         </div>
         <div class="col-xl-5 col-lg-12">
-        <div class="row">
-          <home-patch-char v-for="(item, index) in items"
-        :item="item"
-        :index="index"
-        :name="item['characters']['name']"
-        :key="item.id"  
-        class="col-xl-12 col-md-6" />
-        </div>
+          <div class="row">
+            <home-patch-char
+              v-for="(item, index) in items"
+              :item="item"
+              :index="index"
+              :name="item['characters']['name']"
+              :key="item.id"
+              class="col-xl-12 col-md-6"
+            />
+          </div>
         </div>
       </div>
     </div>
