@@ -13,6 +13,15 @@
               src="../../assets/img/fullBanners/Xiao.jpg"
               alt="Card image"
             />
+            <div class="card-img-overlay">
+              <div class="card-body-custom">
+                <h3 class="card-text card-text-custom">
+                  Highest Plunge Damage
+                </h3>
+
+                <h3 class="card-title card-title-custom">C0 Damage</h3>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-xl-5 col-lg-12">
@@ -62,5 +71,24 @@ export default {
   object-fit: cover;
   height: 100%;
   object-position: 0%;
+}
+.card-body-custom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: rgb(14 14 14 / 74%);
+  width: 100%;
+}
+.card-text-custom {
+  text-align: left;
+}
+.card-title-custom {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.938rem;
+  text-align: left;
+  color: rgb(96 82 187 / 81%);
 }
 </style>

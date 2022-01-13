@@ -22,7 +22,7 @@
         v-for="item in items"
         :key="item['@id']"
       >
-        <div>{{ changeColor(item["element"]["name"]) }}</div>
+        <div >{{ borderColor(item["element"]["name"]) }}</div>
 
         <div class="card" v-bind:style="{ border: color }">
           <div>
@@ -48,6 +48,16 @@
               class="card-img-top char-nation"
               :src="require('@/assets/img/nations/' + item['nation'] + '.png')"
             />
+            <img
+              v-if="item['rarity'] == 5"
+              class="character-list-rarity"
+              src="https://static.wikia.nocookie.net/gensin-impact/images/2/2b/Icon_5_Stars.png"
+            />
+            <img
+              v-if="item['rarity'] == 4"
+              class="character-list-rarity"
+              src="https://static.wikia.nocookie.net/gensin-impact/images/7/77/Icon_4_Stars.png"
+            />
           </div>
           <div class="card-body">
             <h5 class="card-title">{{ filterName(item["name"]) }}</h5>
@@ -62,11 +72,14 @@
 <script>
 import { mapActions } from "vuex";
 import { mapFields } from "vuex-map-fields";
-
+import { charactersMixin } from '../../mixins/charactersMixin'
 export default {
-  data: {
-    color: "",
+  data(){
+    return{
+      color:"",
+    }
   },
+  mixins: [charactersMixin],
   computed: {
     ...mapFields("character/del", {
       deletedItem: "deleted",
@@ -88,34 +101,34 @@ export default {
       getPage: "character/list/default",
     }),
     filterName(name) {
-      console.log(name);
       return name.replace("-", " ");
     },
-    changeColor(element) {
-      if (element == "Geo") {
-        this.color = "2px solid #e0ba4f";
-      }
-      if (element == "Hydro") {
-        this.color = "2px solid #04e3fc";
-      }
-      if (element == "Cryo") {
-        this.color = "2px solid #97edf3";
-      }
-      if (element == "Pyro") {
-        this.color = "2px solid #f08445";
-      }
-      if (element == "Dendro") {
-        this.color = "2px solid #dfbafc";
-      }
-      if (element == "Electro") {
-        this.color = "2px solid #dfbafc";
-      }
-      if (element == "Anemo") {
-        this.color = "2px solid #95ecc2";
-      }
-    },
-  },
-};
+    borderColor(element) {
+      console.log('ssds')
+            if (element == "Geo") {
+                this.color = "2px solid #e0ba4f";
+            }
+            if (element == "Hydro") {
+                this.color = "2px solid #04e3fc";
+            }
+            if (element == "Cryo") {
+                this.color = "2px solid #97edf3";
+            }
+            if (element == "Pyro") {
+                this.color = "2px solid #f08445";
+            }
+            if (element == "Dendro") {
+                this.color = "2px solid #dfbafc";
+            }
+            if (element == "Electro") {
+                this.color = "2px solid #dfbafc";
+            }
+            if (element == "Anemo") {
+                this.color = "2px solid #95ecc2";
+            }
+    }
+}
+}
 </script>
 <style>
 .card {
@@ -149,7 +162,6 @@ export default {
   position: absolute;
   width: 36%;
   left: 0%;
-  
 }
 .card-title {
   color: white;
@@ -161,7 +173,14 @@ export default {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }
-.character-list{
-  padding:4%;
+.character-list {
+  padding: 4%;
+}
+.character-list-rarity {
+  position: absolute;
+  width: 30%;
+  right: -10%;
+  bottom: 15%;
+  transform: rotate(90deg);
 }
 </style>

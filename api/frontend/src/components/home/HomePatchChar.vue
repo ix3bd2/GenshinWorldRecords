@@ -8,8 +8,7 @@
               <div class="card card-side mb-2 w-100">
                 <div class="card-body">
                   <p class="card-text">
-                    With supporting text below as a natural lead-in to
-                    additional content.
+                    {{item['characters']["name"]}}
                   </p>
                 </div>
               </div>
