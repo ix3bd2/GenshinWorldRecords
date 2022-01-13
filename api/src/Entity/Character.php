@@ -10,7 +10,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CharacterRepository::class)]
-#[ApiResource(attributes: ["pagination_enabled" => false],normalizationContext: ['groups' => ['character']])
+#[ApiResource(
+    collectionOperations: ['get'],
+    itemOperations: ['get'],
+    attributes: ["pagination_enabled" => false],normalizationContext: ['groups' => ['character']])
 ]
 
 class Character
@@ -21,7 +24,7 @@ class Character
     #[Groups("character")]
     private $id;
 
-    #[Groups("character")]
+    #[Groups(["character","patchChar"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $name;
 
@@ -81,7 +84,7 @@ class Character
     #[ORM\Column(type: 'text', nullable: true)]
     private $videoUrl;
 
-    #[Groups("character")]
+    #[Groups(["character","patchChar"])]
     #[ORM\ManyToOne(targetEntity: Element::class, inversedBy: 'characters')]
     private $element;
 
@@ -89,7 +92,7 @@ class Character
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $weaponRefine;
 
-    #[Groups("character")]
+    #[Groups(["character","patchChar"])]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $rarity;
 
@@ -101,13 +104,17 @@ class Character
     #[ORM\Column(type: 'array', nullable: true)]
     private $artifact = [];
     
-    #[Groups("character")]
+    #[Groups(["character","patchChar"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $nation;
+
+    #[ORM\OneToMany(mappedBy: 'characters', targetEntity: PatchChar::class)]
+    private $patchChars;
 
     public function __construct()
     {
         $this->team = new ArrayCollection();
+        $this->patchChars = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -381,6 +388,36 @@ class Character
     public function setNation(?string $nation): self
     {
         $this->nation = $nation;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PatchChar[]
+     */
+    public function getPatchChars(): Collection
+    {
+        return $this->patchChars;
+    }
+
+    public function addPatchChar(PatchChar $patchChar): self
+    {
+        if (!$this->patchChars->contains($patchChar)) {
+            $this->patchChars[] = $patchChar;
+            $patchChar->setCharacters($this);
+        }
+
+        return $this;
+    }
+
+    public function removePatchChar(PatchChar $patchChar): self
+    {
+        if ($this->patchChars->removeElement($patchChar)) {
+            // set the owning side to null (unless already changed)
+            if ($patchChar->getCharacters() === $this) {
+                $patchChar->setCharacters(null);
+            }
+        }
 
         return $this;
     }
