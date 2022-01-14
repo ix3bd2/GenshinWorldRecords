@@ -13,10 +13,17 @@
           >
             <div class="card card-main w-100">
               <img
+                class="card-img-top char-element char-element-header"
+                src="https://static.wikia.nocookie.net/gensin-impact/images/a/a4/Element_Anemo.png"
+                alt="Card image cap"
+                v-bind:style="{ border: '2px solid #95ecc2' }"
+              />
+              <img
                 class="card-img card-main-img"
                 src="../../assets/img/fullBanners/Xiao.jpg"
                 alt="Card image"
               />
+
               <div
                 class="card-img-overlay"
                 v-bind:style="{ border: getElementBorderColor('Anemo') }"
@@ -39,7 +46,11 @@
               :item="item"
               :index="index"
               :name="item['characters']['name']"
+              :title="item['title']"
+              :characterId="item['characters']['@id']"
+              :description="item['description']"
               :element="item['characters']['element']['name']"
+              :elementImg="item['characters']['element']['img']"
               :key="item.id"
               class="col-xl-12 col-md-6"
             />
@@ -85,6 +96,16 @@ export default {
 </script>
 
 <style>
+.char-element-header {
+  position: absolute;
+  width: 6%;
+  right: 0px;
+  border-radius: 50%;
+  background: black;
+  margin: 10px;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
+    0 6px 20px 0 rgba(255, 255, 255, 0.19);
+}
 .title {
   font-size: 3rem;
   font-weight: 800;
@@ -103,6 +124,7 @@ export default {
   list-style: none;
 }
 .card-main {
+  transition: ease-out 0.3s;
   height: 460px;
   background-image: ("../../assets/img/fullBanners/Xiao.jpg");
   background-size: cover;
@@ -120,7 +142,7 @@ export default {
   bottom: 0;
   left: 0;
   padding: 1rem;
-  background-color: rgb(14 14 14 / 74%);
+  background-color: #1a2430d9;
   width: 100%;
 }
 .card-text-custom {
@@ -136,5 +158,9 @@ export default {
 }
 .home-content {
   margin-bottom: 3rem;
+}
+.card-main:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }
 </style>

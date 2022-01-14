@@ -27,5 +27,29 @@ export var charactersMixin = {
             }
 
         },
+        getElementColor(element) {
+            if (element == "Geo") {
+                return "#e0ba4f";
+            }
+            if (element == "Hydro") {
+                return "#04e3fc";
+            }
+            if (element == "Cryo") {
+                return "#97edf3";
+            }
+            if (element == "Pyro") {
+                return "#f08445";
+            }
+            if (element == "Dendro") {
+                return "#dfbafc";
+            }
+            if (element == "Electro") {
+                return "#dfbafc";
+            }
+            if (element == "Anemo") {
+                return "#95ecc2";
+            }
+
+        },
     }
 }
