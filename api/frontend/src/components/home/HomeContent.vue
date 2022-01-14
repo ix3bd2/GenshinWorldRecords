@@ -1,5 +1,6 @@
 <template>
-  <div class="home-content-bg">
+<div class="home-page">
+  <div class="new-patch">
     <div class="home-content">
       <h2 class="title">New characters top damage</h2>
       <div class="row">
@@ -59,6 +60,10 @@
       </div>
     </div>
   </div>
+  <div class="lib">
+    
+  </div>
+</div>
 </template>
 
 <script>
@@ -113,7 +118,7 @@ export default {
   margin-bottom: 4.5rem;
   margin-top: 1rem;
 }
-.home-content-bg {
+.new-patch {
   width: 100%;
   height: 100%;
   background-color: #171332;
@@ -162,5 +167,8 @@ export default {
 .card-main:hover {
   transform: scale(1.02);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+.lib{
+  background-color: #1a2430;
 }
 </style>
