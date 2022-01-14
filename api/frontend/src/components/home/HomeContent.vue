@@ -39,6 +39,7 @@
               :item="item"
               :index="index"
               :name="item['characters']['name']"
+              :element="item['characters']['element']['name']"
               :key="item.id"
               class="col-xl-12 col-md-6"
             />
