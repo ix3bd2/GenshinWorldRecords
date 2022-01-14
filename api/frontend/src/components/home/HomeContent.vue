@@ -1,31 +1,36 @@
 <template>
   <div class="home-content-bg">
     <div class="home-content">
-      <h2 class="title">2.4 Characters World Records</h2>
+      <h2 class="title">New characters top damage</h2>
       <div class="row">
         <div
           class="col-xl-7 col-lg-12"
           style="margin-bottom: 1.5rem !important"
         >
-          <div class="card card-main w-100">
-            <img
-              class="card-img card-main-img"
-              src="../../assets/img/fullBanners/Xiao.jpg"
-              alt="Card image"
-            />
-            <div
-              class="card-img-overlay"
-              v-bind:style="{ border: getElementBorderColor('Anemo') }"
-            >
-              <div class="card-body-custom">
-                <h3 class="card-text card-text-custom">
-                  Highest Plunge Damage
-                </h3>
+          <router-link
+            style="color: white"
+            :to="{ name: 'CharacterShow', params: { id: 'characters/20' } }"
+          >
+            <div class="card card-main w-100">
+              <img
+                class="card-img card-main-img"
+                src="../../assets/img/fullBanners/Xiao.jpg"
+                alt="Card image"
+              />
+              <div
+                class="card-img-overlay"
+                v-bind:style="{ border: getElementBorderColor('Anemo') }"
+              >
+                <div class="card-body-custom">
+                  <h3 class="card-text card-text-custom">
+                    Highest Plunge Damage
+                  </h3>
 
-                <h3 class="card-title card-title-custom">C0 Damage</h3>
+                  <h3 class="card-title card-title-custom">C0 Damage</h3>
+                </div>
               </div>
             </div>
-          </div>
+          </router-link>
         </div>
         <div class="col-xl-5 col-lg-12">
           <div class="row">
@@ -81,9 +86,10 @@ export default {
 <style>
 .title {
   font-size: 3rem;
+  font-weight: 800;
   text-align: left;
-  margin-bottom: 2.5rem;
-  font-family: "Mark Pro", Arial, sans-serif;
+  margin-bottom: 4.5rem;
+  margin-top: 1rem;
 }
 .home-content-bg {
   width: 100%;
@@ -126,5 +132,8 @@ export default {
   font-size: 0.938rem;
   text-align: left;
   color: rgb(96 82 187 / 81%);
+}
+.home-content {
+  margin-bottom: 3rem;
 }
 </style>
