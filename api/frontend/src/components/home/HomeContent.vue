@@ -60,8 +60,8 @@
       </div>
     </div>
   </div>
-  <div class="lib">
-    
+  <div class="home-categorie">
+    <home-categorie/>
   </div>
 </div>
 </template>
@@ -71,10 +71,12 @@ import { mapActions } from "vuex";
 import { mapFields } from "vuex-map-fields";
 import HomePatchChar from "./HomePatchChar.vue";
 import { charactersMixin } from "../../mixins/charactersMixin";
+import HomeCategorie from "./HomeCategorie.vue";
 export default {
   mixins: [charactersMixin],
   components: {
     "home-patch-char": HomePatchChar,
+    "home-categorie":HomeCategorie
   },
   computed: {
     ...mapFields("patchchar/del", {
@@ -168,7 +170,7 @@ export default {
   transform: scale(1.02);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }
-.lib{
+.home-categorie{
   background-color: #1a2430;
 }
 </style>
