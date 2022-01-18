@@ -3,32 +3,32 @@
     <h2 class="title">All Categories</h2>
     <!-- Main 2 topics -->
     <div class="row">
-      <div class="col-lg-6 col-md-12">
+      <div class="col-lg-6 col-md-12 mb-3">
         <div class="card bg-dark text-white">
-          <img class="card-img" alt="Card image" />
+          <img class="card-img categorie-img" src="../../assets/img/homePage/charactersList.jpeg" alt="Card image" />
         </div>
       </div>
-      <div class="col-lg-6 col-md-12">
+      <div class="col-lg-6 col-md-12 mb-3">
         <div class="card bg-dark text-white">
-          <img class="card-img" alt="Card image" />
+          <img class="card-img categorie-img" src="../../assets/img/homePage/spiralAbyss.jpeg" alt="Card image" />
         </div>
       </div>
     </div>
     <!-- More topics -->
     <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
         <div class="card bg-dark text-white">
-          <img class="card-img" alt="Card image" />
+          <img class="card-img categorie-img"  src="../../assets/img/homePage/weaponList.jpeg" alt="Card image" />
         </div>
       </div>
-      <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
         <div class="card bg-dark text-white">
-          <img class="card-img" alt="Card image" />
+          <img class="card-img categorie-img"  src="../../assets/img/homePage/artifactsList.jpeg" alt="Card image" />
         </div>
       </div>
-      <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
         <div class="card bg-dark text-white">
-          <img class="card-img" alt="Card image" />
+          <img class="card-img categorie-img"  src="../../assets/img/homePage/spiralAbyss.jpeg" alt="Card image" />
         </div>
       </div>
     </div>
@@ -42,5 +42,10 @@ export default {};
 <style>
 .categorie {
   padding: 3%;
+}
+.categorie-img{
+    border: 2px solid #ffffff2f;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 </style>
