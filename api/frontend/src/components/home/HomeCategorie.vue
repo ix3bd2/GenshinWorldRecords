@@ -44,7 +44,7 @@ export default {};
   padding: 3%;
 }
 .categorie-img{
-    border: 2px solid #ffffff2f;
+    border: 2px solid #ffffff50;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
