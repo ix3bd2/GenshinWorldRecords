@@ -28,7 +28,7 @@
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
         <div class="card bg-dark text-white">
-          <img class="card-img categorie-img"  src="../../assets/img/homePage/spiralAbyss.jpg" alt="Card image" />
+          <img class="card-img categorie-img"  src="../../assets/img/homePage/buffList.jpeg" alt="Card image" />
         </div>
       </div>
     </div>
