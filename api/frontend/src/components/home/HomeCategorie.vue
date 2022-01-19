@@ -5,12 +5,12 @@
     <div class="row">
       <div class="col-lg-6 col-md-12 mb-3">
         <div class="card bg-dark text-white">
-          <img class="card-img categorie-img" src="../../assets/img/homePage/charactersList.jpeg" alt="Card image" />
+          <img class="card-img categorie-img" src="../../assets/img/homePage/charactersList.jpg" alt="Card image" />
         </div>
       </div>
       <div class="col-lg-6 col-md-12 mb-3">
         <div class="card bg-dark text-white">
-          <img class="card-img categorie-img" src="../../assets/img/homePage/spiralAbyss.jpeg" alt="Card image" />
+          <img class="card-img categorie-img" src="../../assets/img/homePage/spiralAbyss.jpg" alt="Card image" />
         </div>
       </div>
     </div>
@@ -18,17 +18,17 @@
     <div class="row">
       <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
         <div class="card bg-dark text-white">
-          <img class="card-img categorie-img"  src="../../assets/img/homePage/weaponList.jpeg" alt="Card image" />
+          <img class="card-img categorie-img"  src="../../assets/img/homePage/weaponList.jpg" alt="Card image" />
         </div>
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
         <div class="card bg-dark text-white">
-          <img class="card-img categorie-img"  src="../../assets/img/homePage/artifactsList.jpeg" alt="Card image" />
+          <img class="card-img categorie-img"  src="../../assets/img/homePage/artifactsList.jpg" alt="Card image" />
         </div>
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
         <div class="card bg-dark text-white">
-          <img class="card-img categorie-img"  src="../../assets/img/homePage/spiralAbyss.jpeg" alt="Card image" />
+          <img class="card-img categorie-img"  src="../../assets/img/homePage/spiralAbyss.jpg" alt="Card image" />
         </div>
       </div>
     </div>
