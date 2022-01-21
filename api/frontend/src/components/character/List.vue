@@ -23,7 +23,7 @@
         :key="item['@id']"
       >
 
-        <div class="card" v-bind:style="{ border: getElementBorderColor(item['element']['name']) }">
+        <div class="card" id="CharacterCard" v-bind:style="{ border: getElementBorderColor(item['element']['name']) }">
           <div>
             <img
               class="card-img-top"
@@ -38,7 +38,7 @@
               v-bind:style="{  border: getElementBorderColor(item['element']['name'])  }"
             />
             <img
-              class="card-img-top char-element"
+              class="card-img-top" id="CharacterElement"
               v-bind:src="item['element']['img']"
               alt="Card image cap"
               v-bind:style="{  border: getElementBorderColor(item['element']['name'])  }"
@@ -58,8 +58,8 @@
               src="https://static.wikia.nocookie.net/gensin-impact/images/7/77/Icon_4_Stars.png"
             />
           </div>
-          <div class="card-body">
-            <h5 class="card-title">{{ filterName(item["name"]) }}</h5>
+          <div class="card-body" id="CharacterCardBody">
+            <h5 id="CharacterCardTitle" class="card-title">{{ filterName(item["name"]) }}</h5>
             <h7 class="card-body" style="color: #212529">{{ item["name"] }}</h7>
             
           </div>
@@ -103,7 +103,7 @@ export default {
 };
 </script>
 <style>
-.card {
+#CharacterCard {
   margin: 3%;
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
     0 6px 20px 0 rgba(255, 255, 255, 0.19);
@@ -118,7 +118,7 @@ export default {
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
     0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
-.char-element {
+#CharacterElement {
   width: 9%;
   background-color: #19232f;
   position: absolute;
@@ -127,7 +127,7 @@ export default {
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
     0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
-.card-body {
+#CharacterCardBody {
   padding: 1px;
 }
 .char-nation {
@@ -135,13 +135,13 @@ export default {
   width: 36%;
   left: 0%;
 }
-.card-title {
+#CharacterCardTitle {
   color: white;
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.card:hover {
+#CharacterCard:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }

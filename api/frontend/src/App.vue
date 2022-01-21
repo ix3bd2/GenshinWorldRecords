@@ -35,4 +35,7 @@ body {
 .content{
   padding:0;
 }
+.card{
+  cursor: pointer;
+}
 </style>

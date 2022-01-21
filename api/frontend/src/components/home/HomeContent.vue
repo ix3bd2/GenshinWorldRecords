@@ -63,6 +63,9 @@
   <div class="home-categorie">
     <home-categorie/>
   </div>
+  <div class="send-clips">
+    <the-send-clip/>
+  </div>
 </div>
 </template>
 
@@ -72,11 +75,13 @@ import { mapFields } from "vuex-map-fields";
 import HomePatchChar from "./HomePatchChar.vue";
 import { charactersMixin } from "../../mixins/charactersMixin";
 import HomeCategorie from "./HomeCategorie.vue";
+import TheSendClip from "../ui/TheSendClip.vue"
 export default {
   mixins: [charactersMixin],
   components: {
     "home-patch-char": HomePatchChar,
-    "home-categorie":HomeCategorie
+    "home-categorie":HomeCategorie,
+    "the-send-clip":TheSendClip
   },
   computed: {
     ...mapFields("patchchar/del", {
