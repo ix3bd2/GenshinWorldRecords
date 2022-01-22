@@ -2,7 +2,7 @@
 <div class="home-page">
   <div class="new-patch">
     <div class="home-content">
-      <h2 class="title">New characters top damage</h2>
+      <h2 class="title">New Characters Top Damage</h2>
       <div class="row">
         <div
           class="col-xl-7 col-lg-12"
@@ -176,6 +176,6 @@ export default {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }
 .home-categorie{
-  background-color: #1a2430;
+  background-color: #1f1f1f;
 }
 </style>

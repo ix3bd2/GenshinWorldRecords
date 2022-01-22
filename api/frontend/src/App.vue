@@ -29,7 +29,7 @@ export default {
   color: white;
 }
 body {
-  background-color: #0f1923;
+  background-color: #1f1f1f;
   font-family: 'Mark Pro',Arial, sans-serif;
 }
 .content{
@@ -37,5 +37,8 @@ body {
 }
 .card{
   cursor: pointer;
+}
+.send-clips{
+  background-color: #ebebeb;
 }
 </style>
