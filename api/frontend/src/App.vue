@@ -8,15 +8,23 @@
 <!--         <div class="col-1"></div>
  -->      </div>
     </div>
+    <div class="send-clips">
+    <the-send-clip/>
+  </div>
+  <the-footer/>
   </div>
 </template>
 
 <script>
 import TheNavBar from "./components/ui/TheNavBar.vue";
+import TheSendClip from './components/ui/TheSendClip.vue';
+import TheFooter from './components/ui/TheFooter.vue';
 export default {
   name: "App",
   components: {
     "the-nav-bar": TheNavBar,
+    "the-send-clip":TheSendClip,
+    "the-footer":TheFooter,
   },
 };
 </script>

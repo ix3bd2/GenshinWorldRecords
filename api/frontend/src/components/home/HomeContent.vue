@@ -63,9 +63,6 @@
   <div class="home-categorie">
     <home-categorie/>
   </div>
-  <div class="send-clips">
-    <the-send-clip/>
-  </div>
 </div>
 </template>
 
