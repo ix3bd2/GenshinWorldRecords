@@ -60,7 +60,7 @@
           </div>
           <div class="card-body" id="CharacterCardBody">
             <h5 id="CharacterCardTitle" class="card-title">{{ filterName(item["name"]) }}</h5>
-            <h7 class="card-body" style="color: #212529">{{ item["name"] }}</h7>
+            <h7 class="card-body" style="color: #111111">{{ item["name"] }}</h7>
             
           </div>
 
