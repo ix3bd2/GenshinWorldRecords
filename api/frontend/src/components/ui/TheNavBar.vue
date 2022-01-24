@@ -13,6 +13,18 @@
         <li class="nav-item">
           <a class="nav-link" href="/characters">Characters</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/">Spiral Teams</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/characters">Weapons</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/characters">Artifacts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/characters">Buffs</a>
+        </li>
       </ul>
     </div>
   </div>
