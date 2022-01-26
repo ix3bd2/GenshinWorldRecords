@@ -5,7 +5,8 @@
       v-bind:style="{
         backgroundImage: `url(${require('@/assets/img/fullBanners/' +
           item.name +
-          '.jpg')})`, borderBottom: getElementBorderColor(item['element']['name']),
+          '.jpg')})`,
+        borderBottom: getElementBorderColor(item['element']['name']),
       }"
     ></div>
     <div
@@ -13,7 +14,8 @@
       v-bind:style="{
         backgroundImage: `url(${require('@/assets/img/pPicture/' +
           item.name +
-          '.jpg')})`,border: getElementBorderColor(item['element']['name']),
+          '.jpg')})`,
+        border: getElementBorderColor(item['element']['name']),
       }"
     ></div>
     <img
@@ -70,6 +72,7 @@ export default {
   position: absolute;
   width: 130px;
   height: 130px;
+  z-index: 1;
   border-radius: 50%;
   background-size: cover;
   left: 50%;
@@ -78,13 +81,15 @@ export default {
     0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
 .character-element-icon-show {
-        width: 43px;
-    background-color: #19232f;
-    position: absolute;
-    left: 50%;
-    bottom: 50%;
-    transform: translate(-160%,10%);
-    border-radius: 50%;
-    box-shadow: 0 4px 8px 0 rgb(255 255 255 / 20%), 0 6px 20px 0 rgb(255 255 255 / 19%);
+  width: 43px;
+  background-color: #19232f;
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-160%, 10%);
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgb(255 255 255 / 20%),
+    0 6px 20px 0 rgb(255 255 255 / 19%);
 }
 </style>
