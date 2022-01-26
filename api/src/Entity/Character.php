@@ -111,6 +111,15 @@ class Character
     #[ORM\OneToMany(mappedBy: 'characters', targetEntity: PatchChar::class)]
     private $patchChars;
 
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $AAimg;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $talentEimg;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $talentQimg;
+
     public function __construct()
     {
         $this->team = new ArrayCollection();
@@ -418,6 +427,42 @@ class Character
                 $patchChar->setCharacters(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAAimg(): ?string
+    {
+        return $this->AAimg;
+    }
+
+    public function setAAimg(?string $AAimg): self
+    {
+        $this->AAimg = $AAimg;
+
+        return $this;
+    }
+
+    public function getTalentEimg(): ?string
+    {
+        return $this->talentEimg;
+    }
+
+    public function setTalentEimg(?string $talentEimg): self
+    {
+        $this->talentEimg = $talentEimg;
+
+        return $this;
+    }
+
+    public function getTalentQimg(): ?string
+    {
+        return $this->talentQimg;
+    }
+
+    public function setTalentQimg(?string $talentQimg): self
+    {
+        $this->talentQimg = $talentQimg;
 
         return $this;
     }
