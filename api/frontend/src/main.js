@@ -6,7 +6,8 @@ import Vuex from 'vuex';
 import character from './store/modules/character/';
 import homePage from './components/home/HomePage.vue';
 import patchchar from './store/modules/patchchar/';
-
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 Vue.use(Vuex)
 Vue.use(VueRouter)
 
@@ -34,5 +35,8 @@ export const store = new Vuex.Store({
 new Vue({
     store: store,
     router,
+    mounted() {
+        AOS.init()
+    },
     render: h => h(App),
 }).$mount('#app')

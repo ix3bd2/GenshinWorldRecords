@@ -5,10 +5,10 @@
       :to="{ name: 'CharacterShow', params: { id: characterId } }"
     >
       <div
-        class="card card-side mb-3 w-100"
+        class="card card-side mb-3 w-100" 
         v-bind:style="{ border: getElementBorderColor(element) }"
       >
-        <div class="card-body card-body-side row">
+        <div class="card-body card-body-side row" >
           <div class="col-8">
             <div class="card-body-custom card-body-side">
               <h3 class="card-text card-text-custom">

@@ -1,6 +1,6 @@
 <template>
-  <div class="row" id="SendClipSection">
-    <div class="col-lg-6 col-md-12">
+  <div class="row" id="SendClipSection" >
+    <div class="col-lg-6 col-md-12" data-aos="fade-right">
       <h2 id="SendClipsTitle">Share Your Clip With Us!</h2>
       <p class="SendClipReq">
         Do you have higher record? than Please read the requirements below.
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="col-lg-6 col-md-12">
-      <div class="card-img" id="SendClipImg"></div>
+      <div class="card-img" id="SendClipImg" data-aos="fade-left"></div>
     </div>
   </div>
 </template>

@@ -6,13 +6,17 @@
       <div class="row">
         <div
           class="col-xl-7 col-lg-12"
-          style="margin-bottom: 1.5rem !important"
+          style="margin-bottom: 1.5rem !important" data-aos="fade-right"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="500"
+     data-aos-duration="500"
         >
           <router-link
             style="color: white"
             :to="{ name: 'CharacterShow', params: { id: 'characters/20' } }"
           >
-            <div class="card card-main w-100">
+            <div class="card card-main w-100" 
+     >
               <img
                 class="card-img-top char-element char-element-header"
                 src="https://static.wikia.nocookie.net/gensin-impact/images/a/a4/Element_Anemo.png"
@@ -54,6 +58,10 @@
               :elementImg="item['characters']['element']['img']"
               :key="item.id"
               class="col-xl-12 col-md-6"
+              data-aos="fade-left"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="500"
+     data-aos-duration="500"
             />
           </div>
         </div>

@@ -2,7 +2,6 @@
   <div class="character-list">
     <h1>Character List</h1>
 
-    <div v-if="isLoading" class="alert alert-info">Loading...</div>
     <!-- <div
       v-if="deletedItem"
       class="alert alert-success">{{ deletedItem['@id'] }} deleted.</div> -->
@@ -21,9 +20,11 @@
         class="col-md-4 col-lg-3 col-sm-6 col-card"
         v-for="item in items"
         :key="item['@id']"
+        data-aos="fade-up"
+     data-aos-duration="4000"
       >
 
-        <div class="card" id="CharacterCard" v-bind:style="{ border: getElementBorderColor(item['element']['name']) }">
+        <div class="card"  id="CharacterCard" v-bind:style="{ border: getElementBorderColor(item['element']['name']) }">
           <div>
             <img
               class="card-img-top"

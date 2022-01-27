@@ -3,7 +3,11 @@
     <h2 class="title">All Categories</h2>
     <!-- Main 2 topics -->
     <div class="row">
-      <div class="col-lg-6 col-md-12 mb-3">
+      <div
+        class="col-lg-6 col-md-12 mb-3"
+        data-aos="fade-right"
+
+      >
         <router-link to="/characters">
           <div id="CategorieCard" class="card bg-dark text-white">
             <img
@@ -13,7 +17,11 @@
           </div>
         </router-link>
       </div>
-      <div class="col-lg-6 col-md-12 mb-3">
+      <div
+        class="col-lg-6 col-md-12 mb-3"
+        data-aos="fade-left"
+  
+      >
         <router-link to="/spiralabyss">
           <div id="CategorieCard" class="card bg-dark text-white">
             <img
@@ -26,7 +34,10 @@
     </div>
     <!-- More topics -->
     <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+      <div
+        class="col-lg-4 col-md-6 col-sm-12 mb-3"
+        data-aos="fade-right"
+      >
         <router-link to="/weapons">
           <div id="CategorieCard" class="card bg-dark text-white">
             <img
@@ -36,7 +47,10 @@
           </div>
         </router-link>
       </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+      <div
+        class="col-lg-4 col-md-6 col-sm-12 mb-3"
+        data-aos="fade-up"
+      >
         <router-link to="/artifacts">
           <div id="CategorieCard" class="card bg-dark text-white">
             <img
@@ -46,7 +60,10 @@
           </div>
         </router-link>
       </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+      <div
+        class="col-lg-4 col-md-6 col-sm-12 mb-3"
+        data-aos="fade-left"
+      >
         <router-link to="/buffs">
           <div id="CategorieCard" class="card bg-dark text-white">
             <img
@@ -61,7 +78,8 @@
 </template>
 
 <script>
-export default {};
+export default {
+};
 </script>
 
 <style>
