@@ -111,12 +111,15 @@ class Character
     #[ORM\OneToMany(mappedBy: 'characters', targetEntity: PatchChar::class)]
     private $patchChars;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'text', nullable: true)]
     private $AAimg;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'text', nullable: true)]
     private $talentEimg;
-
+    
+    #[Groups("character")]
     #[ORM\Column(type: 'text', nullable: true)]
     private $talentQimg;
 
