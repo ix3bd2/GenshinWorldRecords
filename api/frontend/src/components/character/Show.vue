@@ -1,29 +1,12 @@
 <template>
   <div>
-    <div
-      class="character-banner-show"
-      v-bind:style="{
-        backgroundImage: `url(${require('@/assets/img/fullBanners/' +
-          item.name +
-          '.jpg')})`,
-        borderBottom: getElementBorderColor(item['element']['name']),
-      }"
-    ></div>
-    <div
-      class="character-banner-icon-show"
-      v-bind:style="{
-        backgroundImage: `url(${require('@/assets/img/pPicture/' +
-          item.name +
-          '.jpg')})`,
-        border: getElementBorderColor(item['element']['name']),
-      }"
-    ></div>
-    <img
-      class="character-element-icon-show"
-      v-bind:src="item['element']['img']"
-      alt="Card image cap"
-      v-bind:style="{ border: getElementBorderColor(item['element']['name']) }"
-    />
+    <div class="header-bg-show"></div>
+    <div class="header-inv-row"></div>
+    <div class="row">
+      <div class="col-2">1</div>
+      <div class="col-8"></div>
+      <div class="col-2">3</div>
+    </div>
   </div>
 </template>
 
@@ -61,7 +44,22 @@ export default {
 };
 </script>
 <style>
-.character-banner-show {
+.header-bg-show {
+  background-image: url("../../assets/img/homePage/HomePageHeader.jpeg");
+  width: 100%;
+  height: 160px;
+  background-size: cover;
+  background-position-y: 20%;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  position: absolute;
+  z-index: -1;
+}
+.header-inv-row{
+    height: 130px;
+
+}
+/* .character-banner-show {
   width: 100%;
   height: 432px;
   background-size: cover;
@@ -91,5 +89,5 @@ export default {
   border-radius: 50%;
   box-shadow: 0 4px 8px 0 rgb(255 255 255 / 20%),
     0 6px 20px 0 rgb(255 255 255 / 19%);
-}
+} */
 </style>
