@@ -100,18 +100,47 @@
               </div>
             </div>
             <h4 class="title-show">Artifacts</h4>
-            <div class="row">
+            <div class="row" v-if="item.artifact[1]">
+              <div class="col-2 nopadding"></div>
               <div class="col-4 nopadding">
-                <img class="talents-show" v-bind:src="item['AAimg']" />
+                <img
+                  class="artifacts-character-show"
+                  :src="
+                    require('@/assets/img/artifacts/' +
+                      item.artifact[0] +
+                      '.png')
+                  "
+                />
               </div>
               <div class="col-4 nopadding">
-                <img class="talents-show" v-bind:src="item['talentEimg']" />
+                <img
+                  class="artifacts-character-show"
+                  :src="
+                    require('@/assets/img/artifacts/' +
+                      item.artifact[1] +
+                      '.png')
+                  "
+                />
+              </div>
+            </div>
+            <div class="row" v-if="!item.artifact[1]">
+              <div class="col-12 nopadding">
+                <img
+                  class="artifacts-character-show"
+                  :src="
+                    require('@/assets/img/artifacts/' +
+                      item.artifact[0] +
+                      '.png')
+                  "
+                />
               </div>
             </div>
           </div>
+
           <div class="col-md-8 col-sm-12">
             <h4 class="title-show">Stats</h4>
           </div>
+
           <hr />
         </div>
       </div>
@@ -194,6 +223,10 @@ export default {
   -webkit-filter: blur(8px);
   position: absolute;
   z-index: -1;
+}
+.artifacts-character-show {
+  width: 90px;
+  height: 90px;
 }
 .show-container {
   margin-bottom: 145px;
