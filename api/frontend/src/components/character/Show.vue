@@ -4,7 +4,7 @@
     <div class="header-inv-row"></div>
     <div class="row">
       <div class="col-lg-2 col-md-1"></div>
-      <div class="col-lg-8 col-md-10 col-sm-12">
+      <div class="col-lg-8 col-md-10 col-sm-12 show-container">
         <div class="row nopadding">
           <div class="navbar navbar-expand-lg" id="CharcterShowHeader">
             <div class="container">
@@ -117,6 +117,9 @@ export default {
   -webkit-filter: blur(8px);
   position: absolute;
   z-index: -1;
+}
+.show-container{
+  margin-bottom: 145px;
 }
 #banner {
   height: 350px;
