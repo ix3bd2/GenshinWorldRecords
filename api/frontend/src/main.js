@@ -12,7 +12,9 @@ Vue.use(Vuex)
 Vue.use(VueRouter)
 
 // Add routes to VueRouter
+
 const routes = [
+
     ...characterRoutes,
     { path: '/', name: 'Home', component: homePage },
 
@@ -21,7 +23,10 @@ const routes = [
 
 const router = new VueRouter({
     mode: 'history',
-    routes
+    routes,
+    scrollBehavior() {
+        return { x: 0, y: 0 };
+    },
 
 })
 
