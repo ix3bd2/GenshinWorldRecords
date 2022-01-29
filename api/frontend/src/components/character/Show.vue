@@ -102,9 +102,8 @@ export default {
   color: rgb(96 82 187 / 81%);
 }
 #CharcterShowHeader {
-  background-color: #111111eb;
+  background-color: #111111e8;
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
-    0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
 .header-bg-show {
   background-image: url("../../assets/img/homePage/HomePageHeader.jpeg");
@@ -134,7 +133,7 @@ export default {
   margin: 0 !important;
 }
 .info-section {
-  background-color: #111111eb;
+  background-color:#111111e8;
 }
 /* .character-banner-show {
   width: 100%;
