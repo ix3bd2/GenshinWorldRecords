@@ -3,9 +3,59 @@
     <div class="header-bg-show"></div>
     <div class="header-inv-row"></div>
     <div class="row">
-      <div class="col-2">1</div>
-      <div class="col-8"></div>
-      <div class="col-2">3</div>
+      <div class="col-lg-2 col-md-1"></div>
+      <div class="col-lg-8 col-md-10 col-sm-12">
+        <div class="row nopadding">
+          <div class="navbar navbar-expand-lg" id="CharcterShowHeader">
+            <div class="container">
+              <ul class="nav">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active active-show"
+                    aria-current="page"
+                    href="#"
+                    >Character</a
+                  >
+                </li>
+              </ul>
+              <ul class="nav ms-auto mr-5">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active active-show"
+                    aria-current="page"
+                    href="#"
+                    >Info</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active active-show"
+                    aria-current="page"
+                    href="#"
+                    >Team</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active active-show"
+                    aria-current="page"
+                    href=""
+                    >Buffs</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row" v-if="item">
+          <img
+            id="banner"
+            :src="require('@/assets/img/fullBanners/' + item['name'] + '.jpg')"
+          />
+        </div>
+        <div class="row info-section nopadding">sd</div>
+      </div>
+      <div class="col-lg-2 col-md-1"></div>
     </div>
   </div>
 </template>
@@ -44,20 +94,44 @@ export default {
 };
 </script>
 <style>
+.active-show {
+  color: white;
+  transition: 2 ease-in-out;
+}
+.active-show:hover {
+  color: rgb(96 82 187 / 81%);
+}
+#CharcterShowHeader {
+  background-color: #111111eb;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
+    0 6px 20px 0 rgba(255, 255, 255, 0.19);
+}
 .header-bg-show {
   background-image: url("../../assets/img/homePage/HomePageHeader.jpeg");
   width: 100%;
-  height: 160px;
+  height: 200px;
   background-size: cover;
   background-position-y: 20%;
+  background-position-x: 50%;
   filter: blur(8px);
   -webkit-filter: blur(8px);
   position: absolute;
   z-index: -1;
 }
-.header-inv-row{
-    height: 130px;
-
+#banner {
+  height: 350px;
+  object-fit: cover;
+  object-position: top left;
+}
+.header-inv-row {
+  height: 145px;
+}
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.info-section {
+  background-color: #111111eb;
 }
 /* .character-banner-show {
   width: 100%;
