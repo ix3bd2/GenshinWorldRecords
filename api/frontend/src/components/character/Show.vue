@@ -9,22 +9,31 @@
           <div class="navbar navbar-expand-lg" id="CharcterShowHeader">
             <div class="container">
               <ul class="nav">
-                <a class="navbar-brand" style="  margin-right: 0.1rem
-!important;" href="#"> <img
-                class="element-show-character"
-              :src="item['element']['img']"
-             :style="{ border: getElementBorderColor(item['element']['img']) }"
-            />
-            </a> <li class="nav-item ">
+                <a
+                  class="navbar-brand"
+                  style="margin-right: 0.1rem !important"
+                  href="#"
+                >
+                  <img
+                    class="element-show-character"
+                    :src="item['element']['img']"
+                    :style="{
+                      border: getElementBorderColor(item['element']['img']),
+                    }"
+                  />
+                </a>
+                <li class="nav-item">
                   <a
                     class="nav-link active active-show"
-                    href="#" style="padding-top: 13%;
-    padding-left: 0px; font-size:1.3rem;"
+                    href="#"
+                    style="
+                      padding-top: 13%;
+                      padding-left: 0px;
+                      font-size: 1.3rem;
+                    "
                     >{{ item["name"] }}</a
                   >
                 </li>
-
-               
               </ul>
               <ul class="nav ms-auto mr-5">
                 <li class="nav-item">
@@ -99,9 +108,8 @@
                 <img class="talents-show" v-bind:src="item['talentEimg']" />
               </div>
             </div>
-            
           </div>
- <div class="col-md-8 col-sm-12">
+          <div class="col-md-8 col-sm-12">
             <h4 class="title-show">Stats</h4>
           </div>
           <hr />
@@ -206,7 +214,7 @@ export default {
   background-color: #111111e8;
   padding: 3% !important;
 }
-.element-show-character{
+.element-show-character {
   width: 40px;
   height: 40px;
 }
