@@ -79,8 +79,10 @@
         </div>
         <div class="row info-section nopadding">
           <div class="col-md-4 col-sm-12">
-            <h4 class="title-show">Talents</h4>
-            <div class="row">
+            <div class="row character-info-rows">
+              <h4 class="title-show">Talents</h4>
+          <hr />
+
               <div class="col-4 nopadding">
                 <img class="talents-show" v-bind:src="item['AAimg']" />
                 <br />
@@ -99,9 +101,10 @@
                 10
               </div>
             </div>
-            <h4 class="title-show">Artifacts</h4>
-            <div class="row" v-if="item.artifact[1]">
-              <div class="col-2 nopadding"></div>
+            <div class="row justify-content-center character-info-rows" v-if="item.artifact[1]">
+              <h4 class="title-show">Artifacts</h4>
+          <hr />
+
               <div class="col-4 nopadding">
                 <img
                   class="artifacts-character-show"
@@ -123,7 +126,7 @@
                 />
               </div>
             </div>
-            <div class="row" v-if="!item.artifact[1]">
+            <div class="row character-info-rows" v-if="!item.artifact[1]">
               <div class="col-12 nopadding">
                 <img
                   class="artifacts-character-show"
@@ -138,10 +141,13 @@
           </div>
 
           <div class="col-md-8 col-sm-12">
+                      <div class="row character-info-rows" style="margin:2%!important;" >
+
             <h4 class="title-show">Stats</h4>
+            <hr>
           </div>
 
-          <hr />
+          </div>
         </div>
       </div>
       <div class="col-lg-2 col-md-1"></div>
@@ -192,6 +198,7 @@ export default {
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
     0 6px 20px 0 rgba(255, 255, 255, 0.19);
   border-radius: 50%;
+  
 }
 .active-show {
   color: white;
@@ -211,6 +218,13 @@ export default {
 .talents-show {
   width: 60px;
   margin: 2%;
+}
+.character-info-rows{
+  background-color: #1f1f1f;
+  margin: 3%;
+  padding: 4%;
+  border: 2px solid #ffffff50;
+  border-radius: 3px;
 }
 .header-bg-show {
   background-image: url("../../assets/img/homePage/HomePageHeader.jpeg");
@@ -238,6 +252,7 @@ export default {
 }
 .header-inv-row {
   height: 145px;
+  
 }
 .nopadding {
   padding: 0 !important;
