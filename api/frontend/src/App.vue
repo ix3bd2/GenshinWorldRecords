@@ -37,11 +37,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: white;
+  overflow-x:hidden;
 }
 body {
   background-color: #1f1f1f;
   font-family: "Mark Pro", Arial, sans-serif;
-  overflow-x: hidden;
 }
 .content {
   padding: 0;
