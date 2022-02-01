@@ -23,7 +23,8 @@
         data-aos="fade-up"
      data-aos-duration="4000"
       >
-
+<router-link
+                :to="{ name: 'CharacterShow', params: { id: item['@id'] } }">
         <div class="card"  id="CharacterCard" v-bind:style="{ border: getElementBorderColor(item['element']['name']) }">
           <div>
             <img
@@ -61,11 +62,13 @@
           </div>
           <div class="card-body" id="CharacterCardBody">
             <h5 id="CharacterCardTitle" class="card-title">{{ filterName(item["name"]) }}</h5>
-            <h7 class="card-body" style="color: #111111">{{ item["name"] }}</h7>
+            <h7 class="card-body" style="color: #111111;text-decoration: underline;">{{ item["name"] }}</h7>
             
           </div>
 
         </div>
+        </router-link>
+
       </div>
     </div>
   </div>

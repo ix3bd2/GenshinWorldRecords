@@ -11,8 +11,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CharacterRepository::class)]
 #[ApiResource(
-    collectionOperations: ['get'],
-    itemOperations: ['get'],
+    
     attributes: ["pagination_enabled" => false],normalizationContext: ['groups' => ['character']])
 ]
 
