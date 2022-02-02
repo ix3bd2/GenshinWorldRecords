@@ -405,6 +405,7 @@ export default {
 .info-section {
   background-color: #111111e8;
   padding: 3% !important;
+  border-bottom: 2px solid #ffffff50;
 }
 .element-show-character {
   width: 40px;
