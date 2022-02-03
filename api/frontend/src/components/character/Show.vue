@@ -32,13 +32,58 @@
               </ul>
               <ul class="nav ms-auto mr-5">
                 <li class="nav-item">
-                  <a class="nav-link active active-show" aria-current="page" href="#">Info</a>
+                  <a
+                    v-if="info"
+                    :style="{color: getElementColor(item['element']['name'])}"
+                    class="nav-link active active-show"
+                    v-on:click="showInfo"
+                    aria-current="page"
+                  >Info</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active active-show" aria-current="page" href="#">Team</a>
+                  <a
+                    v-if="!info"
+                    style="color: white"
+                    class="nav-link active active-show"
+                    v-on:click="showInfo"
+                    aria-current="page"
+                  >Info</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active active-show" aria-current="page" href>Buffs</a>
+                  <a
+                    v-if="team"
+                    :style="{color: getElementColor(item['element']['name'])}"
+                    class="nav-link active active-show"
+                    v-on:click="showTeam"
+                    aria-current="page"
+                  >Team</a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    v-if="!team"
+                    style="color: white;"
+                    class="nav-link active active-show"
+                    v-on:click="showTeam"
+                    aria-current="page"
+                  >Team</a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    v-if="buffs"
+                    :style="{color: getElementColor(item['element']['name'])}"
+                    class="nav-link active active-show"
+                    v-on:click="showBuffs"
+                    aria-current="page"
+                  >Buffs</a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    v-if="!buffs"
+                    style="color: white;"
+                    class="nav-link active active-show"
+                    v-on:click="showBuffs"
+                    aria-current="page"
+                  >Buffs</a>
                 </li>
               </ul>
             </div>
@@ -56,7 +101,7 @@
         </div>
         <div class="row"></div>
 
-        <div class="row info-section nopadding">
+        <div v-if="info" class="row info-section nopadding">
           <div class="col-lg-4 col-sm-12">
             <div class="row character-info-rows">
               <h4 class="title-show">Talents</h4>
@@ -117,14 +162,45 @@
               <hr />
               <div class="col-12 text-center">
                 <ul>
-                  <li ><div class="mb-2" style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"><span style=" background-color:#1f1f1f; padding: 0 10px;">Name</span></div> <div :style="{color :getElementColor(item['element']['name'])}">ArchoNix</div></li>
-                  
+                  <li>
+                    <div
+                      class="mb-2"
+                      style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
+                    >
+                      <span style=" background-color:#1f1f1f; padding: 0 10px;">Name</span>
+                    </div>
+                    <div :style="{ color: getElementColor(item['element']['name']) }">ArchoNix</div>
+                  </li>
 
-                  <li ><div class="mb-2" style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"><span style=" background-color:#1f1f1f; padding: 0 10px;">Ar</span></div> <div :style="{color :getElementColor(item['element']['name'])}">57</div></li>
+                  <li>
+                    <div
+                      class="mb-2"
+                      style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
+                    >
+                      <span style=" background-color:#1f1f1f; padding: 0 10px;">Ar</span>
+                    </div>
+                    <div :style="{ color: getElementColor(item['element']['name']) }">57</div>
+                  </li>
 
-                  <li ><div class="mb-2" style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"><span style=" background-color:#1f1f1f; padding: 0 10px;">Abyss Clear</span></div> <div :style="{color :getElementColor(item['element']['name'])}">12</div></li>
+                  <li>
+                    <div
+                      class="mb-2"
+                      style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
+                    >
+                      <span style=" background-color:#1f1f1f; padding: 0 10px;">Abyss Clear</span>
+                    </div>
+                    <div :style="{ color: getElementColor(item['element']['name']) }">12</div>
+                  </li>
 
-                  <li ><div class="mb-2" style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"><span style=" background-color:#1f1f1f; padding: 0 10px;">Main Character</span></div> <div :style="{color :getElementColor(item['element']['name'])}">Eula</div></li>
+                  <li>
+                    <div
+                      class="mb-2"
+                      style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
+                    >
+                      <span style=" background-color:#1f1f1f; padding: 0 10px;">Main Character</span>
+                    </div>
+                    <div :style="{ color: getElementColor(item['element']['name']) }">Eula</div>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -290,6 +366,10 @@
             </div>
           </div>
         </div>
+        <!-- team -->
+        <div v-if="team" class="row info-section nopadding"></div>
+        <!-- buffs -->
+        <div v-if="buffs" class="row info-section nopadding"></div>
       </div>
 
       <div class="col-lg-2 col-md-1"></div>
@@ -304,7 +384,13 @@ import { charactersMixin } from "../../mixins/charactersMixin";
 
 export default {
   mixins: [charactersMixin],
-
+  data() {
+    return {
+      info: true,
+      team: false,
+      buffs: false
+    }
+  },
   computed: {
     ...mapFields("character/show", {
       error: "error",
@@ -327,6 +413,21 @@ export default {
       reset: "character/show/reset",
       retrieve: "character/show/retrieve",
     }),
+    showInfo() {
+      this.info = true;
+      this.team = false;
+      this.buffs = false;
+    },
+    showTeam() {
+      this.info = false;
+      this.team = true;
+      this.buffs = false;
+    },
+    showBuffs() {
+      this.info = false;
+      this.team = false;
+      this.buffs = true;
+    }
   },
 };
 </script>
@@ -343,11 +444,12 @@ export default {
 }
 .active-show {
   color: white;
-  transition: 2 ease-in-out;
+  cursor: pointer;
 }
 .active-show:hover {
-  color: rgb(96 82 187 / 81%);
+  color: white;
 }
+
 #CharcterShowHeader {
   background-color: #111111e8;
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
@@ -384,7 +486,7 @@ export default {
   height: 90px;
 }
 .show-container {
-  margin-bottom: 145px;
+  margin-bottom: 100px;
 }
 #banner {
   height: 350px;
