@@ -22,6 +22,8 @@
                   <a
                     class="nav-link active active-show"
                     href="#"
+                                        :style="{ color: getElementColor(item['element']['name']) }"
+
                     style="
                       padding-top: 13%;
                       padding-left: 0px;
@@ -659,12 +661,9 @@ export default {
   border-radius: 50%;
 }
 .active-show {
-  color: white;
   cursor: pointer;
 }
-.active-show:hover {
-  color: white;
-}
+
 
 #CharcterShowHeader {
   background-color: #111111e8;
