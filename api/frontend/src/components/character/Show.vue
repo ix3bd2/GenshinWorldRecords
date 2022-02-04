@@ -102,7 +102,7 @@
           />
         </div>
         <div class="row"></div>
-
+        <!-- info -->   
         <div v-if="info" class="row info-section nopadding">
           <div class="col-lg-4 col-sm-12">
             <div class="row character-info-rows">
@@ -387,7 +387,6 @@
               <hr />
             </div>
           </div>
-          
           <div class="col-md-8 col-sm-12 ">
            <div class="row character-info-rows align-start" style="margin-right:3% ;">
               <!-- stats -->
