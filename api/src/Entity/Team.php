@@ -80,15 +80,19 @@ class Team
     #[ORM\Column(type: 'array', nullable: true)]
     private $artifact = [];
 
+    #[Groups("character")]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $name;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'text', nullable: true)]
     private $AAimg;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'text', nullable: true)]
     private $talentEimg;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'text', nullable: true)]
     private $talentQimg;
 
