@@ -749,35 +749,4 @@ export default {
   width: 23px;
   height: 24px;
 }
-/* .character-banner-show {
-  width: 100%;
-  height: 432px;
-  background-size: cover;
-  background-position: 10%;
-  background-position-y: 0%;
-}
-.character-banner-icon-show {
-  position: absolute;
-  width: 130px;
-  height: 130px;
-  z-index: 1;
-  border-radius: 50%;
-  background-size: cover;
-  left: 50%;
-  transform: translate(-50%, -60%) scale(1.05);
-  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
-    0 6px 20px 0 rgba(255, 255, 255, 0.19);
-}
-.character-element-icon-show {
-  width: 43px;
-  background-color: #19232f;
-  z-index: 1;
-  position: absolute;
-  left: 50%;
-  bottom: 50%;
-  transform: translate(-160%, 10%);
-  border-radius: 50%;
-  box-shadow: 0 4px 8px 0 rgb(255 255 255 / 20%),
-    0 6px 20px 0 rgb(255 255 255 / 19%);
-} */
 </style>
