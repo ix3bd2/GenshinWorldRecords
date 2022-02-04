@@ -159,6 +159,17 @@
                 />
               </div>
             </div>
+            <div class="row justify-content-center character-info-rows" v-if="item.artifact[1]">
+              <h4 class="title-show">Weapon</h4>
+              <hr />
+
+              <div class="col-6 nopadding">
+                <img
+                  class="artifacts-character-show"
+                  :src="item['weapon']['img']"
+                /><br />{{item['weapon']['name']}}
+              </div>
+            </div>
             <div class="row character-info-rows">
               <h4 class="title-show">Player Info</h4>
               <hr />
@@ -520,7 +531,7 @@
                   <div class="col-lg-5 col-sm-12 m-2">
                     <img
                       class="element-stats"
-                      :src="item['element']['img']"
+                      :src="item['team'][0]['element']['img']"
                       :style="{
                         border: getElementBorderColor(item['element']['img']),
                       }"

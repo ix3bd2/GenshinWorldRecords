@@ -7,11 +7,11 @@ use App\Repository\TeamRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: TeamRepository::class)]
 #[ApiResource(
-    collectionOperations: ['get'],
-    itemOperations: ['get'],
+   
 )]
 class Team
 {
@@ -20,48 +20,63 @@ class Team
     #[ORM\Column(type: 'integer')]
     private $id;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $atk;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $def;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $hp;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'float', nullable: true)]
     private $er;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $em;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'float', nullable: true)]
     private $cr;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'float', nullable: true)]
     private $cd;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'float', nullable: true)]
     private $ed;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $talentE;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $talentQ;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $talentAA;
 
+    #[Groups("character")]
     #[ORM\ManyToOne(targetEntity: Weapon::class, inversedBy: 'teams')]
     private $weapon;
 
+    #[Groups("character")]
     #[ORM\ManyToOne(targetEntity: Character::class, inversedBy: 'team')]
     private $character;
 
+    #[Groups("character")]
     #[ORM\ManyToOne(targetEntity: Element::class, inversedBy: 'teams')]
     private $element;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'array', nullable: true)]
     private $artifact = [];
 

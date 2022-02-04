@@ -7,6 +7,7 @@ use App\Repository\WeaponRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: WeaponRepository::class)]
 #[ApiResource(
@@ -15,13 +16,16 @@ use Doctrine\ORM\Mapping as ORM;
 )]class Weapon
 {
     #[ORM\Id]
+    #[Groups("character")]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $name;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'text', nullable: true)]
     private $img;
 
@@ -31,18 +35,23 @@ use Doctrine\ORM\Mapping as ORM;
     #[ORM\OneToMany(mappedBy: 'weapon', targetEntity: Team::class)]
     private $teams;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $rarity;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $atk;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $substate;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'text', nullable: true)]
     private $passive;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $type;
 
