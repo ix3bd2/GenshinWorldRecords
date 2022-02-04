@@ -80,6 +80,18 @@ class Team
     #[ORM\Column(type: 'array', nullable: true)]
     private $artifact = [];
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $name;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $AAimg;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $talentEimg;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $talentQimg;
+
     public function __construct()
     {
     }
@@ -265,6 +277,54 @@ class Team
     public function setArtifact(?array $artifact): self
     {
         $this->artifact = $artifact;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(?string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getAAimg(): ?string
+    {
+        return $this->AAimg;
+    }
+
+    public function setAAimg(?string $AAimg): self
+    {
+        $this->AAimg = $AAimg;
+
+        return $this;
+    }
+
+    public function getTalentEimg(): ?string
+    {
+        return $this->talentEimg;
+    }
+
+    public function setTalentEimg(?string $talentEimg): self
+    {
+        $this->talentEimg = $talentEimg;
+
+        return $this;
+    }
+
+    public function getTalentQimg(): ?string
+    {
+        return $this->talentQimg;
+    }
+
+    public function setTalentQimg(?string $talentQimg): self
+    {
+        $this->talentQimg = $talentQimg;
 
         return $this;
     }
