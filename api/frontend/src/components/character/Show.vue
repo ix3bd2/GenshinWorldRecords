@@ -91,6 +91,7 @@
             </div>
           </div>
         </div>
+        <!-- banner and pp -->
         <div class="row">
           <img id="banner" :src="require('@/assets/img/fullBanners/' + item['name'] + '.jpg')" />
           <img
