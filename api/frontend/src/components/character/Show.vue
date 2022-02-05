@@ -487,7 +487,18 @@
             >
               <h4 class="title-show" style="word-wrap: break-word;">Constellation</h4>
               <hr />
-              <h4 :style="{ color: getElementColor(item['element']['name']) }">C{{ 0 }}</h4>
+              <h4
+                v-if="character1"
+                :style="{ color: getElementColor(item['team']['0']['element']['name']) }"
+              >C{{ item['team']['0'].cons }}</h4>
+              <h4
+                v-if="character2"
+                :style="{ color: getElementColor(item['team']['1']['element']['name']) }"
+              >C{{ item['team']['1'].cons }}</h4>
+              <h4
+                v-if="character3"
+                :style="{ color: getElementColor(item['team']['2']['element']['name']) }"
+              >C{{ item['team']['2'].cons }}</h4>
             </div>
           </div>
 
@@ -651,15 +662,18 @@
 
               <div class="col-4 nopadding">
                 <img class="talents-show" v-bind:src="item['team']['0']['AAimg']" />
-                <br />{{item['team']['0']['talentAA']}}
+                <br />
+                {{ item['team']['0']['talentAA'] }}
               </div>
               <div class="col-4 nopadding">
                 <img class="talents-show" v-bind:src="item['team']['0']['talentEimg']" />
-                <br />{{item['team']['0']['talentE']}}
+                <br />
+                {{ item['team']['0']['talentE'] }}
               </div>
               <div class="col-4 nopadding">
                 <img class="talents-show" v-bind:src="item['team']['0']['talentQimg']" />
-                <br />{{item['team']['0']['talentQ']}}
+                <br />
+                {{ item['team']['0']['talentQ'] }}
               </div>
             </div>
             <div v-if="character2" class="row character-info-rows">
@@ -668,15 +682,18 @@
 
               <div class="col-4 nopadding">
                 <img class="talents-show" v-bind:src="item['team']['1']['AAimg']" />
-                <br />{{item['team']['1']['talentAA']}}
+                <br />
+                {{ item['team']['1']['talentAA'] }}
               </div>
               <div class="col-4 nopadding">
                 <img class="talents-show" v-bind:src="item['team']['1']['talentEimg']" />
-                <br />{{item['team']['1']['talentE']}}
+                <br />
+                {{ item['team']['1']['talentE'] }}
               </div>
               <div class="col-4 nopadding">
                 <img class="talents-show" v-bind:src="item['team']['1']['talentQimg']" />
-                <br />{{item['team']['1']['talentQ']}}
+                <br />
+                {{ item['team']['1']['talentQ'] }}
               </div>
             </div>
             <div v-if="character3" class="row character-info-rows">
@@ -685,15 +702,18 @@
 
               <div class="col-4 nopadding">
                 <img class="talents-show" v-bind:src="item['team']['2']['AAimg']" />
-                <br />{{item['team']['2']['talentAA']}}
+                <br />
+                {{ item['team']['2']['talentAA'] }}
               </div>
               <div class="col-4 nopadding">
                 <img class="talents-show" v-bind:src="item['team']['2']['talentEimg']" />
-                <br />{{item['team']['2']['talentE']}}
+                <br />
+                {{ item['team']['2']['talentE'] }}
               </div>
               <div class="col-4 nopadding">
                 <img class="talents-show" v-bind:src="item['team']['2']['talentQimg']" />
-                <br />{{item['team']['2']['talentQ']}}
+                <br />
+                {{ item['team']['2']['talentQ'] }}
               </div>
             </div>
             <div class="row justify-content-center character-info-rows" v-if="item.artifact[1]">
@@ -803,9 +823,7 @@ export default {
       this.character2 = false;
       this.character3 = false;
       var el = document.getElementById('SelectedChar1')
-      el.style.animation = 'none';
-      el.offsetHeight; /* trigger reflow */
-      el.style.animation = null;
+      
 
     },
     showChar2() {
@@ -813,18 +831,14 @@ export default {
       this.character2 = true;
       this.character3 = false;
       var el = document.getElementById('SelectedChar2')
-      el.style.animation = 'none';
-      el.offsetHeight; /* trigger reflow */
-      el.style.animation = null;
+      
     },
     showChar3() {
       this.character1 = false;
       this.character2 = false;
       this.character3 = true;
       var el = document.getElementById('SelectedChar3')
-      el.style.animation = 'none';
-      el.offsetHeight; /* trigger reflow */
-      el.style.animation = null;
+      
     }
   },
 };
@@ -870,7 +884,7 @@ export default {
   border: 2px solid #ffffff50;
   border-radius: 3px;
   box-shadow: rgb(73 71 71 / 56%) -4px 0px 5px 1px;
-  }
+}
 .team-show-character {
   background-color: #1f1f1f;
   padding: 5%;
