@@ -485,7 +485,7 @@
               class="row character-info-rows align-start"
               style="margin: 3% 6% 0% 6% !important;"
             >
-              <h4 class="title-show">Constellation</h4>
+              <h4 class="title-show" style="word-wrap: break-word;">Constellation</h4>
               <hr />
               <h4 :style="{ color: getElementColor(item['element']['name']) }">C{{ 0 }}</h4>
             </div>
@@ -835,7 +835,8 @@ export default {
   padding: 4%;
   border: 2px solid #ffffff50;
   border-radius: 3px;
-}
+  box-shadow: rgb(73 71 71 / 56%) -4px 0px 5px 1px;
+  }
 .team-show-character {
   background-color: #1f1f1f;
   padding: 5%;
