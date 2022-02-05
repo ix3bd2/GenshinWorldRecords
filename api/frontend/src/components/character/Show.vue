@@ -481,7 +481,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div
               class="row character-info-rows align-start"
               style="margin: 3% 6% 0% 6% !important;"
@@ -507,25 +507,27 @@
             >
               <h4 class="title-show" style="word-wrap: break-word;">Weapon</h4>
               <hr />
-              <div  v-if="character1">
-              <img v-if="character1" class="artifacts-character-show" :src="item['team']['0']['weapon']['img']" />
+              <div v-if="character1">
+                <img
+                  v-if="character1"
+                  class="artifacts-character-show"
+                  :src="item['team']['0']['weapon']['img']"
+                />
                 <br />
                 {{ item['team']['0']['weapon']['name'] }}
-                </div>
-                <div v-if="character2" >
-              <img class="artifacts-character-show" :src="item['team']['1']['weapon']['img']" />
+              </div>
+              <div v-if="character2">
+                <img class="artifacts-character-show" :src="item['team']['1']['weapon']['img']" />
                 <br />
                 {{ item['team']['1']['weapon']['name'] }}
-                </div>
-                <div v-if="character3">
-              <img  class="artifacts-character-show" :src="item['team']['2']['weapon']['img']" />
+              </div>
+              <div v-if="character3">
+                <img class="artifacts-character-show" :src="item['team']['2']['weapon']['img']" />
                 <br />
                 {{ item['team']['2']['weapon']['name'] }}
-                </div>
+              </div>
             </div>
           </div>
-          
-          
 
           <div class="col-md-8 col-sm-12">
             <div class="row character-info-rows align-start" style="margin-right:3% ;">
@@ -741,7 +743,10 @@
                 {{ item['team']['2']['talentQ'] }}
               </div>
             </div>
-            <div class="row justify-content-center character-info-rows" v-if="item['team']['0'].artifact[1] && character1">
+            <div
+              class="row justify-content-center character-info-rows"
+              v-if="item['team']['0'].artifact[1] && character1"
+            >
               <h4 class="title-show">Artifacts</h4>
               <hr />
 
@@ -766,7 +771,10 @@
                 />
               </div>
             </div>
-            <div class="row character-info-rows" v-if="!item['team']['0'].artifact[1] && character1">
+            <div
+              class="row character-info-rows"
+              v-if="!item['team']['0'].artifact[1] && character1"
+            >
               <h4 class="title-show">Artifacts</h4>
               <hr />
               <div class="col-12 nopadding">
@@ -780,7 +788,10 @@
                 />
               </div>
             </div>
-            <div class="row justify-content-center character-info-rows" v-if="item['team']['1'].artifact[1] && character2">
+            <div
+              class="row justify-content-center character-info-rows"
+              v-if="item['team']['1'].artifact[1] && character2"
+            >
               <h4 class="title-show">Artifacts</h4>
               <hr />
 
@@ -805,7 +816,10 @@
                 />
               </div>
             </div>
-            <div class="row character-info-rows" v-if="!item['team']['1'].artifact[1] && character2">
+            <div
+              class="row character-info-rows"
+              v-if="!item['team']['1'].artifact[1] && character2"
+            >
               <h4 class="title-show">Artifacts</h4>
               <hr />
               <div class="col-12 nopadding">
@@ -819,7 +833,10 @@
                 />
               </div>
             </div>
-            <div class="row justify-content-center character-info-rows" v-if="item['team']['2'].artifact[1] && character3">
+            <div
+              class="row justify-content-center character-info-rows"
+              v-if="item['team']['2'].artifact[1] && character3"
+            >
               <h4 class="title-show">Artifacts</h4>
               <hr />
 
@@ -844,7 +861,10 @@
                 />
               </div>
             </div>
-            <div class="row character-info-rows" v-if="!item['team']['2'].artifact[1] && character3">
+            <div
+              class="row character-info-rows"
+              v-if="!item['team']['2'].artifact[1] && character3"
+            >
               <h4 class="title-show">Artifacts</h4>
               <hr />
               <div class="col-12 nopadding">
@@ -857,7 +877,7 @@
                   "
                 />
               </div>
-              </div>
+            </div>
           </div>
         </div>
         <!-- buffs -->
@@ -928,7 +948,7 @@ export default {
       this.character2 = false;
       this.character3 = false;
       var el = document.getElementById('SelectedChar1')
-      
+
 
     },
     showChar2() {
@@ -936,14 +956,14 @@ export default {
       this.character2 = true;
       this.character3 = false;
       var el = document.getElementById('SelectedChar2')
-      
+
     },
     showChar3() {
       this.character1 = false;
       this.character2 = false;
       this.character3 = true;
       var el = document.getElementById('SelectedChar3')
-      
+
     }
   },
 };
