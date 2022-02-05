@@ -378,10 +378,18 @@
               class="row character-info-rows align-start"
               style="margin: 3% 6% 0% 6% !important;"
             >
+              <h4 class="title-show">Constellation <span :style="{ color: getElementColor(item['element']['name']) }">0</span></h4>
+             
+            </div>
+            <div
+              class="row character-info-rows align-start"
+              style="margin: 3% 6% 0% 6% !important;"
+            >
               <h4 class="title-show">Video</h4>
               <hr />
               <iframe width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
             </div>
+             
           </div>
         </div>
         <!-- team -->

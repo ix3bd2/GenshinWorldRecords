@@ -122,6 +122,10 @@ class Character
     #[ORM\Column(type: 'text', nullable: true)]
     private $talentQimg;
 
+    #[Groups("character")]
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $cons;
+
     public function __construct()
     {
         $this->team = new ArrayCollection();
@@ -465,6 +469,18 @@ class Character
     public function setTalentQimg(?string $talentQimg): self
     {
         $this->talentQimg = $talentQimg;
+
+        return $this;
+    }
+
+    public function getCons(): ?int
+    {
+        return $this->cons;
+    }
+
+    public function setCons(?int $cons): self
+    {
+        $this->cons = $cons;
 
         return $this;
     }
