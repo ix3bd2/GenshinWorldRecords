@@ -791,7 +791,7 @@ export default {
   cursor: pointer;
 }
 .select-character {
-  width: 110px;
+  width: 120px;
   margin: 5% !important;
 }
 .select-character-active {
