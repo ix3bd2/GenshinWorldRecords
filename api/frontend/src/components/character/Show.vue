@@ -645,21 +645,55 @@
               </div>
             </div>
 
-            <div class="row character-info-rows">
+            <div v-if="character1" class="row character-info-rows">
               <h4 class="title-show">Talents</h4>
               <hr />
 
               <div class="col-4 nopadding">
-                <img class="talents-show" v-bind:src="item['AAimg']" />
-                <br />10
+                <img class="talents-show" v-bind:src="item['team']['0']['AAimg']" />
+                <br />{{item['team']['0']['talentAA']}}
               </div>
               <div class="col-4 nopadding">
-                <img class="talents-show" v-bind:src="item['talentEimg']" />
-                <br />10
+                <img class="talents-show" v-bind:src="item['team']['0']['talentEimg']" />
+                <br />{{item['team']['0']['talentE']}}
               </div>
               <div class="col-4 nopadding">
-                <img class="talents-show" v-bind:src="item['talentQimg']" />
-                <br />10
+                <img class="talents-show" v-bind:src="item['team']['0']['talentQimg']" />
+                <br />{{item['team']['0']['talentQ']}}
+              </div>
+            </div>
+            <div v-if="character2" class="row character-info-rows">
+              <h4 class="title-show">Talents</h4>
+              <hr />
+
+              <div class="col-4 nopadding">
+                <img class="talents-show" v-bind:src="item['team']['1']['AAimg']" />
+                <br />{{item['team']['1']['talentAA']}}
+              </div>
+              <div class="col-4 nopadding">
+                <img class="talents-show" v-bind:src="item['team']['1']['talentEimg']" />
+                <br />{{item['team']['1']['talentE']}}
+              </div>
+              <div class="col-4 nopadding">
+                <img class="talents-show" v-bind:src="item['team']['1']['talentQimg']" />
+                <br />{{item['team']['1']['talentQ']}}
+              </div>
+            </div>
+            <div v-if="character3" class="row character-info-rows">
+              <h4 class="title-show">Talents</h4>
+              <hr />
+
+              <div class="col-4 nopadding">
+                <img class="talents-show" v-bind:src="item['team']['2']['AAimg']" />
+                <br />{{item['team']['2']['talentAA']}}
+              </div>
+              <div class="col-4 nopadding">
+                <img class="talents-show" v-bind:src="item['team']['2']['talentEimg']" />
+                <br />{{item['team']['2']['talentE']}}
+              </div>
+              <div class="col-4 nopadding">
+                <img class="talents-show" v-bind:src="item['team']['2']['talentQimg']" />
+                <br />{{item['team']['2']['talentQ']}}
               </div>
             </div>
             <div class="row justify-content-center character-info-rows" v-if="item.artifact[1]">
