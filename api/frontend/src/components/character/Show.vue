@@ -22,8 +22,7 @@
                   <a
                     class="nav-link active active-show"
                     href="#"
-                                        :style="{ color: getElementColor(item['element']['name']) }"
-
+                    :style="{ color: getElementColor(item['element']['name']) }"
                     style="
                       padding-top: 13%;
                       padding-left: 0px;
@@ -103,7 +102,7 @@
           />
         </div>
         <div class="row"></div>
-        <!-- info -->   
+        <!-- info -->
         <div v-if="info" class="row info-section nopadding">
           <div class="col-lg-4 col-sm-12">
             <div class="row character-info-rows">
@@ -165,10 +164,9 @@
               <hr />
 
               <div class="col-6 nopadding">
-                <img
-                  class="artifacts-character-show"
-                  :src="item['weapon']['img']"
-                /><br />{{item['weapon']['name']}}
+                <img class="artifacts-character-show" :src="item['weapon']['img']" />
+                <br />
+                {{ item['weapon']['name'] }}
               </div>
             </div>
             <div class="row character-info-rows">
@@ -221,7 +219,10 @@
           </div>
 
           <div class="col-lg-8 col-sm-12 nopadding">
-            <div class="row character-info-rows align-start" style="margin: 1.5% 6% 0% 6%!important;">
+            <div
+              class="row character-info-rows align-start"
+              style="margin: 1.5% 6% 0% 6%!important;"
+            >
               <!-- stats -->
               <h4 class="title-show">Stats</h4>
 
@@ -373,7 +374,10 @@
                 </div>
               </div>
             </div>
-            <div class="row character-info-rows align-start" style="margin: 3% 6% 0% 6% !important;">
+            <div
+              class="row character-info-rows align-start"
+              style="margin: 3% 6% 0% 6% !important;"
+            >
               <h4 class="title-show">Video</h4>
               <hr />
               <iframe width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
@@ -383,13 +387,67 @@
         <!-- team -->
         <div v-if="team" class="row info-section nopadding">
           <div class="col-md-4 col-sm-12 nopadding">
-             <div class="row character-info-rows" style="margin: 6% 6% 0% 6%;">
+            <div class="row character-info-rows" style="margin: 6% 6% 0% 6%;">
               <h4 class="title-show">Select Character</h4>
               <hr />
+              <div v-on:click="showChar1" >
+                <img
+                  v-if="!character1"
+                  class="select-character"
+                  :src="require('@/assets/img/pPicture/' + item['team'][0]['name'] + '.jpg')"
+                  v-bind:style="{
+                    border: getElementBorderColor(item['team'][0]['element']['name']),
+                  }"
+                />
+                <img
+                  v-if="character1"
+                  class="select-character-active"
+                  :src="require('@/assets/img/pPicture/' + item['team'][0]['name'] + '.jpg')"
+                  v-bind:style="{
+                    border: getElementBorderColor(item['team'][0]['element']['name']),
+                  }"
+                />
+              </div>
+              <div v-on:click="showChar2">
+                <img
+                  v-if="!character2"
+                  class="select-character"
+                  :src="require('@/assets/img/pPicture/' + item['team'][1]['name'] + '.jpg')"
+                  v-bind:style="{
+                    border: getElementBorderColor(item['team'][1]['element']['name']),
+                  }"
+                />
+                <img
+                  v-if="character2"
+                  class="select-character-active"
+                  :src="require('@/assets/img/pPicture/' + item['team'][1]['name'] + '.jpg')"
+                  v-bind:style="{
+                    border: getElementBorderColor(item['team'][1]['element']['name']),
+                  }"
+                />
+              </div>
+              <div v-on:click="showChar3">
+                <img
+                  v-if="!character3"
+                  class="select-character"
+                  :src="require('@/assets/img/pPicture/' + item['team'][2]['name'] + '.jpg')"
+                  v-bind:style="{
+                    border: getElementBorderColor(item['team'][2]['element']['name']),
+                  }"
+                />
+                <img
+                  v-if="character3"
+                  class="select-character-active"
+                  :src="require('@/assets/img/pPicture/' + item['team'][2]['name'] + '.jpg')"
+                  v-bind:style="{
+                    border: getElementBorderColor(item['team'][2]['element']['name']),
+                  }"
+                />
+              </div>
             </div>
           </div>
-          <div class="col-md-8 col-sm-12 ">
-           <div class="row character-info-rows align-start" style="margin-right:3% ;">
+          <div class="col-md-8 col-sm-12">
+            <div class="row character-info-rows align-start" style="margin-right:3% ;">
               <!-- stats -->
               <h4 class="title-show">Stats</h4>
 
@@ -540,7 +598,7 @@
                   </div>
                 </div>
               </div>
-           </div>
+            </div>
             <div class="row character-info-rows">
               <h4 class="title-show">Talents</h4>
               <hr />
@@ -595,7 +653,7 @@
                 />
               </div>
             </div>
-            </div>
+          </div>
         </div>
         <!-- buffs -->
         <div v-if="buffs" class="row info-section nopadding"></div>
@@ -617,7 +675,10 @@ export default {
     return {
       info: true,
       team: false,
-      buffs: false
+      buffs: false,
+      character1: true,
+      character2: false,
+      character3: false
     }
   },
   computed: {
@@ -656,6 +717,21 @@ export default {
       this.info = false;
       this.team = false;
       this.buffs = true;
+    },
+    showChar1() {
+      this.character1 = true;
+      this.character2 = false;
+      this.character3 = false;
+    },
+    showChar2() {
+      this.character1 = false;
+      this.character2 = true;
+      this.character3 = false;
+    },
+    showChar3() {
+      this.character1 = false;
+      this.character2 = false;
+      this.character3 = true;
     }
   },
 };
@@ -674,7 +750,16 @@ export default {
 .active-show {
   cursor: pointer;
 }
+.select-character {
+  width: 150px;
+  margin: 5% !important;
+}
+.select-character-active {
+    animation: spin 2s linear infinite;
 
+  width: 170px;
+  margin: 5% !important;
+}
 
 #CharcterShowHeader {
   background-color: #111111e8;
