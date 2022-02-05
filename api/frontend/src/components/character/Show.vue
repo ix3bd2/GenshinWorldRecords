@@ -206,7 +206,7 @@
                 />
               </div>
             </div>
-            <div class="row justify-content-center character-info-rows" v-if="item.artifact[1]">
+            <div class="row justify-content-center character-info-rows">
               <h4 class="title-show">Weapon</h4>
               <hr />
 
@@ -481,6 +481,7 @@
                 </div>
               </div>
             </div>
+            
             <div
               class="row character-info-rows align-start"
               style="margin: 3% 6% 0% 6% !important;"
@@ -500,7 +501,31 @@
                 :style="{ color: getElementColor(item['team']['2']['element']['name']) }"
               >C{{ item['team']['2'].cons }}</h4>
             </div>
+            <div
+              class="row character-info-rows align-start"
+              style="margin: 3% 6% 0% 6% !important;"
+            >
+              <h4 class="title-show" style="word-wrap: break-word;">Weapon</h4>
+              <hr />
+              <div  v-if="character1">
+              <img v-if="character1" class="artifacts-character-show" :src="item['team']['0']['weapon']['img']" />
+                <br />
+                {{ item['team']['0']['weapon']['name'] }}
+                </div>
+                <div v-if="character2" >
+              <img class="artifacts-character-show" :src="item['team']['1']['weapon']['img']" />
+                <br />
+                {{ item['team']['1']['weapon']['name'] }}
+                </div>
+                <div v-if="character3">
+              <img  class="artifacts-character-show" :src="item['team']['2']['weapon']['img']" />
+                <br />
+                {{ item['team']['2']['weapon']['name'] }}
+                </div>
+            </div>
           </div>
+          
+          
 
           <div class="col-md-8 col-sm-12">
             <div class="row character-info-rows align-start" style="margin-right:3% ;">
