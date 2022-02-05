@@ -105,7 +105,55 @@
         <!-- info -->
         <div v-if="info" class="row info-section nopadding">
           <div class="col-lg-4 col-sm-12">
+             <div class="row character-info-rows">
+              <h4 class="title-show">Player Info</h4>
+              <hr />
+              <div class="col-12 text-center">
+                <ul>
+                  <li>
+                    <div
+                      class="mb-2"
+                      style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
+                    >
+                      <span style=" background-color:#1f1f1f; padding: 0 10px;">Name</span>
+                    </div>
+                    <div :style="{ color: getElementColor(item['element']['name']) }">ArchoNix</div>
+                  </li>
+
+                  <li>
+                    <div
+                      class="mb-2"
+                      style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
+                    >
+                      <span style=" background-color:#1f1f1f; padding: 0 10px;">Ar</span>
+                    </div>
+                    <div :style="{ color: getElementColor(item['element']['name']) }">57</div>
+                  </li>
+
+                  <li>
+                    <div
+                      class="mb-2"
+                      style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
+                    >
+                      <span style=" background-color:#1f1f1f; padding: 0 10px;">Abyss Clear</span>
+                    </div>
+                    <div :style="{ color: getElementColor(item['element']['name']) }">12</div>
+                  </li>
+
+                  <li>
+                    <div
+                      class="mb-2"
+                      style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
+                    >
+                      <span style=" background-color:#1f1f1f; padding: 0 10px;">Main Character</span>
+                    </div>
+                    <div :style="{ color: getElementColor(item['element']['name']) }">Eula</div>
+                  </li>
+                </ul>
+              </div>
+          </div>
             <div class="row character-info-rows">
+              
               <h4 class="title-show">Talents</h4>
               <hr />
 
@@ -167,53 +215,6 @@
                 <img class="artifacts-character-show" :src="item['weapon']['img']" />
                 <br />
                 {{ item['weapon']['name'] }}
-              </div>
-            </div>
-            <div class="row character-info-rows">
-              <h4 class="title-show">Player Info</h4>
-              <hr />
-              <div class="col-12 text-center">
-                <ul>
-                  <li>
-                    <div
-                      class="mb-2"
-                      style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
-                    >
-                      <span style=" background-color:#1f1f1f; padding: 0 10px;">Name</span>
-                    </div>
-                    <div :style="{ color: getElementColor(item['element']['name']) }">ArchoNix</div>
-                  </li>
-
-                  <li>
-                    <div
-                      class="mb-2"
-                      style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
-                    >
-                      <span style=" background-color:#1f1f1f; padding: 0 10px;">Ar</span>
-                    </div>
-                    <div :style="{ color: getElementColor(item['element']['name']) }">57</div>
-                  </li>
-
-                  <li>
-                    <div
-                      class="mb-2"
-                      style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
-                    >
-                      <span style=" background-color:#1f1f1f; padding: 0 10px;">Abyss Clear</span>
-                    </div>
-                    <div :style="{ color: getElementColor(item['element']['name']) }">12</div>
-                  </li>
-
-                  <li>
-                    <div
-                      class="mb-2"
-                      style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
-                    >
-                      <span style=" background-color:#1f1f1f; padding: 0 10px;">Main Character</span>
-                    </div>
-                    <div :style="{ color: getElementColor(item['element']['name']) }">Eula</div>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
@@ -479,8 +480,20 @@
                   />
                 </div>
               </div>
+              
             </div>
+            <div
+              class="row character-info-rows align-start"
+              style="margin: 3% 6% 0% 6% !important;"
+            >
+              <h4 class="title-show">Constellation</h4>
+              <hr/>
+              <h4 :style="{ color: getElementColor(item['element']['name']) }">C{{0}}</h4>
+             
+            </div>
+            
           </div>
+          
           <div class="col-md-8 col-sm-12">
             <div class="row character-info-rows align-start" style="margin-right:3% ;">
               <!-- stats -->
@@ -634,6 +647,7 @@
                 </div>
               </div>
             </div>
+            
             <div class="row character-info-rows">
               <h4 class="title-show">Talents</h4>
               <hr />
