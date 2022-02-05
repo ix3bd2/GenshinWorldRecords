@@ -105,7 +105,7 @@
         <!-- info -->
         <div v-if="info" class="row info-section nopadding">
           <div class="col-lg-4 col-sm-12">
-             <div class="row character-info-rows">
+            <div class="row character-info-rows">
               <h4 class="title-show">Player Info</h4>
               <hr />
               <div class="col-12 text-center">
@@ -151,9 +151,8 @@
                   </li>
                 </ul>
               </div>
-          </div>
+            </div>
             <div class="row character-info-rows">
-              
               <h4 class="title-show">Talents</h4>
               <hr />
 
@@ -379,8 +378,10 @@
               class="row character-info-rows align-start"
               style="margin: 3% 6% 0% 6% !important;"
             >
-              <h4 class="title-show">Constellation <span :style="{ color: getElementColor(item['element']['name']) }">0</span></h4>
-             
+              <h4 class="title-show">
+                Constellation
+                <span :style="{ color: getElementColor(item['element']['name']) }">0</span>
+              </h4>
             </div>
             <div
               class="row character-info-rows align-start"
@@ -390,7 +391,6 @@
               <hr />
               <iframe width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
             </div>
-             
           </div>
         </div>
         <!-- team -->
@@ -480,20 +480,17 @@
                   />
                 </div>
               </div>
-              
             </div>
             <div
               class="row character-info-rows align-start"
               style="margin: 3% 6% 0% 6% !important;"
             >
               <h4 class="title-show">Constellation</h4>
-              <hr/>
-              <h4 :style="{ color: getElementColor(item['element']['name']) }">C{{0}}</h4>
-             
+              <hr />
+              <h4 :style="{ color: getElementColor(item['element']['name']) }">C{{ 0 }}</h4>
             </div>
-            
           </div>
-          
+
           <div class="col-md-8 col-sm-12">
             <div class="row character-info-rows align-start" style="margin-right:3% ;">
               <!-- stats -->
@@ -647,7 +644,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="row character-info-rows">
               <h4 class="title-show">Talents</h4>
               <hr />
