@@ -983,7 +983,9 @@ export default {
   cursor: pointer;
 }
 .select-character {
-  width: 120px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
   margin: 5% !important;
 }
 .select-character-active {
