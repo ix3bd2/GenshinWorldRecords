@@ -716,7 +716,7 @@
                 {{ item['team']['2']['talentQ'] }}
               </div>
             </div>
-            <div class="row justify-content-center character-info-rows" v-if="item.artifact[1]">
+            <div class="row justify-content-center character-info-rows" v-if="item['team']['0'].artifact[1] && character1">
               <h4 class="title-show">Artifacts</h4>
               <hr />
 
@@ -725,7 +725,7 @@
                   class="artifacts-character-show"
                   :src="
                     require('@/assets/img/artifacts/' +
-                      item.artifact[0] +
+                      item['team']['0'].artifact[0] +
                       '.png')
                   "
                 />
@@ -735,24 +735,104 @@
                   class="artifacts-character-show"
                   :src="
                     require('@/assets/img/artifacts/' +
-                      item.artifact[1] +
+                      item['team']['0'].artifact[1] +
                       '.png')
                   "
                 />
               </div>
             </div>
-            <div class="row character-info-rows" v-if="!item.artifact[1]">
+            <div class="row character-info-rows" v-if="!item['team']['0'].artifact[1] && character1">
+              <h4 class="title-show">Artifacts</h4>
+              <hr />
               <div class="col-12 nopadding">
                 <img
                   class="artifacts-character-show"
                   :src="
                     require('@/assets/img/artifacts/' +
-                      item.artifact[0] +
+                      item['team']['0'].artifact[0] +
                       '.png')
                   "
                 />
               </div>
             </div>
+            <div class="row justify-content-center character-info-rows" v-if="item['team']['1'].artifact[1] && character2">
+              <h4 class="title-show">Artifacts</h4>
+              <hr />
+
+              <div class="col-6 nopadding">
+                <img
+                  class="artifacts-character-show"
+                  :src="
+                    require('@/assets/img/artifacts/' +
+                      item['team']['1'].artifact[0] +
+                      '.png')
+                  "
+                />
+              </div>
+              <div class="col-6 nopadding">
+                <img
+                  class="artifacts-character-show"
+                  :src="
+                    require('@/assets/img/artifacts/' +
+                      item['team']['1'].artifact[1] +
+                      '.png')
+                  "
+                />
+              </div>
+            </div>
+            <div class="row character-info-rows" v-if="!item['team']['1'].artifact[1] && character2">
+              <h4 class="title-show">Artifacts</h4>
+              <hr />
+              <div class="col-12 nopadding">
+                <img
+                  class="artifacts-character-show"
+                  :src="
+                    require('@/assets/img/artifacts/' +
+                      item['team']['1'].artifact[0] +
+                      '.png')
+                  "
+                />
+              </div>
+            </div>
+            <div class="row justify-content-center character-info-rows" v-if="item['team']['2'].artifact[1] && character3">
+              <h4 class="title-show">Artifacts</h4>
+              <hr />
+
+              <div class="col-6 nopadding">
+                <img
+                  class="artifacts-character-show"
+                  :src="
+                    require('@/assets/img/artifacts/' +
+                      item['team']['2'].artifact[0] +
+                      '.png')
+                  "
+                />
+              </div>
+              <div class="col-6 nopadding">
+                <img
+                  class="artifacts-character-show"
+                  :src="
+                    require('@/assets/img/artifacts/' +
+                      item['team']['2'].artifact[1] +
+                      '.png')
+                  "
+                />
+              </div>
+            </div>
+            <div class="row character-info-rows" v-if="!item['team']['2'].artifact[1] && character3">
+              <h4 class="title-show">Artifacts</h4>
+              <hr />
+              <div class="col-12 nopadding">
+                <img
+                  class="artifacts-character-show"
+                  :src="
+                    require('@/assets/img/artifacts/' +
+                      item['team']['2'].artifact[0] +
+                      '.png')
+                  "
+                />
+              </div>
+              </div>
           </div>
         </div>
         <!-- buffs -->
