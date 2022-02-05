@@ -390,7 +390,7 @@
             <div class="row character-info-rows" style="margin: 6% 6% 0% 6%;">
               <h4 class="title-show">Select Character</h4>
               <hr />
-              <div v-on:click="showChar1" >
+              <div v-on:click="showChar1">
                 <img
                   v-if="!character1"
                   class="select-character"
@@ -399,20 +399,23 @@
                     border: getElementBorderColor(item['team'][0]['element']['name']),
                   }"
                 />
-          <div id="SelectedChar1" v-if="character1" class="image-circle" v-bind:style="{
+                <div
+                  id="SelectedChar1"
+                  v-if="character1"
+                  class="image-circle"
+                  v-bind:style="{
                     borderTop: getElementBorderColor(item['team'][0]['element']['name']),
                     borderRight: getElementBorderColor(item['team'][0]['element']['name'])
-                  }">
-            <img
-                  
-                  class="select-character-active"
-                  :src="require('@/assets/img/pPicture/' + item['team'][0]['name'] + '.jpg')"
-                  v-bind:style="{
-                    border: getElementBorderColor(item['team'][0]['element']['name']),
                   }"
-                />
-        </div>
-                
+                >
+                  <img
+                    class="select-character-active"
+                    :src="require('@/assets/img/pPicture/' + item['team'][0]['name'] + '.jpg')"
+                    v-bind:style="{
+                      border: getElementBorderColor(item['team'][0]['element']['name']),
+                    }"
+                  />
+                </div>
               </div>
               <div v-on:click="showChar2">
                 <img
@@ -423,19 +426,23 @@
                     border: getElementBorderColor(item['team'][1]['element']['name']),
                   }"
                 />
-                <div id="SelectedChar2" v-if="character2" class="image-circle" v-bind:style="{
+                <div
+                  id="SelectedChar2"
+                  v-if="character2"
+                  class="image-circle"
+                  v-bind:style="{
                     borderTop: getElementBorderColor(item['team'][1]['element']['name']),
                     borderRight: getElementBorderColor(item['team'][1]['element']['name'])
-                  }">
-            <img
-                  
-                  class="select-character-active"
-                  :src="require('@/assets/img/pPicture/' + item['team'][1]['name'] + '.jpg')"
-                  v-bind:style="{
-                    border: getElementBorderColor(item['team'][1]['element']['name']),
                   }"
-                />
-        </div>
+                >
+                  <img
+                    class="select-character-active"
+                    :src="require('@/assets/img/pPicture/' + item['team'][1]['name'] + '.jpg')"
+                    v-bind:style="{
+                      border: getElementBorderColor(item['team'][1]['element']['name']),
+                    }"
+                  />
+                </div>
               </div>
               <div v-on:click="showChar3">
                 <img
@@ -446,19 +453,23 @@
                     border: getElementBorderColor(item['team'][2]['element']['name']),
                   }"
                 />
-                <div id="SelectedChar3" v-if="character3" class="image-circle" v-bind:style="{
+                <div
+                  id="SelectedChar3"
+                  v-if="character3"
+                  class="image-circle"
+                  v-bind:style="{
                     borderTop: getElementBorderColor(item['team'][2]['element']['name']),
                     borderRight: getElementBorderColor(item['team'][2]['element']['name'])
-                  }">
-            <img
-                  
-                  class="select-character-active"
-                  :src="require('@/assets/img/pPicture/' + item['team'][2]['name'] + '.jpg')"
-                  v-bind:style="{
-                    border: getElementBorderColor(item['team'][2]['element']['name']),
                   }"
-                />
-        </div>
+                >
+                  <img
+                    class="select-character-active"
+                    :src="require('@/assets/img/pPicture/' + item['team'][2]['name'] + '.jpg')"
+                    v-bind:style="{
+                      border: getElementBorderColor(item['team'][2]['element']['name']),
+                    }"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -738,10 +749,10 @@ export default {
       this.character1 = true;
       this.character2 = false;
       this.character3 = false;
-        var el = document.getElementById('SelectedChar1')
-        el.style.animation = 'none';
-  el.offsetHeight; /* trigger reflow */
-  el.style.animation = null; 
+      var el = document.getElementById('SelectedChar1')
+      el.style.animation = 'none';
+      el.offsetHeight; /* trigger reflow */
+      el.style.animation = null;
 
     },
     showChar2() {
@@ -749,18 +760,18 @@ export default {
       this.character2 = true;
       this.character3 = false;
       var el = document.getElementById('SelectedChar2')
-        el.style.animation = 'none';
-  el.offsetHeight; /* trigger reflow */
-  el.style.animation = null; 
+      el.style.animation = 'none';
+      el.offsetHeight; /* trigger reflow */
+      el.style.animation = null;
     },
     showChar3() {
       this.character1 = false;
       this.character2 = false;
       this.character3 = true;
       var el = document.getElementById('SelectedChar3')
-        el.style.animation = 'none';
-  el.offsetHeight; /* trigger reflow */
-  el.style.animation = null; 
+      el.style.animation = 'none';
+      el.offsetHeight; /* trigger reflow */
+      el.style.animation = null;
     }
   },
 };
@@ -860,31 +871,28 @@ export default {
   width: 23px;
   height: 24px;
 }
- .image-circle {
-        width: 132px;
-        height: 132px;
-        border-radius: 50%;
-        margin-left: auto;
+.image-circle {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  margin-left: auto;
 
+  margin-right: auto;
+  border-left: 2px dashed white;
+  border-bottom: 2px dashed white;
+  padding: 5px;
+  animation: spin 10s infinite linear;
+}
+.image-circle img {
+  animation: spin 10s infinite reverse linear;
+  width: 100%;
+  border-radius: 50%;
+  top: 50%;
+}
 
-margin-right: auto;
-        border-left: 2px dashed white;
-        border-bottom: 2px dashed white;
-        padding: 5px;
-        animation: spin 10s infinite linear;
-    }
-    .image-circle img {
-        animation: spin 10s infinite reverse linear;
-        width: 100%;
-        border-radius: 50%;
-        top: 50%;
-    }
-
-
-
-    @keyframes spin {
-        100% {
-            transform: rotate(1turn);
-        }
-    }
+@keyframes spin {
+  100% {
+    transform: rotate(1turn);
+  }
+}
 </style>
