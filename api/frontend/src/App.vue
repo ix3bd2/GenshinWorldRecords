@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <the-nav-bar />
+    <the-nav-bar class="fixed-top" />
     <div class="container-fluid">
       <div class="row">
         <!--         <div class="col-1"></div>
