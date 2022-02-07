@@ -1047,7 +1047,7 @@ export default {
   height: 20px;
 }
 .header-inv-row {
-  height: 145px;
+  height: 140px;
 }
 .nopadding {
   padding: 0 !important;

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <the-nav-bar class="fixed-top" />
-    <div class="container-fluid">
+    <div id="MainContent" class="container-fluid">
       <div class="row">
         <!--         <div class="col-1"></div>
  -->
@@ -56,5 +56,8 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+#MainContent{
+  margin-top: 50px;
 }
 </style>
