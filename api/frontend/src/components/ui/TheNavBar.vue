@@ -17,7 +17,7 @@
           <a class="nav-link" href="/">Spiral Teams</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/characters">Weapons</a>
+          <a class="nav-link" href="/weapons">Weapons</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/characters">Artifacts</a>

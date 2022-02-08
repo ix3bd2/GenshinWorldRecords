@@ -8,6 +8,9 @@ import homePage from './components/home/HomePage.vue';
 import patchchar from './store/modules/patchchar/';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import weaponRoutes from './router/weapon';
+import weapon from './store/modules/weapon/';
+
 Vue.use(Vuex)
 Vue.use(VueRouter)
 
@@ -16,6 +19,7 @@ Vue.use(VueRouter)
 const routes = [
 
     ...characterRoutes,
+    ...weaponRoutes,
     { path: '/', name: 'Home', component: homePage },
 
 
@@ -34,7 +38,8 @@ export const store = new Vuex.Store({
     // ...
     modules: {
         character,
-        patchchar
+        patchchar,
+        weapon
     }
 });
 new Vue({
