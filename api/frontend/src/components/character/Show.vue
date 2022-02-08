@@ -425,6 +425,7 @@
                     }"
                   />
                 </div>
+                <p>{{item['team'][0]['name']}}</p>
               </div>
               <div v-on:click="showChar2">
                 <img
@@ -452,6 +453,7 @@
                     }"
                   />
                 </div>
+                <p>{{item['team'][1]['name']}}</p>
               </div>
               <div v-on:click="showChar3">
                 <img
@@ -479,6 +481,7 @@
                     }"
                   />
                 </div>
+                <p>{{item['team'][2]['name']}}</p>
               </div>
             </div>
 
