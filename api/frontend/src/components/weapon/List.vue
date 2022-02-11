@@ -4,12 +4,16 @@
     <hr />
     <div class="row" data-aos="fade-up" data-aos-duration="4000">
       <div class="col-6 col-md-3 col-lg-2" v-for="item in items" :key="item['@id']">
+
         <div id="WeaponCard">
           <div class="card-body">
+             <router-link id="WeaponRouter"
+              :to="{name: 'WeaponShow', params: { id: item['@id'] }}">
             <h5 class="card-title">
               <img id="weapon-img" :src="item.img" />
             </h5>
             <h6 class="card-subtitle mt-3" style="color:whit!important;">{{ item.name }}</h6>
+             </router-link>
           </div>
         </div>
       </div>
@@ -65,5 +69,9 @@ export default {
   -webkit-filter: drop-shadow(1px 1px 0 #f5f5f5d7)
     drop-shadow(-1px -1px 0 #f5f5f5d7);
   filter: drop-shadow(1px 1px 0 #f5f5f5d7) drop-shadow(-1px -1px 0 #f5f5f5d7);
+}
+#WeaponRouter{
+      color: white;
+    text-decoration: none;
 }
 </style>
