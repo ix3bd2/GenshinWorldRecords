@@ -1,92 +1,8 @@
 <template>
-  <div>
-    <h1>Show {{ item && item['@id'] }}</h1>
+  <div v-if="item" class="weapon-show">
+    <div><img id="WeaponImgShow" :src="item['img']"><h5 class="mt-2">{{item.name}}</h5></div>
+   
 
-    <div
-      v-if="isLoading"
-      class="alert alert-info"
-      role="status">Loading...</div>
-    <div
-      v-if="error"
-      class="alert alert-danger"
-      role="alert">
-      <span
-        class="fa fa-exclamation-triangle"
-        aria-hidden="true">{{ error }}</span>
-    </div>
-    <div
-      v-if="deleteError"
-      class="alert alert-danger"
-      role="alert">
-      <span
-        class="fa fa-exclamation-triangle"
-        aria-hidden="true">{{ deleteError }}</span>
-    </div>
-    <div
-      v-if="item"
-      class="table-responsive">
-      <table class="table table-striped table-hover">
-        <thead>
-          <tr>
-            <th>Field</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">name</th>
-            <td>{{ item['name'] }}</td>
-          </tr>
-          <tr>
-            <th scope="row">img</th>
-            <td>{{ item['img'] }}</td>
-          </tr>
-          <tr>
-            <th scope="row">character</th>
-            <td>{{ item['character'] }}</td>
-          </tr>
-          <tr>
-            <th scope="row">teams</th>
-            <td>{{ item['teams'] }}</td>
-          </tr>
-          <tr>
-            <th scope="row">rarity</th>
-            <td>{{ item['rarity'] }}</td>
-          </tr>
-          <tr>
-            <th scope="row">atk</th>
-            <td>{{ item['atk'] }}</td>
-          </tr>
-          <tr>
-            <th scope="row">substate</th>
-            <td>{{ item['substate'] }}</td>
-          </tr>
-          <tr>
-            <th scope="row">passive</th>
-            <td>{{ item['passive'] }}</td>
-          </tr>
-          <tr>
-            <th scope="row">type</th>
-            <td>{{ item['type'] }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <router-link
-      :to="{ name: 'WeaponList' }"
-      class="btn btn-primary">
-      Back to list
-    </router-link>
-    <router-link
-      v-if="item"
-      :to="{ name: 'WeaponUpdate', params: { id: item['@id'] } }"
-      class="btn btn-warning">
-      Edit
-    </router-link>
-    <button
-      class="btn btn-danger"
-      @click="deleteItem(item)">Delete</button>
   </div>
 </template>
 
@@ -129,3 +45,13 @@ export default {
   },
 };
 </script>
+<style scoped>
+.weapon-show{
+  padding: 4%;
+}
+#WeaponImgShow{
+  -webkit-filter: drop-shadow(1px 1px 0 #f5f5f5d7)
+    drop-shadow(-1px -1px 0 #f5f5f5d7);
+  filter: drop-shadow(1px 1px 0 #f5f5f5d7) drop-shadow(-1px -1px 0 #f5f5f5d7);
+}
+</style>

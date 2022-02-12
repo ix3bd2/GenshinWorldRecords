@@ -10,7 +10,7 @@
              <router-link id="WeaponRouter"
               :to="{name: 'WeaponShow', params: { id: item['@id'] }}">
             <h5 class="card-title">
-              <img id="weapon-img" :src="item.img" />
+              <img id="WeaponImg" :src="item.img" />
             </h5>
             <h6 class="card-subtitle mt-3" style="color:whit!important;">{{ item.name }}</h6>
              </router-link>
@@ -65,7 +65,7 @@ export default {
 .weapons-list {
   padding: 4%;
 }
-#weapon-img {
+#WeaponImg {
   -webkit-filter: drop-shadow(1px 1px 0 #f5f5f5d7)
     drop-shadow(-1px -1px 0 #f5f5f5d7);
   filter: drop-shadow(1px 1px 0 #f5f5f5d7) drop-shadow(-1px -1px 0 #f5f5f5d7);
