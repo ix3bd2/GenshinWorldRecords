@@ -10,15 +10,15 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import weaponRoutes from './router/weapon';
 import weapon from './store/modules/weapon/';
+import artifactRoutes from './router/artifact';
+import artifact from './store/modules/artifact/';
 
 Vue.use(Vuex)
 Vue.use(VueRouter)
-
-// Add routes to VueRouter
-
 const routes = [
 
     ...characterRoutes,
+    ...artifactRoutes,
     ...weaponRoutes,
     { path: '/', name: 'Home', component: homePage },
 
@@ -38,6 +38,7 @@ export const store = new Vuex.Store({
     // ...
     modules: {
         character,
+        artifact,
         patchchar,
         weapon
     }
