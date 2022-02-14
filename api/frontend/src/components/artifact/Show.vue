@@ -1,72 +1,33 @@
 <template>
-  <div>
-    <h1>Show {{ item && item['@id'] }}</h1>
-
-    <div
-      v-if="isLoading"
-      class="alert alert-info"
-      role="status">Loading...</div>
-    <div
-      v-if="error"
-      class="alert alert-danger"
-      role="alert">
-      <span
-        class="fa fa-exclamation-triangle"
-        aria-hidden="true">{{ error }}</span>
+  <div v-if="item" class="artifact-show">
+    <div>
+      <img id="ArtifactImgShow" :src="item['img']" />
+      <h5 class="mt-2">{{ item.name }}</h5>
     </div>
-    <div
-      v-if="deleteError"
-      class="alert alert-danger"
-      role="alert">
-      <span
-        class="fa fa-exclamation-triangle"
-        aria-hidden="true">{{ deleteError }}</span>
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8 col-md-10 col-sm-12 text-center mt-3">
+        <ul>
+          <li class="mb-4">
+            <div
+              style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
+            >
+              <span style="font-weight: 900;background-color:#1f1f1f; padding: 0 10px;">2piece set</span>
+            </div>
+            <div class="mt-3">{{ item.halfset }}</div>
+          </li>
+          <li class="mb-4">
+            <div
+              style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
+            >
+              <span style="font-weight: 900; background-color:#1f1f1f; padding: 0 10px;">4piece set</span>
+            </div>
+            <div class="mt-3">{{ item.fullset }}</div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-2"></div>
     </div>
-    <div
-      v-if="item"
-      class="table-responsive">
-      <table class="table table-striped table-hover">
-        <thead>
-          <tr>
-            <th>Field</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">name</th>
-            <td>{{ item['name'] }}</td>
-          </tr>
-          <tr>
-            <th scope="row">img</th>
-            <td>{{ item['img'] }}</td>
-          </tr>
-          <tr>
-            <th scope="row">halfset</th>
-            <td>{{ item['halfset'] }}</td>
-          </tr>
-          <tr>
-            <th scope="row">fullset</th>
-            <td>{{ item['fullset'] }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <router-link
-      :to="{ name: 'ArtifactList' }"
-      class="btn btn-primary">
-      Back to list
-    </router-link>
-    <router-link
-      v-if="item"
-      :to="{ name: 'ArtifactUpdate', params: { id: item['@id'] } }"
-      class="btn btn-warning">
-      Edit
-    </router-link>
-    <button
-      class="btn btn-danger"
-      @click="deleteItem(item)">Delete</button>
   </div>
 </template>
 
@@ -86,11 +47,11 @@ export default {
     }),
   },
 
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset();
   },
 
-  created () {
+  created() {
     this.retrieve(decodeURIComponent(this.$route.params.id));
   },
 
@@ -101,7 +62,7 @@ export default {
       retrieve: 'artifact/show/retrieve',
     }),
 
-    deleteItem (item) {
+    deleteItem(item) {
       if (window.confirm('Are you sure you want to delete this item?')) {
         this.del(item).then(() => this.$router.push({ name: 'ArtifactList' }));
       }
@@ -109,3 +70,13 @@ export default {
   },
 };
 </script>
+<style scoped>
+.artifact-show {
+  padding: 4%;
+}
+#ArtifactImgShow {
+  -webkit-filter: drop-shadow(1px 1px 0 #f5f5f5d7)
+    drop-shadow(-1px -1px 0 #f5f5f5d7);
+  filter: drop-shadow(1px 1px 0 #f5f5f5d7) drop-shadow(-1px -1px 0 #f5f5f5d7);
+}
+</style>
