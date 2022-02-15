@@ -136,7 +136,7 @@ export default {
 }
 .char-nation {
   position: absolute;
-  width: 36%;
+  width: 33%;
   left: 0%;
 }
 #CharacterCardTitle {
