@@ -26,9 +26,13 @@ class Buff
     #[ORM\Column(type: 'text', nullable: true)]
     private $description;
 
+    #[ORM\ManyToMany(targetEntity: Character::class, inversedBy: 'buffs')]
+    private $character;
+
 
     public function __construct()
     {
+        $this->character = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -56,6 +60,30 @@ class Buff
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Character[]
+     */
+    public function getCharacter(): Collection
+    {
+        return $this->character;
+    }
+
+    public function addCharacter(Character $character): self
+    {
+        if (!$this->character->contains($character)) {
+            $this->character[] = $character;
+        }
+
+        return $this;
+    }
+
+    public function removeCharacter(Character $character): self
+    {
+        $this->character->removeElement($character);
 
         return $this;
     }
