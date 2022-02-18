@@ -126,14 +126,10 @@ class Character
     #[ORM\Column(type: 'integer', nullable: true)]
     private $cons;
 
-    #[ORM\ManyToMany(targetEntity: Buff::class, mappedBy: 'character')]
-    private $buffs;
-
     public function __construct()
     {
         $this->team = new ArrayCollection();
         $this->patchChars = new ArrayCollection();
-        $this->buffs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -485,33 +481,6 @@ class Character
     public function setCons(?int $cons): self
     {
         $this->cons = $cons;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Buff[]
-     */
-    public function getBuffs(): Collection
-    {
-        return $this->buffs;
-    }
-
-    public function addBuff(Buff $buff): self
-    {
-        if (!$this->buffs->contains($buff)) {
-            $this->buffs[] = $buff;
-            $buff->addCharacter($this);
-        }
-
-        return $this;
-    }
-
-    public function removeBuff(Buff $buff): self
-    {
-        if ($this->buffs->removeElement($buff)) {
-            $buff->removeCharacter($this);
-        }
 
         return $this;
     }
