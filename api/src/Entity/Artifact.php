@@ -35,6 +35,9 @@ class Artifact
     #[ORM\OneToMany(mappedBy: 'aritfact', targetEntity: Buff::class)]
     private $buffs;
 
+    #[ORM\ManyToOne(targetEntity: Character::class, inversedBy: 'artifact')]
+    private $character;
+
     public function __construct()
     {
         $this->characters = new ArrayCollection();
@@ -120,6 +123,18 @@ class Artifact
                 $buff->setAritfact(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCharacter(): ?Character
+    {
+        return $this->character;
+    }
+
+    public function setCharacter(?Character $character): self
+    {
+        $this->character = $character;
 
         return $this;
     }
