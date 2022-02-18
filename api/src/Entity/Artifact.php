@@ -32,9 +32,13 @@ class Artifact
     #[ORM\Column(type: 'text', nullable: true)]
     private $fullset;
 
+    #[ORM\OneToMany(mappedBy: 'aritfact', targetEntity: Buff::class)]
+    private $buffs;
+
     public function __construct()
     {
         $this->characters = new ArrayCollection();
+        $this->buffs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -86,6 +90,36 @@ class Artifact
     public function setFullset(?string $fullset): self
     {
         $this->fullset = $fullset;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Buff[]
+     */
+    public function getBuffs(): Collection
+    {
+        return $this->buffs;
+    }
+
+    public function addBuff(Buff $buff): self
+    {
+        if (!$this->buffs->contains($buff)) {
+            $this->buffs[] = $buff;
+            $buff->setAritfact($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBuff(Buff $buff): self
+    {
+        if ($this->buffs->removeElement($buff)) {
+            // set the owning side to null (unless already changed)
+            if ($buff->getAritfact() === $this) {
+                $buff->setAritfact(null);
+            }
+        }
 
         return $this;
     }

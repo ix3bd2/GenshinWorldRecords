@@ -55,10 +55,14 @@ use Symfony\Component\Serializer\Annotation\Groups;
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $type;
 
+    #[ORM\OneToMany(mappedBy: 'weapon', targetEntity: Buff::class)]
+    private $buffs;
+
     public function __construct()
     {
         $this->character = new ArrayCollection();
         $this->teams = new ArrayCollection();
+        $this->buffs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -206,6 +210,36 @@ use Symfony\Component\Serializer\Annotation\Groups;
     public function setType(?string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Buff[]
+     */
+    public function getBuffs(): Collection
+    {
+        return $this->buffs;
+    }
+
+    public function addBuff(Buff $buff): self
+    {
+        if (!$this->buffs->contains($buff)) {
+            $this->buffs[] = $buff;
+            $buff->setWeapon($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBuff(Buff $buff): self
+    {
+        if ($this->buffs->removeElement($buff)) {
+            // set the owning side to null (unless already changed)
+            if ($buff->getWeapon() === $this) {
+                $buff->setWeapon(null);
+            }
+        }
 
         return $this;
     }
