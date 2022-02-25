@@ -77,10 +77,6 @@ class Team
     private $element;
 
     #[Groups("character")]
-    #[ORM\Column(type: 'array', nullable: true)]
-    private $artifact = [];
-
-    #[Groups("character")]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $name;
 
@@ -100,8 +96,13 @@ class Team
     #[ORM\Column(type: 'integer', nullable: true)]
     private $cons;
 
+    #[Groups("character")]
+    #[ORM\ManyToMany(targetEntity: Artifact::class, inversedBy: 'teams')]
+    private $artifact;
+
     public function __construct()
     {
+        $this->artifact = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -277,18 +278,6 @@ class Team
         return $this;
     }
 
-    public function getArtifact(): ?array
-    {
-        return $this->artifact;
-    }
-
-    public function setArtifact(?array $artifact): self
-    {
-        $this->artifact = $artifact;
-
-        return $this;
-    }
-
     public function getName(): ?string
     {
         return $this->name;
@@ -345,6 +334,30 @@ class Team
     public function setCons(?int $cons): self
     {
         $this->cons = $cons;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Artifact[]
+     */
+    public function getArtifact(): Collection
+    {
+        return $this->artifact;
+    }
+
+    public function addArtifact(Artifact $artifact): self
+    {
+        if (!$this->artifact->contains($artifact)) {
+            $this->artifact[] = $artifact;
+        }
+
+        return $this;
+    }
+
+    public function removeArtifact(Artifact $artifact): self
+    {
+        $this->artifact->removeElement($artifact);
 
         return $this;
     }

@@ -172,52 +172,54 @@
             <div class="row justify-content-center character-info-rows" v-if="item.artifact[1]">
               <h4 class="title-show">Artifacts</h4>
               <hr />
-              
-              <div class="col-6 artifact-card nopadding">
-                <router-link id="ArtifactRouter"
-              :to="{name: 'ArtifactShow', params: { id: item.artifact[0]['@id'] }}">
-                <img
-                  class="artifacts-character-show"
-                  :src="
-                      item.artifact[0].img 
-                  "
-                />
-                <br/>
-                {{ item.artifact[0].name }}
-                                            </router-link>
 
+              <div class="col-6 artifact-card nopadding">
+                <router-link
+                  id="ArtifactRouter"
+                  :to="{ name: 'ArtifactShow', params: { id: item.artifact[0]['@id'] } }"
+                >
+                  <img
+                    class="artifacts-character-show"
+                    :src="
+                      item.artifact[0].img
+                    "
+                  />
+                  <br />
+                  {{ item.artifact[0].name }}
+                </router-link>
               </div>
 
-              
               <div class="col-6 artifact-card nopadding">
-                <router-link id="ArtifactRouter"
-              :to="{name: 'ArtifactShow', params: { id: item.artifact[1]['@id'] }}">
-                <img
-                  class="artifacts-character-show"
-                  :src="
+                <router-link
+                  id="ArtifactRouter"
+                  :to="{ name: 'ArtifactShow', params: { id: item.artifact[1]['@id'] } }"
+                >
+                  <img
+                    class="artifacts-character-show"
+                    :src="
                       item.artifact[1].img
-                  "
-                />
-                <br/>
-                {{ item.artifact[1].name }}
-                                            </router-link>
-
+                    "
+                  />
+                  <br />
+                  {{ item.artifact[1].name }}
+                </router-link>
               </div>
-
             </div>
             <div class="row character-info-rows" v-if="!item.artifact[1]">
-              <router-link id="ArtifactRouter"
-              :to="{name: 'ArtifactShow', params: { id: item.artifact[0]['@id'] }}">
-              <div class="col-12 artifact-card nopadding">
-                <img
-                  class="artifacts-character-show"
-                  :src="
+              <router-link
+                id="ArtifactRouter"
+                :to="{ name: 'ArtifactShow', params: { id: item.artifact[0]['@id'] } }"
+              >
+                <div class="col-12 artifact-card nopadding">
+                  <img
+                    class="artifacts-character-show"
+                    :src="
                       item.artifact[0].img
-                  "
-                />
-                <br/>
-                {{ item.artifact[0].name }}
-              </div>
+                    "
+                  />
+                  <br />
+                  {{ item.artifact[0].name }}
+                </div>
               </router-link>
             </div>
             <div class="row justify-content-center character-info-rows">
@@ -439,7 +441,7 @@
                     }"
                   />
                 </div>
-                <p>{{item['team'][0]['name']}}</p>
+                <p>{{ item['team'][0]['name'] }}</p>
               </div>
               <div v-on:click="showChar2">
                 <img
@@ -467,7 +469,7 @@
                     }"
                   />
                 </div>
-                <p>{{item['team'][1]['name']}}</p>
+                <p>{{ item['team'][1]['name'] }}</p>
               </div>
               <div v-on:click="showChar3">
                 <img
@@ -495,7 +497,7 @@
                     }"
                   />
                 </div>
-                <p>{{item['team'][2]['name']}}</p>
+                <p>{{ item['team'][2]['name'] }}</p>
               </div>
             </div>
 
@@ -766,26 +768,36 @@
             >
               <h4 class="title-show">Artifacts</h4>
               <hr />
-        
+
               <div class="col-6 nopadding">
-                <img
-                  class="artifacts-character-show"
-                  :src="
-                    require('@/assets/img/artifacts/' +
-                      item['team']['0'].artifact[0] +
-                      '.png')
-                  "
-                />
+                <router-link
+                  id="ArtifactRouter"
+                  :to="{ name: 'ArtifactShow', params: { id: item['team']['0'].artifact[0]['@id'] } }"
+                >
+                  <img
+                    class="artifacts-character-show"
+                    :src="
+                      item['team']['0'].artifact[0].img
+                    "
+                  />
+                  <br />
+                  {{ item['team']['0'].artifact[0].name }}
+                </router-link>
               </div>
               <div class="col-6 nopadding">
-                <img
-                  class="artifacts-character-show"
-                  :src="
-                    require('@/assets/img/artifacts/' +
-                      item['team']['0'].artifact[1] +
-                      '.png')
-                  "
-                />
+                <router-link
+                  id="ArtifactRouter"
+                  :to="{ name: 'ArtifactShow', params: { id: item['team']['0'].artifact[1]['@id'] } }"
+                >
+                  <img
+                    class="artifacts-character-show"
+                    :src="
+                      item['team']['0'].artifact[1].img
+                    "
+                  />
+                  <br />
+                  {{ item['team']['0'].artifact[1].name }}
+                </router-link>
               </div>
             </div>
             <div
@@ -795,14 +807,19 @@
               <h4 class="title-show">Artifacts</h4>
               <hr />
               <div class="col-12 nopadding">
-                <img
-                  class="artifacts-character-show"
-                  :src="
-                    require('@/assets/img/artifacts/' +
-                      item['team']['0'].artifact[0] +
-                      '.png')
-                  "
-                />
+                <router-link
+                  id="ArtifactRouter"
+                  :to="{ name: 'ArtifactShow', params: { id: item['team']['0'].artifact[0]['@id'] } }"
+                >
+                  <img
+                    class="artifacts-character-show"
+                    :src="
+                      item['team']['0'].artifact[0].img
+                    "
+                  />
+                  <br />
+                  {{ item['team']['0'].artifact[0].name }}
+                </router-link>
               </div>
             </div>
             <div
@@ -813,24 +830,34 @@
               <hr />
 
               <div class="col-6 nopadding">
-                <img
-                  class="artifacts-character-show"
-                  :src="
-                    require('@/assets/img/artifacts/' +
-                      item['team']['1'].artifact[0] +
-                      '.png')
-                  "
-                />
+                <router-link
+                  id="ArtifactRouter"
+                  :to="{ name: 'ArtifactShow', params: { id: item['team']['1'].artifact[0]['@id'] } }"
+                >
+                  <img
+                    class="artifacts-character-show"
+                    :src="
+                      item['team']['1'].artifact[0].img
+                    "
+                  />
+                  <br />
+                  {{ item['team']['1'].artifact[0].name }}
+                </router-link>
               </div>
               <div class="col-6 nopadding">
-                <img
-                  class="artifacts-character-show"
-                  :src="
-                    require('@/assets/img/artifacts/' +
-                      item['team']['1'].artifact[1] +
-                      '.png')
-                  "
-                />
+                <router-link
+                  id="ArtifactRouter"
+                  :to="{ name: 'ArtifactShow', params: { id: item['team']['1'].artifact[1]['@id'] } }"
+                >
+                  <img
+                    class="artifacts-character-show"
+                    :src="
+                      item['team']['1'].artifact[1].img
+                    "
+                  />
+                  <br />
+                  {{ item['team']['1'].artifact[1].name }}
+                </router-link>
               </div>
             </div>
             <div
@@ -840,14 +867,19 @@
               <h4 class="title-show">Artifacts</h4>
               <hr />
               <div class="col-12 nopadding">
-                <img
-                  class="artifacts-character-show"
-                  :src="
-                    require('@/assets/img/artifacts/' +
-                      item['team']['1'].artifact[0] +
-                      '.png')
-                  "
-                />
+                <router-link
+                  id="ArtifactRouter"
+                  :to="{ name: 'ArtifactShow', params: { id: item['team']['1'].artifact[0]['@id'] } }"
+                >
+                  <img
+                    class="artifacts-character-show"
+                    :src="
+                      item['team']['1'].artifact[0]
+                    "
+                  />
+                  <br />
+                  {{ item['team']['1'].artifact[0].name }}
+                </router-link>
               </div>
             </div>
             <div
@@ -858,24 +890,34 @@
               <hr />
 
               <div class="col-6 nopadding">
-                <img
-                  class="artifacts-character-show"
-                  :src="
-                    require('@/assets/img/artifacts/' +
-                      item['team']['2'].artifact[0] +
-                      '.png')
-                  "
-                />
+                <router-link
+                  id="ArtifactRouter"
+                  :to="{ name: 'ArtifactShow', params: { id: item['team']['2'].artifact[0]['@id'] } }"
+                >
+                  <img
+                    class="artifacts-character-show"
+                    :src="
+                      item['team']['2'].artifact[0].img
+                    "
+                  />
+                  <br />
+                  {{ item['team']['2'].artifact[0].name }}
+                </router-link>
               </div>
               <div class="col-6 nopadding">
-                <img
-                  class="artifacts-character-show"
-                  :src="
-                    require('@/assets/img/artifacts/' +
-                      item['team']['2'].artifact[1] +
-                      '.png')
-                  "
-                />
+                <router-link
+                  id="ArtifactRouter"
+                  :to="{ name: 'ArtifactShow', params: { id: item['team']['2'].artifact[1]['@id'] } }"
+                >
+                  <img
+                    class="artifacts-character-show"
+                    :src="
+                      item['team']['2'].artifact[1].img
+                    "
+                  />
+                  <br />
+                  {{ item['team']['2'].artifact[1].name }}
+                </router-link>
               </div>
             </div>
             <div
@@ -885,14 +927,19 @@
               <h4 class="title-show">Artifacts</h4>
               <hr />
               <div class="col-12 nopadding">
-                <img
-                  class="artifacts-character-show"
-                  :src="
-                    require('@/assets/img/artifacts/' +
-                      item['team']['2'].artifact[0] +
-                      '.png')
-                  "
-                />
+                <router-link
+                  id="ArtifactRouter"
+                  :to="{ name: 'ArtifactShow', params: { id: item['team']['2'].artifact[0]['@id'] } }"
+                >
+                  <img
+                    class="artifacts-character-show"
+                    :src="
+                      item['team']['2'].artifact[0].img
+                    "
+                  />
+                  <br />
+                  {{ item['team']['2'].artifact[0].name }}
+                </router-link>
               </div>
             </div>
           </div>
@@ -1107,7 +1154,7 @@ export default {
     transform: rotate(1turn);
   }
 }
-.artifact-card{
+.artifact-card {
   font-size: 80%;
   cursor: pointer;
 }

@@ -41,10 +41,14 @@ class Artifact
     #[ORM\ManyToMany(targetEntity: Character::class, mappedBy: 'artifact')]
     private $characters;
 
+    #[ORM\ManyToMany(targetEntity: Team::class, mappedBy: 'artifact')]
+    private $teams;
+
     public function __construct()
     {
         $this->characters = new ArrayCollection();
         $this->buffs = new ArrayCollection();
+        $this->teams = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -152,6 +156,33 @@ class Artifact
     {
         if ($this->characters->removeElement($character)) {
             $character->removeArtifact($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Team[]
+     */
+    public function getTeams(): Collection
+    {
+        return $this->teams;
+    }
+
+    public function addTeam(Team $team): self
+    {
+        if (!$this->teams->contains($team)) {
+            $this->teams[] = $team;
+            $team->addArtifact($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTeam(Team $team): self
+    {
+        if ($this->teams->removeElement($team)) {
+            $team->removeArtifact($this);
         }
 
         return $this;
