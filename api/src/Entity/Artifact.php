@@ -7,6 +7,7 @@ use App\Repository\ArtifactRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ArtifactRepository::class)]
 #[ApiResource(
@@ -20,9 +21,11 @@ class Artifact
     #[ORM\Column(type: 'integer')]
     private $id;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $name;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'text', nullable: true)]
     private $img;
 
@@ -34,6 +37,9 @@ class Artifact
 
     #[ORM\OneToMany(mappedBy: 'aritfact', targetEntity: Buff::class)]
     private $buffs;
+
+    #[ORM\ManyToMany(targetEntity: Character::class, mappedBy: 'artifact')]
+    private $characters;
 
     public function __construct()
     {
@@ -119,6 +125,33 @@ class Artifact
             if ($buff->getAritfact() === $this) {
                 $buff->setAritfact(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Character[]
+     */
+    public function getCharacters(): Collection
+    {
+        return $this->characters;
+    }
+
+    public function addCharacter(Character $character): self
+    {
+        if (!$this->characters->contains($character)) {
+            $this->characters[] = $character;
+            $character->addArtifact($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCharacter(Character $character): self
+    {
+        if ($this->characters->removeElement($character)) {
+            $character->removeArtifact($this);
         }
 
         return $this;

@@ -60,4 +60,12 @@ ul {
 #MainContent{
   margin-top: 50px;
 }
+a{
+  color: white;
+  text-decoration: none;
+}
+a:hover{
+  color: #54489e;
+
+}
 </style>

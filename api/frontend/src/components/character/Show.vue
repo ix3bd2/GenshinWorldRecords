@@ -172,39 +172,53 @@
             <div class="row justify-content-center character-info-rows" v-if="item.artifact[1]">
               <h4 class="title-show">Artifacts</h4>
               <hr />
+              
+              <div class="col-6 artifact-card nopadding">
+                <router-link id="ArtifactRouter"
+              :to="{name: 'ArtifactShow', params: { id: item.artifact[0]['@id'] }}">
+                <img
+                  class="artifacts-character-show"
+                  :src="
+                      item.artifact[0].img 
+                  "
+                />
+                <br/>
+                {{ item.artifact[0].name }}
+                                            </router-link>
 
-              <div class="col-6 nopadding">
+              </div>
+
+              
+              <div class="col-6 artifact-card nopadding">
+                <router-link id="ArtifactRouter"
+              :to="{name: 'ArtifactShow', params: { id: item.artifact[1]['@id'] }}">
                 <img
                   class="artifacts-character-show"
                   :src="
-                    require('@/assets/img/artifacts/' +
-                      item.artifact[0] +
-                      '.png')
+                      item.artifact[1].img
                   "
                 />
+                <br/>
+                {{ item.artifact[1].name }}
+                                            </router-link>
+
               </div>
-              <div class="col-6 nopadding">
-                <img
-                  class="artifacts-character-show"
-                  :src="
-                    require('@/assets/img/artifacts/' +
-                      item.artifact[1] +
-                      '.png')
-                  "
-                />
-              </div>
+
             </div>
             <div class="row character-info-rows" v-if="!item.artifact[1]">
-              <div class="col-12 nopadding">
+              <router-link id="ArtifactRouter"
+              :to="{name: 'ArtifactShow', params: { id: item.artifact[0]['@id'] }}">
+              <div class="col-12 artifact-card nopadding">
                 <img
                   class="artifacts-character-show"
                   :src="
-                    require('@/assets/img/artifacts/' +
-                      item.artifact[0] +
-                      '.png')
+                      item.artifact[0].img
                   "
                 />
+                <br/>
+                {{ item.artifact[0].name }}
               </div>
+              </router-link>
             </div>
             <div class="row justify-content-center character-info-rows">
               <h4 class="title-show">Weapon</h4>
@@ -752,7 +766,7 @@
             >
               <h4 class="title-show">Artifacts</h4>
               <hr />
-
+        
               <div class="col-6 nopadding">
                 <img
                   class="artifacts-character-show"
@@ -1092,5 +1106,9 @@ export default {
   100% {
     transform: rotate(1turn);
   }
+}
+.artifact-card{
+  font-size: 80%;
+  cursor: pointer;
 }
 </style>

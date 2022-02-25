@@ -98,10 +98,6 @@ class Character
     #[Groups("character")]
     #[ORM\Column(type: 'array', nullable: true)]
     private $buff = [];
-
-    #[Groups("character")]
-    #[ORM\Column(type: 'array', nullable: true)]
-    private $artifact = [];
     
     #[Groups(["character","patchChar"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
@@ -129,11 +125,16 @@ class Character
     #[ORM\OneToMany(mappedBy: 'character', targetEntity: Buff::class)]
     private $buffs;
 
+    #[Groups("character")]
+    #[ORM\ManyToMany(targetEntity: Artifact::class, inversedBy: 'characters')]
+    private $artifact;
+
     public function __construct()
     {
         $this->team = new ArrayCollection();
         $this->patchChars = new ArrayCollection();
         $this->buffs = new ArrayCollection();
+        $this->artifact = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -387,18 +388,6 @@ class Character
         return $this;
     }
 
-    public function getArtifact(): ?array
-    {
-        return $this->artifact;
-    }
-
-    public function setArtifact(?array $artifact): self
-    {
-        $this->artifact = $artifact;
-
-        return $this;
-    }
-
     public function getNation(): ?string
     {
         return $this->nation;
@@ -515,6 +504,30 @@ class Character
                 $buff->setCharacter(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Artifact[]
+     */
+    public function getArtifact(): Collection
+    {
+        return $this->artifact;
+    }
+
+    public function addArtifact(Artifact $artifact): self
+    {
+        if (!$this->artifact->contains($artifact)) {
+            $this->artifact[] = $artifact;
+        }
+
+        return $this;
+    }
+
+    public function removeArtifact(Artifact $artifact): self
+    {
+        $this->artifact->removeElement($artifact);
 
         return $this;
     }
