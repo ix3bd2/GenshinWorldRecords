@@ -98,6 +98,10 @@ class Character
     #[Groups("character")]
     #[ORM\Column(type: 'array', nullable: true)]
     private $buff = [];
+
+    #[Groups("character")]
+    #[ORM\Column(type: 'array', nullable: true)]
+    private $artifact = [];
     
     #[Groups(["character","patchChar"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
@@ -125,15 +129,11 @@ class Character
     #[ORM\OneToMany(mappedBy: 'character', targetEntity: Buff::class)]
     private $buffs;
 
-    #[ORM\OneToMany(mappedBy: 'character', targetEntity: Artifact::class)]
-    private $artifact;
-
     public function __construct()
     {
         $this->team = new ArrayCollection();
         $this->patchChars = new ArrayCollection();
         $this->buffs = new ArrayCollection();
-        $this->artifact = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -387,6 +387,18 @@ class Character
         return $this;
     }
 
+    public function getArtifact(): ?array
+    {
+        return $this->artifact;
+    }
+
+    public function setArtifact(?array $artifact): self
+    {
+        $this->artifact = $artifact;
+
+        return $this;
+    }
+
     public function getNation(): ?string
     {
         return $this->nation;
@@ -501,36 +513,6 @@ class Character
             // set the owning side to null (unless already changed)
             if ($buff->getCharacter() === $this) {
                 $buff->setCharacter(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Artifact[]
-     */
-    public function getArtifact(): Collection
-    {
-        return $this->artifact;
-    }
-
-    public function addArtifact(Artifact $artifact): self
-    {
-        if (!$this->artifact->contains($artifact)) {
-            $this->artifact[] = $artifact;
-            $artifact->setCharacter($this);
-        }
-
-        return $this;
-    }
-
-    public function removeArtifact(Artifact $artifact): self
-    {
-        if ($this->artifact->removeElement($artifact)) {
-            // set the owning side to null (unless already changed)
-            if ($artifact->getCharacter() === $this) {
-                $artifact->setCharacter(null);
             }
         }
 
