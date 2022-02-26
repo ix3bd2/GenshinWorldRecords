@@ -2,9 +2,9 @@
   <div class="character-list">
     <h1>Character List</h1>
     <div class="row">
-      <div style="margin-left:7px" class="search-wrapper panel-heading col-sm-12  mb-1">
-        <div class="search-box">
-          <button class="btn-search">
+      <div style="margin-left:7px" class="search-wrapper panel-heading col-sm-12 mb-1">
+        <div v-on:click="startSearch" class="search-box">
+          <button  class="btn-search">
             <i class="fas fa-search"></i>
           </button>
           <input
@@ -13,8 +13,17 @@
             class="input-search"
             placeholder="Type to Search..."
           />
+          
         </div>
+        
       </div>
+        <img v-on:click="startFilterElement('Pyro')" class="filter-element" src="https://static.wikia.nocookie.net/gensin-impact/images/e/e8/Element_Pyro.png" />
+        <img v-on:click="startFilterElement('Electro')" class="filter-element" src="https://static.wikia.nocookie.net/gensin-impact/images/7/73/Element_Electro.png" />
+        <img v-on:click="startFilterElement('Hydro')" class="filter-element" src="https://static.wikia.nocookie.net/gensin-impact/images/3/35/Element_Hydro.png" />
+        <img v-on:click="startFilterElement('Cryo')" class="filter-element" src="https://static.wikia.nocookie.net/gensin-impact/images/8/88/Element_Cryo.png" />
+        <img v-on:click="startFilterElement('Anemo')" class="filter-element" src="https://static.wikia.nocookie.net/gensin-impact/images/a/a4/Element_Anemo.png" />
+        <img v-on:click="startFilterElement('Geo')" class="filter-element" src="https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Element_Geo.png" />
+        <img v-on:click="startFilterElement('Dendro')" class="filter-element" src="https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Element_Dendro.png" />
     </div>
     <!-- <div
       v-if="deletedItem"
@@ -98,6 +107,8 @@ export default {
   mixins: [charactersMixin],
   data() {
     return {
+      search: false,
+      element:false,
       searchQuery: null,
     };
   },
@@ -116,11 +127,16 @@ export default {
 
     }),
     resultQuery() {
-      if (this.searchQuery) {
+      if (this.searchQuery && this.search) {
         return this.items.filter((item) => {
           return this.searchQuery.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
         })
-      } 
+      }
+      if (this.searchQuery && this.element) {
+        return this.items.filter((item) => {
+          return this.searchQuery.toLowerCase().split(' ').every(v => item.element.name.toLowerCase().includes(v))
+        })
+      }
       else {
         return this.items;
       }
@@ -138,6 +154,16 @@ export default {
     filterName(name) {
       return name.replace("-", " ");
     },
+    startSearch() {
+      this.search = true;
+      this.element =false
+      this.searchQuery = ''
+    },
+    startFilterElement(element){
+      this.search = false
+      this.element = true
+      this.searchQuery = element
+    }
   },
 };
 </script>
@@ -247,5 +273,8 @@ export default {
   background-color: transparent;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+.filter-element{
+  width: 71px;
 }
 </style>
