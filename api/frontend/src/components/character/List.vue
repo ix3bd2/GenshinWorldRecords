@@ -3,6 +3,14 @@
     <h1>Character List</h1>
 <div class="search-wrapper panel-heading col-sm-12">
                      <input class="form-control" type="text" v-model="searchQuery" placeholder="Search" />
+                                          <img src="https://static.wikia.nocookie.net/gensin-impact/images/e/e8/Element_Pyro.png">
+                                          <img src="https://static.wikia.nocookie.net/gensin-impact/images/7/73/Element_Electro.png">
+                                          <img src="https://static.wikia.nocookie.net/gensin-impact/images/3/35/Element_Hydro.png">
+                                          <img src="https://static.wikia.nocookie.net/gensin-impact/images/8/88/Element_Cryo.png">
+                                          <img src="https://static.wikia.nocookie.net/gensin-impact/images/a/a4/Element_Anemo.png">
+                                          <img src="https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Element_Geo.png">
+                                          <img src="https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Element_Dendro.png">
+
                 </div>   
     <!-- <div
       v-if="deletedItem"
