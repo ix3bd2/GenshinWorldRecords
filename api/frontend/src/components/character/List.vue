@@ -118,7 +118,7 @@ export default {
     resultQuery() {
       if (this.searchQuery) {
         return this.items.filter((item) => {
-          return this.searchQuery.toLowerCase().split(' ').every(v => item.element.name.toLowerCase().includes(v))
+          return this.searchQuery.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
         })
       } 
       else {
