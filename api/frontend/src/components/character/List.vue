@@ -1,7 +1,9 @@
 <template>
   <div class="character-list">
     <h1>Character List</h1>
-
+<div class="search-wrapper panel-heading col-sm-12">
+                     <input class="form-control" type="text" v-model="searchQuery" placeholder="Search" />
+                </div>   
     <!-- <div
       v-if="deletedItem"
       class="alert alert-success">{{ deletedItem['@id'] }} deleted.</div> -->
@@ -15,13 +17,12 @@
         class="btn btn-primary">Create</router-link>
     </p> -->
 
-    <div class="row">
+    <div class="row" data-aos="fade-up"
+     data-aos-duration="4000">
       <div
         class="col-md-4 col-lg-3 col-sm-6 col-card"
-        v-for="item in items"
+        v-for="item in resultQuery"
         :key="item['@id']"
-        data-aos="fade-up"
-     data-aos-duration="4000"
       >
 <router-link
                 :to="{ name: 'CharacterShow', params: { id: item['@id'] } }">
@@ -80,6 +81,14 @@ import { mapFields } from "vuex-map-fields";
 import { charactersMixin } from "../../mixins/charactersMixin";
 export default {
   mixins: [charactersMixin],
+  data() {
+    return {
+        searchQuery: null,
+    };
+  },
+  created(){
+        console.log(this.items)
+  },
   computed: {
     ...mapFields("character/del", {
       deletedItem: "deleted",
@@ -89,7 +98,17 @@ export default {
       items: "items",
       isLoading: "isLoading",
       view: "view",
+      
     }),
+    resultQuery(){
+      if(this.searchQuery){
+      return this.items.filter((item)=>{
+        return this.searchQuery.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
+      })
+      }else{
+        return this.items;
+      }
+    }
   },
 
   mounted() {
