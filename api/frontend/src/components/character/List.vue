@@ -1,29 +1,107 @@
 <template>
   <div class="character-list">
     <h1>Character List</h1>
+    <hr />
     <div class="row">
-      <div style="margin-left:7px" class="search-wrapper panel-heading col-sm-12 mb-1">
-        <div v-on:click="startSearch" class="search-box">
-          <button  class="btn-search">
-            <i class="fas fa-search"></i>
-          </button>
-          <input
-            type="text"
-            v-model="searchQuery"
-            class="input-search"
-            placeholder="Type to Search..."
-          />
-          
+      <div style="margin-left:7px" class="search-wrapper panel-heading col-sm-2 mb-1">
+        <div class="input-container" v-on:click="startSearch">
+          <input v-model="searchQuery" type="text" required />
+          <label>
+            <i class="fas fa-search"></i> Search
+          </label>
         </div>
-        
       </div>
-        <img v-on:click="startFilterElement('Pyro')" class="filter-element" src="https://static.wikia.nocookie.net/gensin-impact/images/e/e8/Element_Pyro.png" />
-        <img v-on:click="startFilterElement('Electro')" class="filter-element" src="https://static.wikia.nocookie.net/gensin-impact/images/7/73/Element_Electro.png" />
-        <img v-on:click="startFilterElement('Hydro')" class="filter-element" src="https://static.wikia.nocookie.net/gensin-impact/images/3/35/Element_Hydro.png" />
-        <img v-on:click="startFilterElement('Cryo')" class="filter-element" src="https://static.wikia.nocookie.net/gensin-impact/images/8/88/Element_Cryo.png" />
-        <img v-on:click="startFilterElement('Anemo')" class="filter-element" src="https://static.wikia.nocookie.net/gensin-impact/images/a/a4/Element_Anemo.png" />
-        <img v-on:click="startFilterElement('Geo')" class="filter-element" src="https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Element_Geo.png" />
-        <img v-on:click="startFilterElement('Dendro')" class="filter-element" src="https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Element_Dendro.png" />
+      <div class="col-lg-8 col-md-12">
+        <img
+          v-on:click="startFilterElement('Pyro')"
+          v-if="!pyro"
+          class="filter-element pyro-element"
+          src="https://static.wikia.nocookie.net/gensin-impact/images/e/e8/Element_Pyro.png"
+        />
+        <img
+          v-on:click="startFilterElement('Pyro')"
+          v-if="pyro"
+          class="active-filter pyro-element"
+          src="https://static.wikia.nocookie.net/gensin-impact/images/e/e8/Element_Pyro.png"
+        />
+        <img
+          v-on:click="startFilterElement('Electro')"
+          v-if="!electro"
+          class="filter-element electro-element"
+          src="https://static.wikia.nocookie.net/gensin-impact/images/7/73/Element_Electro.png"
+        />
+        <img
+          v-on:click="startFilterElement('Electro')"
+          v-if="electro"
+          class="active-filter electro-element"
+          src="https://static.wikia.nocookie.net/gensin-impact/images/7/73/Element_Electro.png"
+        />
+        <img
+          v-on:click="startFilterElement('Hydro')"
+          v-if="!hydro"
+          class="filter-element hydro-element"
+          src="https://static.wikia.nocookie.net/gensin-impact/images/3/35/Element_Hydro.png"
+        />
+        <img
+          v-on:click="startFilterElement('Hydro')"
+          v-if="hydro"
+          class="active-filter hydro-element"
+          src="https://static.wikia.nocookie.net/gensin-impact/images/3/35/Element_Hydro.png"
+        />
+
+        <img
+          v-on:click="startFilterElement('Cryo')"
+          v-if="!cryo"
+          class="filter-element cryo-element"
+          src="https://static.wikia.nocookie.net/gensin-impact/images/8/88/Element_Cryo.png"
+        />
+        <img
+          v-on:click="startFilterElement('Cryo')"
+          v-if="cryo"
+          class="active-filter cryo-element"
+          src="https://static.wikia.nocookie.net/gensin-impact/images/8/88/Element_Cryo.png"
+        />
+
+        <img
+          v-on:click="startFilterElement('Anemo')"
+          v-if="!anemo"
+          class="filter-element anemo-element"
+          src="https://static.wikia.nocookie.net/gensin-impact/images/a/a4/Element_Anemo.png"
+        />
+        <img
+          v-on:click="startFilterElement('Anemo')"
+          v-if="anemo"
+          class="active-filter anemo-element"
+          src="https://static.wikia.nocookie.net/gensin-impact/images/a/a4/Element_Anemo.png"
+        />
+
+        <img
+          v-on:click="startFilterElement('Geo')"
+          v-if="!geo"
+          class="filter-element geo-element"
+          src="https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Element_Geo.png"
+        />
+        <img
+          v-on:click="startFilterElement('Geo')"
+          v-if="geo"
+          class="active-filter geo-element"
+          src="https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Element_Geo.png"
+        />
+
+        <img
+          v-on:click="startFilterElement('Dendro')"
+          v-if="!dendro"
+          class="filter-element dendro-element"
+          src="https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Element_Dendro.png"
+        />
+        <img
+          v-on:click="startFilterElement('Dendro')"
+          v-if="dendro"
+          class="active-filter dendro-element"
+          src="https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Element_Dendro.png"
+        />
+      </div>
+      <div class="col-2" style="margin-right:7px"></div>
     </div>
     <!-- <div
       v-if="deletedItem"
@@ -107,8 +185,15 @@ export default {
   mixins: [charactersMixin],
   data() {
     return {
+      geo: false,
+      pyro: false,
+      cryo: false,
+      hydro: false,
+      electro: false,
+      anemo: false,
+      dendro: false,
       search: false,
-      element:false,
+      element: false,
       searchQuery: null,
     };
   },
@@ -156,13 +241,48 @@ export default {
     },
     startSearch() {
       this.search = true;
-      this.element =false
-      this.searchQuery = ''
+      this.element = false;
+      this.geo = false,
+        this.pyro = false,
+        this.cryo = false,
+        this.hydro = false,
+        this.electro = false,
+        this.anemo = false,
+        this.dendro = false,
+        this.searchQuery = ''
     },
-    startFilterElement(element){
-      this.search = false
+    startFilterElement(element) {
+      this.geo = false,
+        this.pyro = false,
+        this.cryo = false,
+        this.hydro = false,
+        this.electro = false,
+        this.anemo = false,
+        this.dendro = false,
+        this.search = false
       this.element = true
       this.searchQuery = element
+      if (element == "Geo") {
+        this.geo = true;
+      }
+      if (element == "Hydro") {
+        this.hydro = true;
+      }
+      if (element == "Cryo") {
+        this.cryo = true;
+      }
+      if (element == "Pyro") {
+        this.pyro = true;
+      }
+      if (element == "Dendro") {
+        this.dendro = true;
+      }
+      if (element == "Electro") {
+        this.electro = true;
+      }
+      if (element == "Anemo") {
+        this.anemo = true;
+      }
     }
   },
 };
@@ -225,56 +345,104 @@ export default {
   height: fit-content;
   position: relative;
 }
-.input-search {
-  height: 50px;
-  width: 50px;
-  border-style: none;
-  padding: 10px;
-  font-size: 18px;
-  letter-spacing: 2px;
-  outline: none;
-  border-radius: 25px;
+.filter-element {
+  height: 47px;
+  margin: 5px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+  transition: ease-out 0.3s;
+}
+.filter-element:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
+    0 6px 20px 0 rgba(255, 255, 255, 0.19);
+  -webkit-filter: none; /* Safari 6.0 - 9.0 */
+  filter: none;
+}
+.active-filter {
+  height: 47px;
+  margin: 5px;
+}
+.input-container {
+  position: relative;
+  margin-top: 10px;
+}
+.input-container label {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 16px;
+  color: #fff;
+  pointer-event: none;
   transition: all 0.5s ease-in-out;
-  background-color: #22a6b3;
-  padding-right: 40px;
+}
+.input-container input {
+  border: 0;
+  border-bottom: 1px solid #555;
+  background: transparent;
+  width: 100%;
+  padding: 8px 0 5px 0;
+  font-size: 16px;
   color: #fff;
 }
-.input-search::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 18px;
-  letter-spacing: 2px;
-  font-weight: 100;
-}
-.btn-search {
-  width: 50px;
-  height: 50px;
-  border-style: none;
-  font-size: 20px;
-  font-weight: bold;
+.input-container input:focus {
+  border: none;
   outline: none;
+  border-bottom: 1px solid #54489e;
+}
+.btn {
+  color: #fff;
+  background-color: #54489e;
+  outline: none;
+  border: 0;
+  color: #fff;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  margin-top: 50px;
+  border-radius: 2px;
   cursor: pointer;
+  position: relative;
+}
+/*.btn:after{
+	content:"";
+	position:absolute;
+	background:rgba(0,0,0,0.50);
+	top:0;
+	right:0;
+	width:100%;
+	height:100%;
+}*/
+.input-container input:focus ~ label,
+.input-container input:valid ~ label {
+  top: -12px;
+  font-size: 12px;
+}
+.pyro-element {
+  border: 2px solid #f08445;
   border-radius: 50%;
-  position: absolute;
-  right: 0px;
-  color: #ffffff;
-  background-color: transparent;
-  pointer-events: painted;
 }
-.btn-search:focus ~ .input-search {
-  width: 300px;
-  border-radius: 0px;
-  background-color: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+.electro-element {
+  border: 2px solid #dfbafc;
+  border-radius: 50%;
 }
-.input-search:focus {
-  width: 300px;
-  border-radius: 0px;
-  background-color: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+.hydro-element {
+  border: 2px solid #04e3fc;
+  border-radius: 50%;
 }
-.filter-element{
-  width: 71px;
+.cryo-element {
+  border: 2px solid #97edf3;
+  border-radius: 50%;
+}
+.anemo-element {
+  border: 2px solid #95ecc2;
+  border-radius: 50%;
+}
+.geo-element {
+  border: 2px solid #e0ba4f;
+  border-radius: 50%;
+}
+.dendro-element {
+  border: 2px solid #a7dc25;
+  border-radius: 50%;
 }
 </style>

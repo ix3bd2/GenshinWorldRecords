@@ -17,7 +17,7 @@ export var charactersMixin = {
                 return "2px solid #f08445";
             }
             if (element == "Dendro") {
-                return "2px solid #dfbafc";
+                return "2px solid #a7dc25";
             }
             if (element == "Electro") {
                 return "2px solid #dfbafc";
