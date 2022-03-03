@@ -29,7 +29,7 @@
       </div>
     </div>
     <hr />
-    <the-pagination v-if="view" :view="view" @previous="getPage" @next="getPage" />
+    <the-pagination v-if="view && !searchQuery" :view="view" @previous="getPage" @next="getPage" />
   </div>
 </template>
 
@@ -37,6 +37,9 @@
 import { mapActions } from 'vuex';
 import { mapFields } from 'vuex-map-fields';
 import ThePagination from '../ui/ThePagination.vue';
+import { ENTRYPOINT } from '../../config/entrypoint'
+import axios from 'axios';
+
 export default {
   components: {
     "the-pagination": ThePagination
@@ -44,7 +47,13 @@ export default {
   data() {
     return {
       searchQuery: null,
+      fullData:null,
     };
+  },
+  created(){
+    axios
+  .get(ENTRYPOINT + '/weapons?pagination=false')
+  .then(response => (this.fullData = response.data['hydra:member']))
   },
   computed: {
     ...mapFields('weapon/del', {
@@ -58,7 +67,7 @@ export default {
     }),
     resultQuery() {
       if (this.searchQuery) {
-        return this.items.filter((item) => {
+        return this.fullData.filter((item) => {
           return this.searchQuery.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
         })
       }

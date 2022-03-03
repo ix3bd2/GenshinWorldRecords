@@ -365,60 +365,8 @@ export default {
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
     0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
-.input-container {
-  position: relative;
-  margin-top: 10px;
-}
-.input-container label {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  font-size: 16px;
-  color: #fff;
-  pointer-event: none;
-  transition: all 0.5s ease-in-out;
-}
-.input-container input {
-  border: 0;
-  border-bottom: 1px solid #555;
-  background: transparent;
-  width: 100%;
-  padding: 8px 0 5px 0;
-  font-size: 16px;
-  color: #fff;
-}
-.input-container input:focus {
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #54489e;
-}
-.btn {
-  color: #fff;
-  background-color: #54489e;
-  outline: none;
-  border: 0;
-  color: #fff;
-  padding: 10px 20px;
-  text-transform: uppercase;
-  margin-top: 50px;
-  border-radius: 2px;
-  cursor: pointer;
-  position: relative;
-}
-/*.btn:after{
-	content:"";
-	position:absolute;
-	background:rgba(0,0,0,0.50);
-	top:0;
-	right:0;
-	width:100%;
-	height:100%;
-}*/
-.input-container input:focus ~ label,
-.input-container input:valid ~ label {
-  top: -12px;
-  font-size: 12px;
-}
+
+
 .pyro-element {
   border: 2px solid #f08445;
   border-radius: 50%;
