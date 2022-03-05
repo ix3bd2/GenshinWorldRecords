@@ -14,16 +14,14 @@
     </div>
     <div class="row" data-aos="fade-up" data-aos-duration="4000">
       <div class="col-6 col-md-3 col-lg-2" v-for="item in resultQuery" :key="item['@id']">
-
         <div id="WeaponCard">
           <div class="card-body">
-             <router-link id="WeaponRouter"
-              :to="{name: 'WeaponShow', params: { id: item['@id'] }}">
-            <h5 class="card-title">
-              <img id="WeaponImg" :src="item.img" />
-            </h5>
-            <h6 class="card-subtitle mt-3" style="color:whit!important;">{{ item.name }}</h6>
-             </router-link>
+            <router-link id="WeaponRouter" :to="{ name: 'WeaponShow', params: { id: item['@id'] } }">
+              <h5 class="card-title">
+                <img id="WeaponImg" :src="item.img" />
+              </h5>
+              <h6 class="card-subtitle mt-3" style="color:whit!important;">{{ item.name }}</h6>
+            </router-link>
           </div>
         </div>
       </div>
@@ -47,13 +45,13 @@ export default {
   data() {
     return {
       searchQuery: null,
-      fullData:null,
+      fullData: null,
     };
   },
-  created(){
+  created() {
     axios
-  .get(ENTRYPOINT + '/weapons?pagination=false')
-  .then(response => (this.fullData = response.data['hydra:member']))
+      .get(ENTRYPOINT + '/weapons?pagination=false')
+      .then(response => (this.fullData = response.data['hydra:member']))
   },
   computed: {
     ...mapFields('weapon/del', {
@@ -104,8 +102,8 @@ export default {
     drop-shadow(-1px -1px 0 #f5f5f5d7);
   filter: drop-shadow(1px 1px 0 #f5f5f5d7) drop-shadow(-1px -1px 0 #f5f5f5d7);
 }
-#WeaponRouter{
-      color: white;
-    text-decoration: none;
+#WeaponRouter {
+  color: white;
+  text-decoration: none;
 }
 </style>
