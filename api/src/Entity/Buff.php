@@ -7,10 +7,11 @@ use App\Repository\BuffRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: BuffRepository::class)]
 #[ApiResource(
-   
+    normalizationContext: ['groups' => ['buffs']]
 )]
 class Buff
 {
@@ -19,18 +20,23 @@ class Buff
     #[ORM\Column(type: 'integer')]
     private $id;
 
+    #[Groups("buffs")]
     #[ORM\Column(type: 'text', nullable: true)]
     private $img;
 
+    #[Groups("buffs")]
     #[ORM\Column(type: 'text', nullable: true)]
     private $description;
 
+    #[Groups("buffs")]
     #[ORM\ManyToOne(targetEntity: Character::class, inversedBy: 'buffs')]
     private $character;
 
+    #[Groups("buffs")]
     #[ORM\ManyToOne(targetEntity: Weapon::class, inversedBy: 'buffs')]
     private $weapon;
 
+    #[Groups("buffs")]
     #[ORM\ManyToOne(targetEntity: Artifact::class, inversedBy: 'buffs')]
     private $aritfact;
 

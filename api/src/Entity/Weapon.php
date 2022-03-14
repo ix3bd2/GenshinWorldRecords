@@ -16,16 +16,16 @@ use Symfony\Component\Serializer\Annotation\Groups;
 )]class Weapon
 {
     #[ORM\Id]
-    #[Groups("character")]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups(["character","buffs"])]
     private $id;
 
-    #[Groups("character")]
+    #[Groups(["character","buffs"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $name;
 
-    #[Groups("character")]
+    #[Groups(["character","buffs"])]
     #[ORM\Column(type: 'text', nullable: true)]
     private $img;
 
@@ -47,7 +47,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $substate;
 
-    #[Groups("character")]
+    #[Groups(["character","buffs"])]
     #[ORM\Column(type: 'text', nullable: true)]
     private $passive;
 

@@ -20,10 +20,10 @@ class Character
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    #[Groups("character")]
+    #[Groups(["character","buffs"])]
     private $id;
 
-    #[Groups(["character","patchChar"])]
+    #[Groups(["character","patchChar","buffs"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $name;
 
@@ -83,7 +83,7 @@ class Character
     #[ORM\Column(type: 'text', nullable: true)]
     private $videoUrl;
 
-    #[Groups(["character","patchChar"])]
+    #[Groups(["character","patchChar","buffs"])]
     #[ORM\ManyToOne(targetEntity: Element::class, inversedBy: 'characters')]
     private $element;
 
@@ -106,15 +106,15 @@ class Character
     #[ORM\OneToMany(mappedBy: 'characters', targetEntity: PatchChar::class)]
     private $patchChars;
 
-    #[Groups("character")]
+    #[Groups(["character","buffs"])]
     #[ORM\Column(type: 'text', nullable: true)]
     private $AAimg;
 
-    #[Groups("character")]
+    #[Groups(["character","buffs"])]
     #[ORM\Column(type: 'text', nullable: true)]
     private $talentEimg;
     
-    #[Groups("character")]
+    #[Groups(["character","buffs"])]
     #[ORM\Column(type: 'text', nullable: true)]
     private $talentQimg;
 

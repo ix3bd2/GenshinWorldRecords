@@ -19,19 +19,21 @@ class Artifact
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups(["character","buffs"])]
     private $id;
 
-    #[Groups("character")]
+    #[Groups(["character","buffs"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $name;
 
-    #[Groups("character")]
     #[ORM\Column(type: 'text', nullable: true)]
     private $img;
 
+    #[Groups(["character","buffs"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $halfset;
 
+    #[Groups(["character","buffs"])]
     #[ORM\Column(type: 'text', nullable: true)]
     private $fullset;
 
