@@ -1,0 +1,6 @@
+export const RESET = "BUFF_LIST_RESET";
+export const SET_ITEMS = "BUFF_LIST_SET_ITEMS";
+export const SET_ERROR = "BUFF_LIST_SET_ERROR";
+export const SET_SELECT_ITEMS = "BUFF_LIST_SET_SELECT_ITEMS";
+export const SET_VIEW = "BUFF_LIST_SET_VIEW";
+export const TOGGLE_LOADING = "BUFF_LIST_TOGGLE_LOADING";

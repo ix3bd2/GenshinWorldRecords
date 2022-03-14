@@ -12,6 +12,8 @@ import weaponRoutes from './router/weapon';
 import weapon from './store/modules/weapon/';
 import artifactRoutes from './router/artifact';
 import artifact from './store/modules/artifact/';
+import buffRoutes from './router/buff';
+import buff from './store/modules/buff/';
 
 Vue.use(Vuex)
 Vue.use(VueRouter)
@@ -20,6 +22,7 @@ const routes = [
     ...characterRoutes,
     ...artifactRoutes,
     ...weaponRoutes,
+    ...buffRoutes,
     { path: '/', name: 'Home', component: homePage },
 
 
@@ -40,6 +43,7 @@ export const store = new Vuex.Store({
         character,
         artifact,
         patchchar,
+        buff,
         weapon
     }
 });

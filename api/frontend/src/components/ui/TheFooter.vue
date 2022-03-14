@@ -21,11 +21,11 @@
 
 					<a href="#">Spiral Abyss Teams&nbsp;</a>
 
-					<a href="#">Weapons&nbsp;</a>
+					<a href="/weapons">Weapons&nbsp;</a>
 
-					<a href="#">Artifacts&nbsp;</a>
+					<a href="/artifacts">Artifacts&nbsp;</a>
 
-					<a href="#">Buffs&nbsp;</a>
+					<a href="/buffs">Buffs&nbsp;</a>
 				</p>
 
 				<p>Genshin World Records &copy; 2021</p>

@@ -29,7 +29,7 @@
           <a class="nav-link" href="/artifacts">Artifacts</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/characters">Buffs</a>
+          <a class="nav-link" href="/buffs">Buffs</a>
         </li>
       </ul>
     </div>
