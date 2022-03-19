@@ -1,129 +1,79 @@
 <template>
   <div class="buffs-list">
     <h1>Buff List</h1>
-
-    <div
-      v-if="isLoading"
-      class="alert alert-info">Loading...</div>
-    <div
-      v-if="deletedItem"
-      class="alert alert-success">{{ deletedItem['@id'] }} deleted.</div>
-    <div
-      v-if="error"
-      class="alert alert-danger">{{ error }}</div>
-
-    <p>
-      <router-link
-        :to="{ name: 'BuffCreate' }"
-        class="btn btn-primary">Create</router-link>
-    </p>
-
-    <table class="table table-responsive table-striped table-hover">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>img</th>
-          <th>description</th>
-          <th>character</th>
-          <th>weapon</th>
-          <th>aritfact</th>
-          <th colspan="2"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="item in items"
-          :key="item['@id']">
-          <th scope="row">
-            <router-link
-              v-if="item"
-              :to="{name: 'BuffShow', params: { id: item['@id'] }}">
-              {{ item['@id'] }}
+    <hr />
+    <div class="row" data-aos="fade-up" data-aos-duration="4000">
+      <div class="col-6 col-md-3 col-lg-2" v-for="item in items" :key="item['@id']">
+        <div class="buff-card" v-if="item.character">
+          <div class="card-body">
+            <router-link id="BuffRouter" :to="{ name: 'BuffShow', params: { id: item['@id'] } }">
+              <h5 class="card-title">
+                <img
+                  id="CharacterElementBuffsList"
+                  v-bind:src="item.character['element']['img']"
+                  alt="Card image cap"
+                  v-bind:style="{ border: getElementBorderColor(item.character['element']['name']) }"
+                />
+                <img
+                  :src="require('@/assets/img/pPicture/' + item.character['name'] + '.jpg')"
+                  style="width:106px"
+                  class="character-buff-icon"
+                  v-bind:style="{ border: getElementBorderColor(item.character['element']['name']) }"
+                />
+              </h5>
+              <h6 class="card-subtitle mt-3" style="color:whit!important;">{{ filterName(item.character.name) }}</h6>
             </router-link>
-          </th>
-        <td>
-            {{ item['img'] }}
-        </td>
-        <td>
-            {{ item['description'] }}
-        </td>
-        <td>
-            {{ item['character'] }}
-        </td>
-        <td>
-            {{ item['weapon'] }}
-        </td>
-        <td>
-            {{ item['aritfact'] }}
-        </td>
-          <td>
-            <router-link
-              :to="{name: 'BuffShow', params: { id: item['@id'] }}">
-              <span
-                class="fa fa-search"
-                aria-hidden="true"></span>
-              <span class="sr-only">Show</span>
+          </div>
+        </div>
+        <div class="buff-card" v-if="item.artifact">
+          <div class="card-body">
+            <router-link id="BuffRouter" :to="{ name: 'ArtifactShow', params: { id: item.artifact['@id'] } }">
+              <h5 class="card-title">
+                <img :src="item.artifact.img" style="width:106px;" id="BuffImg" />
+              </h5>
+              <h6 class="card-subtitle mt-3" style="color:whit!important;">{{ item.artifact.name }}</h6>
             </router-link>
-          </td>
-          <td>
-            <router-link :to="{name: 'BuffUpdate', params: { id: item['@id'] }}">
-              <span
-                class="fa fa-pencil"
-                aria-hidden="true"></span>
-              <span class="sr-only">Edit</span>
+          </div>
+        </div>
+        <div class="buff-card" v-if="item.weapon">
+          <div class="card-body">
+            <router-link id="BuffRouter" :to="{ name: 'WeaponShow', params: { id: item.weapon['@id'] } }">
+              <h5 class="card-title">
+                <img :src="item.weapon.img" style="width:106px;" id="BuffImg" />
+              </h5>
+              <h6 class="card-subtitle mt-3" style="color:whit!important;">{{ item.weapon.name }}</h6>
             </router-link>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <nav aria-label="Page navigation" v-if="view">
-      <router-link
-        :to="view['hydra:first'] ? view['hydra:first'] : 'BuffContactList'"
-        :class="{ disabled: !view['hydra:previous'] }"
-        class="btn btn-primary">
-        <span aria-hidden="true">&lArr;</span> First
-      </router-link>
-      &nbsp;
-      <router-link
-        :to="!view['hydra:previous'] || view['hydra:previous'] === view['hydra:first'] ? 'BuffList' : view['hydra:previous']"
-        :class="{ disabled: !view['hydra:previous'] }"
-        class="btn btn-primary">
-        <span aria-hidden="true">&larr;</span> Previous
-      </router-link>
-
-      <router-link
-        :to="view['hydra:next'] ? view['hydra:next'] : '#'"
-        :class="{ disabled: !view['hydra:next'] }"
-        class="btn btn-primary">
-        Next <span aria-hidden="true">&rarr;</span>
-      </router-link>
-
-      <router-link
-        :to="view['hydra:last'] ? view['hydra:last'] : '#'"
-        :class="{ disabled: !view['hydra:next'] }"
-        class="btn btn-primary">
-        Last <span aria-hidden="true">&rArr;</span>
-      </router-link>
-    </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <the-pagination v-if="view && !searchQuery" :view="view" @previous="getPage" @next="getPage" />
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
 import { mapFields } from 'vuex-map-fields';
+import ThePagination from '../ui/ThePagination.vue';
+import { charactersMixin } from "../../mixins/charactersMixin";
 
 export default {
+  mixins: [charactersMixin],
+  components: {
+    "the-pagination": ThePagination
+  },
   computed: {
-      ...mapFields('buff/del', {
-          deletedItem: 'deleted',
-      }),
-      ...mapFields('buff/list', {
-          error: 'error',
-          items: 'items',
-          isLoading: 'isLoading',
-          view: 'view',
-      }),
+    ...mapFields('buff/del', {
+      deletedItem: 'deleted',
+    }),
+    ...mapFields('buff/list', {
+      error: 'error',
+      items: 'items',
+      isLoading: 'isLoading',
+      view: 'view',
+    }),
+
   },
 
   mounted() {
@@ -134,10 +84,45 @@ export default {
     ...mapActions({
       getPage: 'buff/list/default',
     }),
+    filterName(name) {
+      return name.replace("-", " ");
+    },
   },
 };
 </script>
 <style>
 .buffs-list {
   padding: 4%;
-}</style>
+}
+#CharacterElementBuffsList {
+  width: 30px;
+  position: absolute;
+  z-index: 1;
+  background-color: #19232f;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgb(255 255 255 / 20%),
+    0 6px 20px 0 rgb(255 255 255 / 19%);
+}
+.buff-card {
+  margin: 3%;
+  transition: ease-out 0.3s;
+}
+.buff-card:hover {
+  transform: scale(1.05);
+}
+.Buffs-list {
+  padding: 4%;
+}
+.character-buff-icon {
+  border-radius: 50%;
+}
+#BuffImg {
+  -webkit-filter: drop-shadow(1px 1px 0 #f5f5f5d7)
+    drop-shadow(-1px -1px 0 #f5f5f5d7);
+  filter: drop-shadow(1px 1px 0 #f5f5f5d7) drop-shadow(-1px -1px 0 #f5f5f5d7);
+}
+#BuffRouter {
+  color: white;
+  text-decoration: none;
+}
+</style>

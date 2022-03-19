@@ -28,7 +28,7 @@
                       padding-left: 0px;
                       font-size: 1.3rem;
                     "
-                  >{{ item["name"] }}</a>
+                  >{{ filterName(item["name"]) }}</a>
                 </li>
               </ul>
               <ul class="nav ms-auto mr-5">
@@ -441,7 +441,7 @@
                     }"
                   />
                 </div>
-                <p>{{ item['team'][0]['name'] }}</p>
+                <p>{{ filterName(item['team'][0]['name']) }}</p>
               </div>
               <div v-on:click="showChar2">
                 <img
@@ -469,7 +469,7 @@
                     }"
                   />
                 </div>
-                <p>{{ item['team'][1]['name'] }}</p>
+                <p>{{ filterName(item['team'][1]['name']) }}</p>
               </div>
               <div v-on:click="showChar3">
                 <img
@@ -497,7 +497,7 @@
                     }"
                   />
                 </div>
-                <p>{{ item['team'][2]['name'] }}</p>
+                <p>{{ filterName(item['team'][2]['name']) }}</p>
               </div>
             </div>
 
@@ -1297,6 +1297,9 @@ export default {
       reset: "character/show/reset",
       retrieve: "character/show/retrieve",
     }),
+    filterName(name) {
+      return name.replace("-", " ");
+    },
     showInfo() {
       this.info = true;
       this.team = false;

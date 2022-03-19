@@ -21,11 +21,11 @@ class Element
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[Groups(["character","patchChar"])]
+    #[Groups(["character","patchChar","buffs"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $name;
 
-    #[Groups(["character","patchChar"])]
+    #[Groups(["character","patchChar","buffs"])]
     #[ORM\Column(type: 'text', nullable: true)]
     
     private $img;

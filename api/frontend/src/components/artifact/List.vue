@@ -16,13 +16,15 @@
       <div class="col-6 col-md-3 col-lg-2" v-for="item in resultQuery" :key="item['@id']">
         <div id="ArtifactCard">
           <div class="card-body">
-             <router-link id="ArtifactRouter"
-              :to="{name: 'ArtifactShow', params: { id: item['@id'] }}">
-            <h5 class="card-title">
-              <img style="width:106px;" id="ArtifactImg" :src="item.img" />
-            </h5>
-            <h6 class="card-subtitle mt-3" style="color:whit!important;">{{ item.name }}</h6>
-             </router-link>
+            <router-link
+              id="ArtifactRouter"
+              :to="{ name: 'ArtifactShow', params: { id: item['@id'] } }"
+            >
+              <h5 class="card-title">
+                <img style="width:106px;" id="ArtifactImg" :src="item.img" />
+              </h5>
+              <h6 class="card-subtitle mt-3" style="color:whit!important;">{{ item.name }}</h6>
+            </router-link>
           </div>
         </div>
       </div>
@@ -46,25 +48,25 @@ export default {
   data() {
     return {
       searchQuery: null,
-      fullData:null,
+      fullData: null,
     };
   },
-   created(){
+  created() {
     axios
-  .get(ENTRYPOINT + '/artifacts?pagination=false')
-  .then(response => (this.fullData = response.data['hydra:member']))
+      .get(ENTRYPOINT + '/artifacts?pagination=false')
+      .then(response => (this.fullData = response.data['hydra:member']))
   },
   computed: {
-      ...mapFields('artifact/del', {
-          deletedItem: 'deleted',
-      }),
-      ...mapFields('artifact/list', {
-          error: 'error',
-          items: 'items',
-          isLoading: 'isLoading',
-          view: 'view',
-      }),
-      resultQuery() {
+    ...mapFields('artifact/del', {
+      deletedItem: 'deleted',
+    }),
+    ...mapFields('artifact/list', {
+      error: 'error',
+      items: 'items',
+      isLoading: 'isLoading',
+      view: 'view',
+    }),
+    resultQuery() {
       if (this.searchQuery) {
         return this.fullData.filter((item) => {
           return this.searchQuery.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
@@ -103,8 +105,8 @@ export default {
     drop-shadow(-1px -1px 0 #f5f5f5d7);
   filter: drop-shadow(1px 1px 0 #f5f5f5d7) drop-shadow(-1px -1px 0 #f5f5f5d7);
 }
-#ArtifactRouter{
-      color: white;
-    text-decoration: none;
+#ArtifactRouter {
+  color: white;
+  text-decoration: none;
 }
 </style>

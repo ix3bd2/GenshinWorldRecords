@@ -38,7 +38,7 @@ class Buff
 
     #[Groups("buffs")]
     #[ORM\ManyToOne(targetEntity: Artifact::class, inversedBy: 'buffs')]
-    private $aritfact;
+    private $artifact;
 
 
     public function __construct()
@@ -98,14 +98,14 @@ class Buff
         return $this;
     }
 
-    public function getAritfact(): ?Artifact
+    public function getArtifact(): ?Artifact
     {
-        return $this->aritfact;
+        return $this->artifact;
     }
 
-    public function setAritfact(?Artifact $aritfact): self
+    public function setArtifact(?Artifact $artifact): self
     {
-        $this->aritfact = $aritfact;
+        $this->artifact = $artifact;
 
         return $this;
     }

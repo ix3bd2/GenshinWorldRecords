@@ -26,6 +26,7 @@ class Artifact
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $name;
 
+    #[Groups(["character","buffs"])]
     #[ORM\Column(type: 'text', nullable: true)]
     private $img;
 
@@ -37,7 +38,7 @@ class Artifact
     #[ORM\Column(type: 'text', nullable: true)]
     private $fullset;
 
-    #[ORM\OneToMany(mappedBy: 'aritfact', targetEntity: Buff::class)]
+    #[ORM\OneToMany(mappedBy: 'artifact', targetEntity: Buff::class)]
     private $buffs;
 
     #[ORM\ManyToMany(targetEntity: Character::class, mappedBy: 'artifact')]
@@ -118,7 +119,7 @@ class Artifact
     {
         if (!$this->buffs->contains($buff)) {
             $this->buffs[] = $buff;
-            $buff->setAritfact($this);
+            $buff->setArtifact($this);
         }
 
         return $this;
@@ -128,8 +129,8 @@ class Artifact
     {
         if ($this->buffs->removeElement($buff)) {
             // set the owning side to null (unless already changed)
-            if ($buff->getAritfact() === $this) {
-                $buff->setAritfact(null);
+            if ($buff->getArtifact() === $this) {
+                $buff->setArtifact(null);
             }
         }
 
