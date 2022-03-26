@@ -1,7 +1,6 @@
 # GenshinWorldRecordsBE
 The backend And the frontend (togahter)of the website Genshin world records.
 
-Very proud of the website.
 
 #
 
