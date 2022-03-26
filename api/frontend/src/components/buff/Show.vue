@@ -1,18 +1,18 @@
 <template>
-   <div v-if="item" class="buff-show">
+  <div v-if="item" class="buff-show">
     <div>
       <img
-                  id="CharacterElementBuffsList"
-                  v-bind:src="item.character['element']['img']"
-                  v-bind:style="{ border: getElementBorderColor(item.character['element']['name']) }"
-                />
-                <img
-                id="buffImgShow"
-                  :src="require('@/assets/img/pPicture/' + item.character['name'] + '.jpg')"
-                  style="width:106px"
-                  class="character-buff-icon"
-                  v-bind:style="{ border: getElementBorderColor(item.character['element']['name']) }"
-                />
+        id="CharacterElementBuffsList"
+        v-bind:src="item.character['element']['img']"
+        v-bind:style="{ border: getElementBorderColor(item.character['element']['name']) }"
+      />
+      <img
+        id="buffImgShow"
+        :src="require('@/assets/img/pPicture/' + item.character['name'] + '.jpg')"
+        style="width:106px"
+        class="character-buff-icon"
+        v-bind:style="{ border: getElementBorderColor(item.character['element']['name']) }"
+      />
       <h5 class="mt-2">{{ item.character.name }}</h5>
     </div>
     <div class="row">
@@ -23,9 +23,11 @@
             <div
               style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
             >
-              <span style="font-weight: 900;background-color:#1f1f1f; padding: 0 10px;">Provided buffs</span>
+              <span
+                style="font-weight: 900;background-color:#1f1f1f; padding: 0 10px;"
+              >Provided buffs</span>
             </div>
-            <div class="mt-3">{{  }}</div>
+            <div class="mt-3 text-block">{{ item.description }}</div>
           </li>
         </ul>
       </div>
@@ -52,11 +54,11 @@ export default {
     }),
   },
 
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset();
   },
 
-  created () {
+  created() {
     this.retrieve(decodeURIComponent(this.$route.params.id));
   },
 
@@ -66,8 +68,7 @@ export default {
       reset: 'buff/show/reset',
       retrieve: 'buff/show/retrieve',
     }),
-
-    deleteItem (item) {
+    deleteItem(item) {
       if (window.confirm('Are you sure you want to delete this item?')) {
         this.del(item).then(() => this.$router.push({ name: 'BuffList' }));
       }
@@ -80,7 +81,6 @@ export default {
   padding: 4%;
 }
 #buffImgShow {
-
   filter: drop-shadow(1px 1px 0 #f5f5f5d7) drop-shadow(-1px -1px 0 #f5f5f5d7);
 }
 #CharacterElementBuffsList {
@@ -94,5 +94,9 @@ export default {
 }
 .character-buff-icon {
   border-radius: 50%;
+}
+.text-block {
+white-space: pre-line;
+    
 }
 </style>
