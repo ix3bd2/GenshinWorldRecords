@@ -36,7 +36,7 @@
             <a class="nav-link" href="/artifacts"><img class="navbar-items-icon" src="@/assets/img/artifacts-icon.webp" />Artifacts</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/buffs"><img class="navbar-items-icon" src="@/assets/img/atk-up-icon.webp" />Buffs</a>
+            <a class="nav-link" href="/buffs"><img class="navbar-items-icon" src="@/assets/img/atk-up-icon.webp" />&nbsp;Buffs</a>
           </li>
         </ul>
       </div>
