@@ -1291,16 +1291,16 @@
             </router-link>
           </div>
         </div>
-        <div class="buff-card" v-if="item.weapon">
+        <div class="buff-card" v-if="buff.weapon">
           <div class="card-body">
             <router-link
               id="BuffRouter"
               :to="{ name: 'WeaponShow', params: { id: item.weapon['@id'] } }"
             >
               <h5 class="card-title">
-                <img :src="item.weapon.img" style="width:106px;" id="BuffImg" />
+                <img :src="buff.weapon.img" style="width:106px;" id="BuffImg" />
               </h5>
-              <h6 class="card-subtitle mt-3" style="color:whit!important;">{{ item.weapon.name }}</h6>
+              <h6 class="card-subtitle mt-3" style="color:whit!important;">{{ buff.weapon.name }}</h6>
             </router-link>
           </div>
         </div>
