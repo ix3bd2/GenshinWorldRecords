@@ -1250,11 +1250,68 @@
           </div>
         </div>
         <!-- buffs -->
-        <div v-if="buffs" class="row info-section nopadding"></div>
+        <div v-if="buffs" class="row info-section nopadding">
+
+
+<div class="col-6 col-md-3 col-lg-2" v-for="buff in item.buffs" :key="buff['@id']">
+        <div class="buff-card" v-if="buff.character">
+          <div class="card-body">
+            <router-link id="BuffRouter" :to="{ name: 'BuffShow', params: { id: buff['@id'] } }">
+              <h5 class="card-title">
+                <img
+                  id="CharacterElementBuffsList"
+                  v-bind:src="buff.character['element']['img']"
+                  v-bind:style="{ border: getElementBorderColor(buff.character['element']['name']) }"
+                />
+                <img
+                  :src="require('@/assets/img/pPicture/' + buff.character['name'] + '.jpg')"
+                  style="width:106px"
+                  class="character-buff-icon"
+                  v-bind:style="{ border: getElementBorderColor(buff.character['element']['name']) }"
+                />
+              </h5>
+              <h6
+                class="card-subtitle mt-3"
+                style="color:whit!important;"
+              >{{ filterName(buff.character.name) }}</h6>
+            </router-link>
+          </div>
+        </div>
+        
+       <div class="buff-card" v-if="buff.artifact">
+          <div class="card-body">
+            <router-link
+              id="BuffRouter"
+              :to="{ name: 'ArtifactShow', params: { id: buff.artifact['@id'] } }"
+            >
+              <h5 class="card-title">
+                <img :src="buff.artifact.img" style="width:106px;" id="BuffImg" />
+              </h5>
+              <h6 class="card-subtitle mt-3" style="color:whit!important;">{{ buff.artifact.name }}</h6>
+            </router-link>
+          </div>
+        </div>
+        <div class="buff-card" v-if="item.weapon">
+          <div class="card-body">
+            <router-link
+              id="BuffRouter"
+              :to="{ name: 'WeaponShow', params: { id: item.weapon['@id'] } }"
+            >
+              <h5 class="card-title">
+                <img :src="item.weapon.img" style="width:106px;" id="BuffImg" />
+              </h5>
+              <h6 class="card-subtitle mt-3" style="color:whit!important;">{{ item.weapon.name }}</h6>
+            </router-link>
+          </div>
+        </div>
+        </div>
       </div>
 
-      <div class="col-lg-2 col-md-1"></div>
-    </div>
+        </div>
+        <div class="col-lg-2 col-md-1"></div>
+
+      </div>
+
   </div>
 </template>
 
