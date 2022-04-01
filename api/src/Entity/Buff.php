@@ -20,11 +20,11 @@ class Buff
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[Groups("buffs")]
+    #[Groups("buffs", "character")]
     #[ORM\Column(type: 'text', nullable: true)]
     private $img;
 
-    #[Groups("buffs")]
+    #[Groups("buffs", "character")]
     #[ORM\Column(type: 'text', nullable: true)]
     private $description;
 
@@ -32,11 +32,11 @@ class Buff
     #[ORM\ManyToOne(targetEntity: Character::class, inversedBy: 'buffs')]
     private $character;
 
-    #[Groups("buffs")]
+    #[Groups("buffs", "character")]
     #[ORM\ManyToOne(targetEntity: Weapon::class, inversedBy: 'buffs')]
     private $weapon;
 
-    #[Groups("buffs")]
+    #[Groups(["buffs", "character"])]
     #[ORM\ManyToOne(targetEntity: Artifact::class, inversedBy: 'buffs')]
     private $artifact;
 

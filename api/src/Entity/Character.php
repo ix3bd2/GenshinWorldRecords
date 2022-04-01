@@ -122,6 +122,7 @@ class Character
     #[ORM\Column(type: 'integer', nullable: true)]
     private $cons;
 
+    #[Groups("character")]
     #[ORM\OneToMany(mappedBy: 'character', targetEntity: Buff::class)]
     private $buffs;
 
