@@ -37,7 +37,7 @@
               ><img
                 class="navbar-items-icon"
                 src="@/assets/img/spiral-abyss-icon.webp"
-              />Spiral Teams<sup
+              />Abyss Teams<sup
                 > <span class="badge bg-danger">soon</span></sup
               >
             </a>
