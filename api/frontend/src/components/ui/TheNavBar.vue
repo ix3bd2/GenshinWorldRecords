@@ -1,12 +1,14 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" style="padding-top: 0rem; 
-     margin-right: 0rem;" href="/">
+      <a
+        class="navbar-brand"
+        style="padding-top: 0rem; margin-right: 0rem"
+        href="/"
+      >
         <img
           :src="require('@/assets/img/logo.png/')"
-          style="width: 85px;padding-top: 0rem; 
-     margin-right: 0rem;"
+          style="width: 85px; padding-top: 0rem; margin-right: 0rem"
         />
       </a>
       <button
@@ -22,21 +24,47 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-         
           <li class="nav-item">
-            <a class="nav-link" href="/characters"><img class="navbar-items-icon" src="@/assets/img/characters-icon.webp" />&nbsp;Characters</a>
+            <a class="nav-link" href="/characters"
+              ><img
+                class="navbar-items-icon"
+                src="@/assets/img/characters-icon.webp"
+              />&nbsp;Characters</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/"><img class="navbar-items-icon" src="@/assets/img/spiral-abyss-icon.webp" />Spiral Teams</a>
+            <a class="nav-link" href="/"
+              ><img
+                class="navbar-items-icon"
+                src="@/assets/img/spiral-abyss-icon.webp"
+              />Spiral Teams<sup
+                > <span class="badge bg-danger">soon</span></sup
+              >
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/weapons"><img class="navbar-items-icon" src="@/assets/img/weapons-icon.webp" />Weapons</a>
+            <a class="nav-link" href="/weapons"
+              ><img
+                class="navbar-items-icon"
+                src="@/assets/img/weapons-icon.webp"
+              />Weapons</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/artifacts"><img class="navbar-items-icon" src="@/assets/img/artifacts-icon.webp" />Artifacts</a>
+            <a class="nav-link" href="/artifacts"
+              ><img
+                class="navbar-items-icon"
+                src="@/assets/img/artifacts-icon.webp"
+              />Artifacts</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/buffs"><img class="navbar-items-icon" src="@/assets/img/atk-up-icon.webp" />&nbsp;Buffs</a>
+            <a class="nav-link" href="/buffs"
+              ><img
+                class="navbar-items-icon"
+                src="@/assets/img/atk-up-icon.webp"
+              />&nbsp;Buffs</a
+            >
           </li>
         </ul>
       </div>
@@ -45,9 +73,7 @@
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
@@ -57,7 +83,18 @@ export default {
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   background-color: #111111;
 }
-.navbar-items-icon{
+.navbar-items-icon {
   width: 26px;
+}
+sup {
+    top: -.5em;
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+}
+.badge{
+  margin: 1px;
+  padding: 0.25em 0.35em !important;
 }
 </style>
