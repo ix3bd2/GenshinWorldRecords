@@ -1250,10 +1250,10 @@
           </div>
         </div>
         <!-- buffs -->
-        <div v-if="buffs" class="row info-section nopadding">
+        <div v-if="item.allBuffs" class="row info-section nopadding">
 
 
-<div class="col-6 col-md-3 col-lg-2" v-for="buff in item.buffs" :key="buff['@id']">
+<div class="col-6 col-md-3 col-lg-2" v-for="buff in item.allBuffs" :key="buff['@id']">
         <div class="buff-card" v-if="buff.character">
           <div class="card-body">
             <router-link id="BuffRouter" :to="{ name: 'BuffShow', params: { id: buff['@id'] } }">

@@ -130,12 +130,17 @@ class Character
     #[ORM\ManyToMany(targetEntity: Artifact::class, inversedBy: 'characters')]
     private $artifact;
 
+    #[Groups("character")]
+    #[ORM\ManyToMany(targetEntity: Buff::class, inversedBy: 'characters')]
+    private $allBuffs;
+
     public function __construct()
     {
         $this->team = new ArrayCollection();
         $this->patchChars = new ArrayCollection();
         $this->buffs = new ArrayCollection();
         $this->artifact = new ArrayCollection();
+        $this->allBuffs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -529,6 +534,30 @@ class Character
     public function removeArtifact(Artifact $artifact): self
     {
         $this->artifact->removeElement($artifact);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Buff[]
+     */
+    public function getAllBuffs(): Collection
+    {
+        return $this->allBuffs;
+    }
+
+    public function addAllBuff(Buff $allBuff): self
+    {
+        if (!$this->allBuffs->contains($allBuff)) {
+            $this->allBuffs[] = $allBuff;
+        }
+
+        return $this;
+    }
+
+    public function removeAllBuff(Buff $allBuff): self
+    {
+        $this->allBuffs->removeElement($allBuff);
 
         return $this;
     }

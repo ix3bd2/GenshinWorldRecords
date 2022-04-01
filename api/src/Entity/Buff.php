@@ -20,29 +20,33 @@ class Buff
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[Groups("buffs", "character")]
+    #[Groups(["buffs", "character"])]
     #[ORM\Column(type: 'text', nullable: true)]
     private $img;
 
-    #[Groups("buffs", "character")]
+    #[Groups(["buffs", "character"])]
     #[ORM\Column(type: 'text', nullable: true)]
     private $description;
 
-    #[Groups("buffs")]
+    #[Groups(["character","buffs"])]
     #[ORM\ManyToOne(targetEntity: Character::class, inversedBy: 'buffs')]
     private $character;
 
-    #[Groups("buffs", "character")]
+    #[Groups(["character","buffs"])]
     #[ORM\ManyToOne(targetEntity: Weapon::class, inversedBy: 'buffs')]
     private $weapon;
 
-    #[Groups(["buffs", "character"])]
+    #[Groups(["character","buffs"])]
     #[ORM\ManyToOne(targetEntity: Artifact::class, inversedBy: 'buffs')]
     private $artifact;
+
+    #[ORM\ManyToMany(targetEntity: Character::class, mappedBy: 'allBuffs')]
+    private $characters;
 
 
     public function __construct()
     {
+        $this->characters = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -106,6 +110,33 @@ class Buff
     public function setArtifact(?Artifact $artifact): self
     {
         $this->artifact = $artifact;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Character[]
+     */
+    public function getCharacters(): Collection
+    {
+        return $this->characters;
+    }
+
+    public function addCharacter(Character $character): self
+    {
+        if (!$this->characters->contains($character)) {
+            $this->characters[] = $character;
+            $character->addAllBuff($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCharacter(Character $character): self
+    {
+        if ($this->characters->removeElement($character)) {
+            $character->removeAllBuff($this);
+        }
 
         return $this;
     }
