@@ -1,5 +1,5 @@
-# GenshinWorldRecordsBE
-The backend And the frontend (togahter)of the website Genshin world records.
+# GenshinWorldRecords
+Backend and frontend of the website Genshin world records.
 
 
 #
