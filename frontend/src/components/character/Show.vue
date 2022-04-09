@@ -1250,7 +1250,7 @@
           </div>
         </div>
         <!-- buffs -->
-        <div v-if="item.allBuffs" class="row info-section nopadding">
+        <div v-if="item.allBuffs && buffs" class="row info-section nopadding">
 
 
 <div class="col-6 col-md-3 col-lg-2" v-for="buff in item.allBuffs" :key="buff['@id']">
@@ -1522,5 +1522,33 @@ export default {
 .artifact-card {
   font-size: 80%;
   cursor: pointer;
+}
+#CharacterElementBuffsList {
+  width: 30px;
+  position: absolute;
+  z-index: 1;
+  background-color: #19232f;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgb(255 255 255 / 20%),
+    0 6px 20px 0 rgb(255 255 255 / 19%);
+}
+.character-buff-icon {
+  border-radius: 50%;
+}
+#BuffImg {
+  -webkit-filter: drop-shadow(1px 1px 0 #f5f5f5d7)
+    drop-shadow(-1px -1px 0 #f5f5f5d7);
+  filter: drop-shadow(1px 1px 0 #f5f5f5d7) drop-shadow(-1px -1px 0 #f5f5f5d7);
+}
+#BuffRouter {
+  color: white;
+  text-decoration: none;
+}
+.buff-card:hover {
+  transform: scale(1.05);
+}
+.buff-card {
+  margin: 3%;
+  transition: ease-out 0.3s;
 }
 </style>
