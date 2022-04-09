@@ -66,6 +66,14 @@
               />&nbsp;Buffs</a
             >
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/patreon"
+              ><img
+                class="navbar-items-icon"
+                src="@/assets/img/patreon-logo.png"
+              />&nbsp;Patreon</a
+            >
+          </li>
         </ul>
       </div>
     </div>
