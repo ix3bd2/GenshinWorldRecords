@@ -69,7 +69,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/patreon"
               ><img
-                class="navbar-items-icon"
+                style="width:21px"
                 src="@/assets/img/patreon-logo.png"
               />&nbsp;Patreon</a
             >
