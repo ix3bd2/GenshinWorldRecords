@@ -9,7 +9,11 @@
           <div class="navbar navbar-expand-lg" id="CharcterShowHeader">
             <div class="container">
               <ul class="nav">
-                <a class="navbar-brand" style="margin-right: 0.1rem !important" href="#">
+                <a
+                  class="navbar-brand"
+                  style="margin-right: 0.1rem !important"
+                  href="#"
+                >
                   <img
                     class="element-show-character"
                     :src="item['element']['img']"
@@ -28,7 +32,8 @@
                       padding-left: 0px;
                       font-size: 1.3rem;
                     "
-                  >{{ filterName(item["name"]) }}</a>
+                    >{{ filterName(item["name"]) }}</a
+                  >
                 </li>
               </ul>
               <ul class="nav ms-auto mr-5">
@@ -39,7 +44,8 @@
                     class="nav-link active active-show"
                     v-on:click="showInfo"
                     aria-current="page"
-                  >Info</a>
+                    >Info</a
+                  >
                 </li>
                 <li class="nav-item">
                   <a
@@ -48,7 +54,8 @@
                     class="nav-link active active-show"
                     v-on:click="showInfo"
                     aria-current="page"
-                  >Info</a>
+                    >Info</a
+                  >
                 </li>
                 <li class="nav-item">
                   <a
@@ -57,16 +64,18 @@
                     class="nav-link active active-show"
                     v-on:click="showTeam"
                     aria-current="page"
-                  >Team</a>
+                    >Team</a
+                  >
                 </li>
                 <li class="nav-item">
                   <a
                     v-if="!team"
-                    style="color: white;"
+                    style="color: white"
                     class="nav-link active active-show"
                     v-on:click="showTeam"
                     aria-current="page"
-                  >Team</a>
+                    >Team</a
+                  >
                 </li>
                 <li class="nav-item">
                   <a
@@ -75,16 +84,18 @@
                     class="nav-link active active-show"
                     v-on:click="showBuffs"
                     aria-current="page"
-                  >Buffs</a>
+                    >Buffs</a
+                  >
                 </li>
                 <li class="nav-item">
                   <a
                     v-if="!buffs"
-                    style="color: white;"
+                    style="color: white"
                     class="nav-link active active-show"
                     v-on:click="showBuffs"
                     aria-current="page"
-                  >Buffs</a>
+                    >Buffs</a
+                  >
                 </li>
               </ul>
             </div>
@@ -92,7 +103,10 @@
         </div>
         <!-- banner and pp -->
         <div class="row">
-          <img id="banner" :src="require('@/assets/img/fullBanners/' + item['name'] + '.jpg')" />
+          <img
+            id="banner"
+            :src="require('@/assets/img/fullBanners/' + item['name'] + '.jpg')"
+          />
           <img
             class="character-icon-show nopadding"
             :src="require('@/assets/img/pPicture/' + item['name'] + '.jpg')"
@@ -113,41 +127,93 @@
                   <li>
                     <div
                       class="mb-2"
-                      style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
+                      style="
+                        width: 100%;
+                        height: 15px;
+                        border-bottom: 1px solid #565656;
+                        text-align: center;
+                      "
                     >
-                      <span style=" background-color:#1f1f1f; padding: 0 10px;">Name</span>
+                      <span style="background-color: #1f1f1f; padding: 0 10px"
+                        >Name</span
+                      >
                     </div>
-                    <div :style="{ color: getElementColor(item['element']['name']) }">ArchoNix</div>
+                    <div
+                      :style="{
+                        color: getElementColor(item['element']['name']),
+                      }"
+                    >
+                      ArchoNix
+                    </div>
                   </li>
 
                   <li>
                     <div
                       class="mb-2"
-                      style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
+                      style="
+                        width: 100%;
+                        height: 15px;
+                        border-bottom: 1px solid #565656;
+                        text-align: center;
+                      "
                     >
-                      <span style=" background-color:#1f1f1f; padding: 0 10px;">Ar</span>
+                      <span style="background-color: #1f1f1f; padding: 0 10px"
+                        >Ar</span
+                      >
                     </div>
-                    <div :style="{ color: getElementColor(item['element']['name']) }">57</div>
+                    <div
+                      :style="{
+                        color: getElementColor(item['element']['name']),
+                      }"
+                    >
+                      57
+                    </div>
                   </li>
 
                   <li>
                     <div
                       class="mb-2"
-                      style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
+                      style="
+                        width: 100%;
+                        height: 15px;
+                        border-bottom: 1px solid #565656;
+                        text-align: center;
+                      "
                     >
-                      <span style=" background-color:#1f1f1f; padding: 0 10px;">Abyss Clear</span>
+                      <span style="background-color: #1f1f1f; padding: 0 10px"
+                        >Abyss Clear</span
+                      >
                     </div>
-                    <div :style="{ color: getElementColor(item['element']['name']) }">12</div>
+                    <div
+                      :style="{
+                        color: getElementColor(item['element']['name']),
+                      }"
+                    >
+                      12
+                    </div>
                   </li>
 
                   <li>
                     <div
                       class="mb-2"
-                      style="width: 100%; height: 15px; border-bottom: 1px solid #565656; text-align: center"
+                      style="
+                        width: 100%;
+                        height: 15px;
+                        border-bottom: 1px solid #565656;
+                        text-align: center;
+                      "
                     >
-                      <span style=" background-color:#1f1f1f; padding: 0 10px;">Main Character</span>
+                      <span style="background-color: #1f1f1f; padding: 0 10px"
+                        >Main Character</span
+                      >
                     </div>
-                    <div :style="{ color: getElementColor(item['element']['name']) }">Eula</div>
+                    <div
+                      :style="{
+                        color: getElementColor(item['element']['name']),
+                      }"
+                    >
+                      Eula
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -156,33 +222,45 @@
               <h4 class="title-show">Talents</h4>
               <hr />
 
-              <div class="col-4 nopadding">
+              <div
+                class="col-4 nopadding"
+                :style="{ color: getElementColor(item['element']['name']) }"
+              >
                 <img class="talents-show" v-bind:src="item['AAimg']" />
-                <br />10
+                <br />{{ item["talentAA"] }}
               </div>
-              <div class="col-4 nopadding">
+              <div
+                class="col-4 nopadding"
+                :style="{ color: getElementColor(item['element']['name']) }"
+              >
                 <img class="talents-show" v-bind:src="item['talentEimg']" />
-                <br />10
+                <br />{{ item["talentE"] }}
               </div>
-              <div class="col-4 nopadding">
+              <div
+                class="col-4 nopadding"
+                :style="{ color: getElementColor(item['element']['name']) }"
+              >
                 <img class="talents-show" v-bind:src="item['talentQimg']" />
-                <br />10
+                <br />{{ item["talentQ"] }}
               </div>
             </div>
-            <div class="row justify-content-center character-info-rows" v-if="item.artifact[1]">
-              <h4 class="title-show">Artifacts</h4>
-              <hr />
-
+            <div
+              class="row justify-content-center character-info-rows"
+              v-if="item.artifact[1]"
+            >
               <div class="col-6 artifact-card nopadding">
+                <h4 class="title-show">Artifacts</h4>
+                <hr />
                 <router-link
                   id="ArtifactRouter"
-                  :to="{ name: 'ArtifactShow', params: { id: item.artifact[0]['@id'] } }"
+                  :to="{
+                    name: 'ArtifactShow',
+                    params: { id: item.artifact[0]['@id'] },
+                  }"
                 >
                   <img
                     class="artifacts-character-show"
-                    :src="
-                      item.artifact[0].img
-                    "
+                    :src="item.artifact[0].img"
                   />
                   <br />
                   {{ item.artifact[0].name }}
@@ -190,15 +268,18 @@
               </div>
 
               <div class="col-6 artifact-card nopadding">
+                <h4 class="title-show">Artifacts</h4>
+                <hr />
                 <router-link
                   id="ArtifactRouter"
-                  :to="{ name: 'ArtifactShow', params: { id: item.artifact[1]['@id'] } }"
+                  :to="{
+                    name: 'ArtifactShow',
+                    params: { id: item.artifact[1]['@id'] },
+                  }"
                 >
                   <img
                     class="artifacts-character-show"
-                    :src="
-                      item.artifact[1].img
-                    "
+                    :src="item.artifact[1].img"
                   />
                   <br />
                   {{ item.artifact[1].name }}
@@ -206,16 +287,19 @@
               </div>
             </div>
             <div class="row character-info-rows" v-if="!item.artifact[1]">
+              <h4 class="title-show">Artifacts</h4>
+              <hr />
               <router-link
                 id="ArtifactRouter"
-                :to="{ name: 'ArtifactShow', params: { id: item.artifact[0]['@id'] } }"
+                :to="{
+                  name: 'ArtifactShow',
+                  params: { id: item.artifact[0]['@id'] },
+                }"
               >
                 <div class="col-12 artifact-card nopadding">
                   <img
                     class="artifacts-character-show"
-                    :src="
-                      item.artifact[0].img
-                    "
+                    :src="item.artifact[0].img"
                   />
                   <br />
                   {{ item.artifact[0].name }}
@@ -227,9 +311,20 @@
               <hr />
 
               <div class="col-6 nopadding">
-                <img class="artifacts-character-show" :src="item['weapon']['img']" />
-                <br />
-                {{ item['weapon']['name'] }}
+                <router-link
+                  id="ArtifactRouter"
+                  :to="{
+                    name: 'WeaponShow',
+                    params: { id: item['weapon']['@id'] },
+                  }"
+                >
+                  <img
+                    class="artifacts-character-show"
+                    :src="item['weapon']['img']"
+                  />
+                  <br />
+                  {{ item["weapon"]["name"] }}
+                </router-link>
               </div>
             </div>
           </div>
@@ -237,13 +332,13 @@
           <div class="col-lg-8 col-sm-12 nopadding">
             <div
               class="row character-info-rows align-start"
-              style="margin: 1.5% 6% 0% 6%!important;"
+              style="margin: 1.5% 6% 0% 6% !important"
             >
               <!-- stats -->
               <h4 class="title-show">Stats</h4>
 
               <hr />
-              <div style="text-align:start">
+              <div style="text-align: start">
                 <div class="row">
                   <div class="col-lg-5 col-sm-12 m-2">
                     <svg
@@ -262,6 +357,13 @@
                       />
                     </svg>
                     <span>Hp</span>
+                    <span
+                      :style="{
+                        color: getElementColor(item['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item.hp }}</span
+                    >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
                     <svg
@@ -280,6 +382,13 @@
                       />
                     </svg>
                     <span>Atk</span>
+                    <span
+                      style="float: right"
+                      :style="{
+                        color: getElementColor(item['element']['name']),
+                      }"
+                      >{{ item.atk }}</span
+                    >
                   </div>
                 </div>
                 <div class="row">
@@ -300,6 +409,13 @@
                       />
                     </svg>
                     <span>Def</span>
+                    <span
+                      style="float: right"
+                      :style="{
+                        color: getElementColor(item['element']['name']),
+                      }"
+                      >{{ item.def }}</span
+                    >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
                     <svg
@@ -318,6 +434,13 @@
                       />
                     </svg>
                     <span>Elemental Mastery</span>
+                    <span
+                      style="float: right"
+                      :style="{
+                        color: getElementColor(item['element']['name']),
+                      }"
+                      >{{ item.em }}</span
+                    >
                   </div>
                 </div>
                 <div class="row">
@@ -338,6 +461,13 @@
                       />
                     </svg>
                     <span>Crit Rate</span>
+                    <span
+                      style="float: right"
+                      :style="{
+                        color: getElementColor(item['element']['name']),
+                      }"
+                      >{{ item.cr }}%</span
+                    >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
                     <svg
@@ -356,6 +486,13 @@
                       />
                     </svg>
                     <span>Crit DMG</span>
+                    <span
+                      style="float: right"
+                      :style="{
+                        color: getElementColor(item['element']['name']),
+                      }"
+                      >{{ item.cd }}%</span
+                    >
                   </div>
                 </div>
                 <div class="row">
@@ -376,6 +513,13 @@
                       />
                     </svg>
                     <span>Energie Recharge</span>
+                    <span
+                      style="float: right"
+                      :style="{
+                        color: getElementColor(item['element']['name']),
+                      }"
+                      >{{ item.er }}%</span
+                    >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
                     <img
@@ -386,42 +530,65 @@
                       }"
                     />
                     <span>Elemental DMG</span>
+                    <span
+                      style="float: right"
+                      :style="{
+                        color: getElementColor(item['element']['name']),
+                      }"
+                      >{{ item.ed }}%</span
+                    >
                   </div>
                 </div>
               </div>
             </div>
             <div
               class="row character-info-rows align-start"
-              style="margin: 3% 6% 0% 6% !important;"
+              style="margin: 3% 6% 0% 6% !important"
             >
               <h4 class="title-show">
                 Constellation
-                <span :style="{ color: getElementColor(item['element']['name']) }">0</span>
+                <span
+                  :style="{ color: getElementColor(item['element']['name']) }"
+                  >{{ item.cons }}</span
+                >
               </h4>
+              <span :style="{ color: getElementColor(item['element']['name']) }"
+                >* Constellations dont effect Damage</span
+              >
             </div>
             <div
               class="row character-info-rows align-start"
-              style="margin: 3% 6% 0% 6% !important;"
+              style="margin: 3% 6% 0% 6% !important"
             >
               <h4 class="title-show">Video</h4>
               <hr />
-              <iframe width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+              <iframe
+                width="420"
+                height="315"
+                src="https://www.youtube.com/embed/tgbNymZ7vqY"
+              ></iframe>
             </div>
           </div>
         </div>
         <!-- team -->
         <div v-if="team" class="row info-section nopadding">
           <div class="col-md-4 col-sm-12 nopadding">
-            <div class="row character-info-rows" style="margin: 6% 6% 0% 6%;">
+            <div class="row character-info-rows" style="margin: 6% 6% 0% 6%">
               <h4 class="title-show">Select Character</h4>
               <hr />
               <div v-on:click="showChar1">
                 <img
                   v-if="!character1"
                   class="select-character"
-                  :src="require('@/assets/img/pPicture/' + item['team'][0]['name'] + '.jpg')"
+                  :src="
+                    require('@/assets/img/pPicture/' +
+                      item['team'][0]['name'] +
+                      '.jpg')
+                  "
                   v-bind:style="{
-                    border: getElementBorderColor(item['team'][0]['element']['name']),
+                    border: getElementBorderColor(
+                      item['team'][0]['element']['name']
+                    ),
                   }"
                 />
                 <div
@@ -429,27 +596,43 @@
                   v-if="character1"
                   class="image-circle"
                   v-bind:style="{
-                    borderTop: getElementBorderColor(item['team'][0]['element']['name']),
-                    borderRight: getElementBorderColor(item['team'][0]['element']['name'])
+                    borderTop: getElementBorderColor(
+                      item['team'][0]['element']['name']
+                    ),
+                    borderRight: getElementBorderColor(
+                      item['team'][0]['element']['name']
+                    ),
                   }"
                 >
                   <img
                     class="select-character-active"
-                    :src="require('@/assets/img/pPicture/' + item['team'][0]['name'] + '.jpg')"
+                    :src="
+                      require('@/assets/img/pPicture/' +
+                        item['team'][0]['name'] +
+                        '.jpg')
+                    "
                     v-bind:style="{
-                      border: getElementBorderColor(item['team'][0]['element']['name']),
+                      border: getElementBorderColor(
+                        item['team'][0]['element']['name']
+                      ),
                     }"
                   />
                 </div>
-                <p>{{ filterName(item['team'][0]['name']) }}</p>
+                <p>{{ filterName(item["team"][0]["name"]) }}</p>
               </div>
               <div v-on:click="showChar2">
                 <img
                   v-if="!character2"
                   class="select-character"
-                  :src="require('@/assets/img/pPicture/' + item['team'][1]['name'] + '.jpg')"
+                  :src="
+                    require('@/assets/img/pPicture/' +
+                      item['team'][1]['name'] +
+                      '.jpg')
+                  "
                   v-bind:style="{
-                    border: getElementBorderColor(item['team'][1]['element']['name']),
+                    border: getElementBorderColor(
+                      item['team'][1]['element']['name']
+                    ),
                   }"
                 />
                 <div
@@ -457,27 +640,43 @@
                   v-if="character2"
                   class="image-circle"
                   v-bind:style="{
-                    borderTop: getElementBorderColor(item['team'][1]['element']['name']),
-                    borderRight: getElementBorderColor(item['team'][1]['element']['name'])
+                    borderTop: getElementBorderColor(
+                      item['team'][1]['element']['name']
+                    ),
+                    borderRight: getElementBorderColor(
+                      item['team'][1]['element']['name']
+                    ),
                   }"
                 >
                   <img
                     class="select-character-active"
-                    :src="require('@/assets/img/pPicture/' + item['team'][1]['name'] + '.jpg')"
+                    :src="
+                      require('@/assets/img/pPicture/' +
+                        item['team'][1]['name'] +
+                        '.jpg')
+                    "
                     v-bind:style="{
-                      border: getElementBorderColor(item['team'][1]['element']['name']),
+                      border: getElementBorderColor(
+                        item['team'][1]['element']['name']
+                      ),
                     }"
                   />
                 </div>
-                <p>{{ filterName(item['team'][1]['name']) }}</p>
+                <p>{{ filterName(item["team"][1]["name"]) }}</p>
               </div>
               <div v-on:click="showChar3">
                 <img
                   v-if="!character3"
                   class="select-character"
-                  :src="require('@/assets/img/pPicture/' + item['team'][2]['name'] + '.jpg')"
+                  :src="
+                    require('@/assets/img/pPicture/' +
+                      item['team'][2]['name'] +
+                      '.jpg')
+                  "
                   v-bind:style="{
-                    border: getElementBorderColor(item['team'][2]['element']['name']),
+                    border: getElementBorderColor(
+                      item['team'][2]['element']['name']
+                    ),
                   }"
                 />
                 <div
@@ -485,76 +684,168 @@
                   v-if="character3"
                   class="image-circle"
                   v-bind:style="{
-                    borderTop: getElementBorderColor(item['team'][2]['element']['name']),
-                    borderRight: getElementBorderColor(item['team'][2]['element']['name'])
+                    borderTop: getElementBorderColor(
+                      item['team'][2]['element']['name']
+                    ),
+                    borderRight: getElementBorderColor(
+                      item['team'][2]['element']['name']
+                    ),
                   }"
                 >
                   <img
                     class="select-character-active"
-                    :src="require('@/assets/img/pPicture/' + item['team'][2]['name'] + '.jpg')"
+                    :src="
+                      require('@/assets/img/pPicture/' +
+                        item['team'][2]['name'] +
+                        '.jpg')
+                    "
                     v-bind:style="{
-                      border: getElementBorderColor(item['team'][2]['element']['name']),
+                      border: getElementBorderColor(
+                        item['team'][2]['element']['name']
+                      ),
                     }"
                   />
                 </div>
-                <p>{{ filterName(item['team'][2]['name']) }}</p>
+                <p>{{ filterName(item["team"][2]["name"]) }}</p>
               </div>
             </div>
 
             <div
               class="row character-info-rows align-start"
-              style="margin: 3% 6% 0% 6% !important;"
+              style="margin: 3% 6% 0% 6% !important"
             >
-              <h4 class="title-show" style="word-wrap: break-word;">Constellation</h4>
+              <h4 class="title-show" style="word-wrap: break-word">
+                Constellation
+              </h4>
               <hr />
-              <h4
-                v-if="character1"
-                :style="{ color: getElementColor(item['team']['0']['element']['name']) }"
-              >C{{ item['team']['0'].cons }}</h4>
-              <h4
-                v-if="character2"
-                :style="{ color: getElementColor(item['team']['1']['element']['name']) }"
-              >C{{ item['team']['1'].cons }}</h4>
-              <h4
-                v-if="character3"
-                :style="{ color: getElementColor(item['team']['2']['element']['name']) }"
-              >C{{ item['team']['2'].cons }}</h4>
+              <div v-if="character1">
+                <h4
+                  :style="{
+                    color: getElementColor(
+                      item['team']['0']['element']['name']
+                    ),
+                  }"
+                >
+                  C{{ item["team"]["0"].cons }}
+                </h4>
+                <span
+                  :style="{
+                    color: getElementColor(
+                      item['team']['0']['element']['name']
+                    ),
+                  }"
+                  >* Constellations dont effect Damage</span
+                >
+              </div>
+              <div v-if="character2">
+                <h4
+                  :style="{
+                    color: getElementColor(
+                      item['team']['1']['element']['name']
+                    ),
+                  }"
+                >
+                  C{{ item["team"]["1"].cons }}
+                </h4>
+                <span
+                  :style="{
+                    color: getElementColor(
+                      item['team']['1']['element']['name']
+                    ),
+                  }"
+                  >* Constellations dont effect Damage</span
+                >
+              </div>
+              <div v-if="character3">
+                <h4
+                  :style="{
+                    color: getElementColor(
+                      item['team']['2']['element']['name']
+                    ),
+                  }"
+                >
+                  C{{ item["team"]["2"].cons }}
+                </h4>
+                <span
+                  :style="{
+                    color: getElementColor(
+                      item['team']['2']['element']['name']
+                    ),
+                  }"
+                  >* Constellations dont effect Damage</span
+                >
+              </div>
             </div>
             <div
               class="row character-info-rows align-start"
-              style="margin: 3% 6% 0% 6% !important;"
+              style="margin: 3% 6% 0% 6% !important"
             >
-              <h4 class="title-show" style="word-wrap: break-word;">Weapon</h4>
+              <h4 class="title-show" style="word-wrap: break-word">Weapon</h4>
               <hr />
               <div v-if="character1">
+                <router-link
+                                    id="ArtifactRouter"
+
+                  :to="{
+                    name: 'WeaponShow',
+                    params: { id: item['team']['0'].weapon['@id'] },
+                  }"
+                >
                 <img
                   v-if="character1"
                   class="artifacts-character-show"
                   :src="item['team']['0']['weapon']['img']"
                 />
                 <br />
-                {{ item['team']['0']['weapon']['name'] }}
+                {{ item["team"]["0"]["weapon"]["name"] }}
+                </router-link>
               </div>
               <div v-if="character2">
-                <img class="artifacts-character-show" :src="item['team']['1']['weapon']['img']" />
+                <router-link
+                                    id="ArtifactRouter"
+
+                  :to="{
+                    name: 'WeaponShow',
+                    params: { id: item['team']['1'].weapon['@id'] },
+                  }">
+                <img
+                  class="artifacts-character-show"
+                  :src="item['team']['1']['weapon']['img']"
+                />
                 <br />
-                {{ item['team']['1']['weapon']['name'] }}
+                {{ item["team"]["1"]["weapon"]["name"] }}
+                </router-link>
               </div>
               <div v-if="character3">
-                <img class="artifacts-character-show" :src="item['team']['2']['weapon']['img']" />
+                <router-link
+                                    id="ArtifactRouter"
+
+                  :to="{
+                    name: 'WeaponShow',
+                    params: { id: item['team']['2'].weapon['@id'] },
+                  }">
+                <img
+                  class="artifacts-character-show"
+                  :src="item['team']['2']['weapon']['img']"
+                />
                 <br />
-                {{ item['team']['2']['weapon']['name'] }}
+                {{ item["team"]["2"]["weapon"]["name"] }}
+                </router-link>
               </div>
             </div>
           </div>
 
           <div class="col-md-8 col-sm-12">
-            <div v-if="character1" class="row character-info-rows align-start" style="margin-right:3% ;">
+            <div
+              v-if="character1"
+              class="row character-info-rows align-start"
+              style="margin-right: 3%"
+            >
               <!-- stats -->
               <h4 class="title-show">Stats</h4>
 
               <hr />
-              <div style="text-align:start">
+              <div style="text-align: start">
                 <div class="row">
                   <div class="col-lg-5 col-sm-12 m-2">
                     <svg
@@ -573,6 +864,13 @@
                       />
                     </svg>
                     <span>Hp</span>
+                     <span
+                      :style="{
+                        color: getElementColor(item['team'][0]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][0].hp}}</span
+                    >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
                     <svg
@@ -591,6 +889,13 @@
                       />
                     </svg>
                     <span>Atk</span>
+                     <span
+                      :style="{
+                        color: getElementColor(item['team'][0]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][0].atk}}</span
+                    >
                   </div>
                 </div>
                 <div class="row">
@@ -611,6 +916,13 @@
                       />
                     </svg>
                     <span>Def</span>
+                     <span
+                      :style="{
+                        color: getElementColor(item['team'][0]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][0].def}}</span
+                    >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
                     <svg
@@ -629,6 +941,13 @@
                       />
                     </svg>
                     <span>Elemental Mastery</span>
+                     <span
+                      :style="{
+                        color: getElementColor(item['team'][0]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][0].em}}</span
+                    >
                   </div>
                 </div>
                 <div class="row">
@@ -649,6 +968,13 @@
                       />
                     </svg>
                     <span>Crit Rate</span>
+                     <span
+                      :style="{
+                        color: getElementColor(item['team'][0]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][0].cr}}%</span
+                    >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
                     <svg
@@ -667,6 +993,13 @@
                       />
                     </svg>
                     <span>Crit DMG</span>
+                     <span
+                      :style="{
+                        color: getElementColor(item['team'][0]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][0].cd}}%</span
+                    >
                   </div>
                 </div>
                 <div class="row">
@@ -687,6 +1020,13 @@
                       />
                     </svg>
                     <span>Energie Recharge</span>
+                     <span
+                      :style="{
+                        color: getElementColor(item['team'][0]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][0].er}}%</span
+                    >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
                     <img
@@ -697,16 +1037,27 @@
                       }"
                     />
                     <span>Elemental DMG</span>
+                     <span
+                      :style="{
+                        color: getElementColor(item['team'][0]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][0].ed}}%</span
+                    >
                   </div>
                 </div>
               </div>
             </div>
-<div v-if="character2" class="row character-info-rows align-start" style="margin-right:3% ;">
+            <div
+              v-if="character2"
+              class="row character-info-rows align-start"
+              style="margin-right: 3%"
+            >
               <!-- stats -->
               <h4 class="title-show">Stats</h4>
 
               <hr />
-              <div style="text-align:start">
+              <div style="text-align: start">
                 <div class="row">
                   <div class="col-lg-5 col-sm-12 m-2">
                     <svg
@@ -725,6 +1076,13 @@
                       />
                     </svg>
                     <span>Hp</span>
+                    <span
+                      :style="{
+                        color: getElementColor(item['team'][1]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][1].hp}}</span
+                    >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
                     <svg
@@ -743,6 +1101,13 @@
                       />
                     </svg>
                     <span>Atk</span>
+                    <span
+                      :style="{
+                        color: getElementColor(item['team'][1]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][1].atk}}</span
+                    >
                   </div>
                 </div>
                 <div class="row">
@@ -763,6 +1128,13 @@
                       />
                     </svg>
                     <span>Def</span>
+                    <span
+                      :style="{
+                        color: getElementColor(item['team'][1]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][1].def}}</span
+                    >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
                     <svg
@@ -781,6 +1153,13 @@
                       />
                     </svg>
                     <span>Elemental Mastery</span>
+                    <span
+                      :style="{
+                        color: getElementColor(item['team'][1]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][1].em}}</span
+                    >
                   </div>
                 </div>
                 <div class="row">
@@ -801,6 +1180,13 @@
                       />
                     </svg>
                     <span>Crit Rate</span>
+                    <span
+                      :style="{
+                        color: getElementColor(item['team'][1]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][1].cr}}%</span
+                    >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
                     <svg
@@ -819,6 +1205,13 @@
                       />
                     </svg>
                     <span>Crit DMG</span>
+                    <span
+                      :style="{
+                        color: getElementColor(item['team'][1]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][1].cd}}%</span
+                    >
                   </div>
                 </div>
                 <div class="row">
@@ -839,6 +1232,13 @@
                       />
                     </svg>
                     <span>Energie Recharge</span>
+                    <span
+                      :style="{
+                        color: getElementColor(item['team'][1]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][1].er}}%</span
+                    >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
                     <img
@@ -849,18 +1249,28 @@
                       }"
                     />
                     <span>Elemental DMG</span>
+                    <span
+                      :style="{
+                        color: getElementColor(item['team'][1]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][1].ed}}%</span
+                    >
                   </div>
                 </div>
               </div>
             </div>
 
-  
-             <div v-if="character3" class="row character-info-rows align-start" style="margin-right:3% ;">
+            <div
+              v-if="character3"
+              class="row character-info-rows align-start"
+              style="margin-right: 3%"
+            >
               <!-- stats -->
               <h4 class="title-show">Stats</h4>
 
               <hr />
-              <div style="text-align:start">
+              <div style="text-align: start">
                 <div class="row">
                   <div class="col-lg-5 col-sm-12 m-2">
                     <svg
@@ -879,6 +1289,13 @@
                       />
                     </svg>
                     <span>Hp</span>
+                    <span
+                      :style="{
+                        color: getElementColor(item['team'][2]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][2].hp}}</span
+                    >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
                     <svg
@@ -897,6 +1314,13 @@
                       />
                     </svg>
                     <span>Atk</span>
+                    <span
+                      :style="{
+                        color: getElementColor(item['team'][2]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][2].atk}}</span
+                    >
                   </div>
                 </div>
                 <div class="row">
@@ -917,6 +1341,13 @@
                       />
                     </svg>
                     <span>Def</span>
+                    <span
+                      :style="{
+                        color: getElementColor(item['team'][2]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][2].def}}</span
+                    >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
                     <svg
@@ -935,6 +1366,13 @@
                       />
                     </svg>
                     <span>Elemental Mastery</span>
+                    <span
+                      :style="{
+                        color: getElementColor(item['team'][2]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][2].em}}</span
+                    >
                   </div>
                 </div>
                 <div class="row">
@@ -955,6 +1393,13 @@
                       />
                     </svg>
                     <span>Crit Rate</span>
+                    <span
+                      :style="{
+                        color: getElementColor(item['team'][2]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][2].cr}}%</span
+                    >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
                     <svg
@@ -973,6 +1418,13 @@
                       />
                     </svg>
                     <span>Crit DMG</span>
+                    <span
+                      :style="{
+                        color: getElementColor(item['team'][2]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][2].cd}}%</span
+                    >
                   </div>
                 </div>
                 <div class="row">
@@ -993,6 +1445,13 @@
                       />
                     </svg>
                     <span>Energie Recharge</span>
+                    <span
+                      :style="{
+                        color: getElementColor(item['team'][2]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][2].er}}%</span
+                    >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
                     <img
@@ -1003,6 +1462,13 @@
                       }"
                     />
                     <span>Elemental DMG</span>
+                    <span
+                      :style="{
+                        color: getElementColor(item['team'][2]['element']['name']),
+                      }"
+                      style="float: right"
+                      >{{ item['team'][2].ed}}%</span
+                    >
                   </div>
                 </div>
               </div>
@@ -1011,60 +1477,105 @@
               <h4 class="title-show">Talents</h4>
               <hr />
 
-              <div class="col-4 nopadding">
-                <img class="talents-show" v-bind:src="item['team']['0']['AAimg']" />
+              <div class="col-4 nopadding" :style="{
+                        color: getElementColor(item['team'][0]['element']['name']),
+                      }">
+                <img
+                  class="talents-show"
+                  v-bind:src="item['team']['0']['AAimg']"
+                />
                 <br />
-                {{ item['team']['0']['talentAA'] }}
+                {{ item["team"]["0"]["talentAA"] }}
               </div>
-              <div class="col-4 nopadding">
-                <img class="talents-show" v-bind:src="item['team']['0']['talentEimg']" />
+              <div class="col-4 nopadding" :style="{
+                        color: getElementColor(item['team'][0]['element']['name']),
+                      }">
+                <img
+                  class="talents-show"
+                  v-bind:src="item['team']['0']['talentEimg']"
+                />
                 <br />
-                {{ item['team']['0']['talentE'] }}
+                {{ item["team"]["0"]["talentE"] }}
               </div>
-              <div class="col-4 nopadding">
-                <img class="talents-show" v-bind:src="item['team']['0']['talentQimg']" />
+              <div class="col-4 nopadding" :style="{
+                        color: getElementColor(item['team'][0]['element']['name']),
+                      }">
+                <img
+                  class="talents-show"
+                  v-bind:src="item['team']['0']['talentQimg']"
+                />
                 <br />
-                {{ item['team']['0']['talentQ'] }}
+                {{ item["team"]["0"]["talentQ"] }}
               </div>
             </div>
             <div v-if="character2" class="row character-info-rows">
               <h4 class="title-show">Talents</h4>
               <hr />
 
-              <div class="col-4 nopadding">
-                <img class="talents-show" v-bind:src="item['team']['1']['AAimg']" />
+              <div class="col-4 nopadding" :style="{
+                        color: getElementColor(item['team'][1]['element']['name']),
+                      }">
+                <img
+                  class="talents-show"
+                  v-bind:src="item['team']['1']['AAimg']"
+                />
                 <br />
-                {{ item['team']['1']['talentAA'] }}
+                {{ item["team"]["1"]["talentAA"] }}
               </div>
-              <div class="col-4 nopadding">
-                <img class="talents-show" v-bind:src="item['team']['1']['talentEimg']" />
+              <div class="col-4 nopadding" :style="{
+                        color: getElementColor(item['team'][1]['element']['name']),
+                      }">
+                <img
+                  class="talents-show"
+                  v-bind:src="item['team']['1']['talentEimg']"
+                />
                 <br />
-                {{ item['team']['1']['talentE'] }}
+                {{ item["team"]["1"]["talentE"] }}
               </div>
-              <div class="col-4 nopadding">
-                <img class="talents-show" v-bind:src="item['team']['1']['talentQimg']" />
+              <div class="col-4 nopadding" :style="{
+                        color: getElementColor(item['team'][1]['element']['name']),
+                      }">
+                <img
+                  class="talents-show"
+                  v-bind:src="item['team']['1']['talentQimg']"
+                />
                 <br />
-                {{ item['team']['1']['talentQ'] }}
+                {{ item["team"]["1"]["talentQ"] }}
               </div>
             </div>
             <div v-if="character3" class="row character-info-rows">
               <h4 class="title-show">Talents</h4>
               <hr />
 
-              <div class="col-4 nopadding">
-                <img class="talents-show" v-bind:src="item['team']['2']['AAimg']" />
+              <div class="col-4 nopadding" :style="{
+                        color: getElementColor(item['team'][2]['element']['name']),
+                      }">
+                <img
+                  class="talents-show"
+                  v-bind:src="item['team']['2']['AAimg']"
+                />
                 <br />
-                {{ item['team']['2']['talentAA'] }}
+                {{ item["team"]["2"]["talentAA"] }}
               </div>
-              <div class="col-4 nopadding">
-                <img class="talents-show" v-bind:src="item['team']['2']['talentEimg']" />
+              <div class="col-4 nopadding" :style="{
+                        color: getElementColor(item['team'][2]['element']['name']),
+                      }">
+                <img
+                  class="talents-show"
+                  v-bind:src="item['team']['2']['talentEimg']"
+                />
                 <br />
-                {{ item['team']['2']['talentE'] }}
+                {{ item["team"]["2"]["talentE"] }}
               </div>
-              <div class="col-4 nopadding">
-                <img class="talents-show" v-bind:src="item['team']['2']['talentQimg']" />
+              <div class="col-4 nopadding" :style="{
+                        color: getElementColor(item['team'][2]['element']['name']),
+                      }">
+                <img
+                  class="talents-show"
+                  v-bind:src="item['team']['2']['talentQimg']"
+                />
                 <br />
-                {{ item['team']['2']['talentQ'] }}
+                {{ item["team"]["2"]["talentQ"] }}
               </div>
             </div>
             <div
@@ -1077,31 +1588,33 @@
               <div class="col-6 nopadding">
                 <router-link
                   id="ArtifactRouter"
-                  :to="{ name: 'ArtifactShow', params: { id: item['team']['0'].artifact[0]['@id'] } }"
+                  :to="{
+                    name: 'ArtifactShow',
+                    params: { id: item['team']['0'].artifact[0]['@id'] },
+                  }"
                 >
                   <img
                     class="artifacts-character-show"
-                    :src="
-                      item['team']['0'].artifact[0].img
-                    "
+                    :src="item['team']['0'].artifact[0].img"
                   />
                   <br />
-                  {{ item['team']['0'].artifact[0].name }}
+                  {{ item["team"]["0"].artifact[0].name }}
                 </router-link>
               </div>
               <div class="col-6 nopadding">
                 <router-link
                   id="ArtifactRouter"
-                  :to="{ name: 'ArtifactShow', params: { id: item['team']['0'].artifact[1]['@id'] } }"
+                  :to="{
+                    name: 'ArtifactShow',
+                    params: { id: item['team']['0'].artifact[1]['@id'] },
+                  }"
                 >
                   <img
                     class="artifacts-character-show"
-                    :src="
-                      item['team']['0'].artifact[1].img
-                    "
+                    :src="item['team']['0'].artifact[1].img"
                   />
                   <br />
-                  {{ item['team']['0'].artifact[1].name }}
+                  {{ item["team"]["0"].artifact[1].name }}
                 </router-link>
               </div>
             </div>
@@ -1114,16 +1627,17 @@
               <div class="col-12 nopadding">
                 <router-link
                   id="ArtifactRouter"
-                  :to="{ name: 'ArtifactShow', params: { id: item['team']['0'].artifact[0]['@id'] } }"
+                  :to="{
+                    name: 'ArtifactShow',
+                    params: { id: item['team']['0'].artifact[0]['@id'] },
+                  }"
                 >
                   <img
                     class="artifacts-character-show"
-                    :src="
-                      item['team']['0'].artifact[0].img
-                    "
+                    :src="item['team']['0'].artifact[0].img"
                   />
                   <br />
-                  {{ item['team']['0'].artifact[0].name }}
+                  {{ item["team"]["0"].artifact[0].name }}
                 </router-link>
               </div>
             </div>
@@ -1137,31 +1651,33 @@
               <div class="col-6 nopadding">
                 <router-link
                   id="ArtifactRouter"
-                  :to="{ name: 'ArtifactShow', params: { id: item['team']['1'].artifact[0]['@id'] } }"
+                  :to="{
+                    name: 'ArtifactShow',
+                    params: { id: item['team']['1'].artifact[0]['@id'] },
+                  }"
                 >
                   <img
                     class="artifacts-character-show"
-                    :src="
-                      item['team']['1'].artifact[0].img
-                    "
+                    :src="item['team']['1'].artifact[0].img"
                   />
                   <br />
-                  {{ item['team']['1'].artifact[0].name }}
+                  {{ item["team"]["1"].artifact[0].name }}
                 </router-link>
               </div>
               <div class="col-6 nopadding">
                 <router-link
                   id="ArtifactRouter"
-                  :to="{ name: 'ArtifactShow', params: { id: item['team']['1'].artifact[1]['@id'] } }"
+                  :to="{
+                    name: 'ArtifactShow',
+                    params: { id: item['team']['1'].artifact[1]['@id'] },
+                  }"
                 >
                   <img
                     class="artifacts-character-show"
-                    :src="
-                      item['team']['1'].artifact[1].img
-                    "
+                    :src="item['team']['1'].artifact[1].img"
                   />
                   <br />
-                  {{ item['team']['1'].artifact[1].name }}
+                  {{ item["team"]["1"].artifact[1].name }}
                 </router-link>
               </div>
             </div>
@@ -1174,16 +1690,17 @@
               <div class="col-12 nopadding">
                 <router-link
                   id="ArtifactRouter"
-                  :to="{ name: 'ArtifactShow', params: { id: item['team']['1'].artifact[0]['@id'] } }"
+                  :to="{
+                    name: 'ArtifactShow',
+                    params: { id: item['team']['1'].artifact[0]['@id'] },
+                  }"
                 >
                   <img
                     class="artifacts-character-show"
-                    :src="
-                      item['team']['1'].artifact[0]
-                    "
+                    :src="item['team']['1'].artifact[0].img"
                   />
                   <br />
-                  {{ item['team']['1'].artifact[0].name }}
+                  {{ item["team"]["1"].artifact[0].name }}
                 </router-link>
               </div>
             </div>
@@ -1197,31 +1714,33 @@
               <div class="col-6 nopadding">
                 <router-link
                   id="ArtifactRouter"
-                  :to="{ name: 'ArtifactShow', params: { id: item['team']['2'].artifact[0]['@id'] } }"
+                  :to="{
+                    name: 'ArtifactShow',
+                    params: { id: item['team']['2'].artifact[0]['@id'] },
+                  }"
                 >
                   <img
                     class="artifacts-character-show"
-                    :src="
-                      item['team']['2'].artifact[0].img
-                    "
+                    :src="item['team']['2'].artifact[0].img"
                   />
                   <br />
-                  {{ item['team']['2'].artifact[0].name }}
+                  {{ item["team"]["2"].artifact[0].name }}
                 </router-link>
               </div>
               <div class="col-6 nopadding">
                 <router-link
                   id="ArtifactRouter"
-                  :to="{ name: 'ArtifactShow', params: { id: item['team']['2'].artifact[1]['@id'] } }"
+                  :to="{
+                    name: 'ArtifactShow',
+                    params: { id: item['team']['2'].artifact[1]['@id'] },
+                  }"
                 >
                   <img
                     class="artifacts-character-show"
-                    :src="
-                      item['team']['2'].artifact[1].img
-                    "
+                    :src="item['team']['2'].artifact[1].img"
                   />
                   <br />
-                  {{ item['team']['2'].artifact[1].name }}
+                  {{ item["team"]["2"].artifact[1].name }}
                 </router-link>
               </div>
             </div>
@@ -1234,16 +1753,17 @@
               <div class="col-12 nopadding">
                 <router-link
                   id="ArtifactRouter"
-                  :to="{ name: 'ArtifactShow', params: { id: item['team']['2'].artifact[0]['@id'] } }"
+                  :to="{
+                    name: 'ArtifactShow',
+                    params: { id: item['team']['2'].artifact[0]['@id'] },
+                  }"
                 >
                   <img
                     class="artifacts-character-show"
-                    :src="
-                      item['team']['2'].artifact[0].img
-                    "
+                    :src="item['team']['2'].artifact[0].img"
                   />
                   <br />
-                  {{ item['team']['2'].artifact[0].name }}
+                  {{ item["team"]["2"].artifact[0].name }}
                 </router-link>
               </div>
             </div>
@@ -1251,67 +1771,98 @@
         </div>
         <!-- buffs -->
         <div v-if="item.allBuffs && buffs" class="row info-section nopadding">
+          <div
+            class="col-6 col-md-3 col-lg-2"
+            v-for="buff in item.allBuffs"
+            :key="buff['@id']"
+          >
+            <div class="buff-card" v-if="buff.character">
+              <div class="card-body">
+                <router-link
+                  id="BuffRouter"
+                  :to="{ name: 'BuffShow', params: { id: buff['@id'] } }"
+                >
+                  <h5 class="card-title">
+                    <img
+                      id="CharacterElementBuffsList"
+                      v-bind:src="buff.character['element']['img']"
+                      v-bind:style="{
+                        border: getElementBorderColor(
+                          buff.character['element']['name']
+                        ),
+                      }"
+                    />
+                    <img
+                      :src="
+                        require('@/assets/img/pPicture/' +
+                          buff.character['name'] +
+                          '.jpg')
+                      "
+                      style="width: 106px"
+                      class="character-buff-icon"
+                      v-bind:style="{
+                        border: getElementBorderColor(
+                          buff.character['element']['name']
+                        ),
+                      }"
+                    />
+                  </h5>
+                  <h6 class="card-subtitle mt-3" style="color: whit !important">
+                    {{ filterName(buff.character.name) }}
+                  </h6>
+                </router-link>
+              </div>
+            </div>
 
-
-<div class="col-6 col-md-3 col-lg-2" v-for="buff in item.allBuffs" :key="buff['@id']">
-        <div class="buff-card" v-if="buff.character">
-          <div class="card-body">
-            <router-link id="BuffRouter" :to="{ name: 'BuffShow', params: { id: buff['@id'] } }">
-              <h5 class="card-title">
-                <img
-                  id="CharacterElementBuffsList"
-                  v-bind:src="buff.character['element']['img']"
-                  v-bind:style="{ border: getElementBorderColor(buff.character['element']['name']) }"
-                />
-                <img
-                  :src="require('@/assets/img/pPicture/' + buff.character['name'] + '.jpg')"
-                  style="width:106px"
-                  class="character-buff-icon"
-                  v-bind:style="{ border: getElementBorderColor(buff.character['element']['name']) }"
-                />
-              </h5>
-              <h6
-                class="card-subtitle mt-3"
-                style="color:whit!important;"
-              >{{ filterName(buff.character.name) }}</h6>
-            </router-link>
+            <div class="buff-card" v-if="buff.artifact">
+              <div class="card-body">
+                <router-link
+                  id="BuffRouter"
+                  :to="{
+                    name: 'ArtifactShow',
+                    params: { id: buff.artifact['@id'] },
+                  }"
+                >
+                  <h5 class="card-title">
+                    <img
+                      :src="buff.artifact.img"
+                      style="width: 106px"
+                      id="BuffImg"
+                    />
+                  </h5>
+                  <h6 class="card-subtitle mt-3" style="color: whit !important">
+                    {{ buff.artifact.name }}
+                  </h6>
+                </router-link>
+              </div>
+            </div>
+            <div class="buff-card" v-if="buff.weapon">
+              <div class="card-body">
+                <router-link
+                  id="BuffRouter"
+                  :to="{
+                    name: 'WeaponShow',
+                    params: { id: buff.weapon['@id'] },
+                  }"
+                >
+                  <h5 class="card-title">
+                    <img
+                      :src="buff.weapon.img"
+                      style="width: 106px"
+                      id="BuffImg"
+                    />
+                  </h5>
+                  <h6 class="card-subtitle mt-3" style="color: whit !important">
+                    {{ buff.weapon.name }}
+                  </h6>
+                </router-link>
+              </div>
+            </div>
           </div>
-        </div>
-        
-       <div class="buff-card" v-if="buff.artifact">
-          <div class="card-body">
-            <router-link
-              id="BuffRouter"
-              :to="{ name: 'ArtifactShow', params: { id: buff.artifact['@id'] } }"
-            >
-              <h5 class="card-title">
-                <img :src="buff.artifact.img" style="width:106px;" id="BuffImg" />
-              </h5>
-              <h6 class="card-subtitle mt-3" style="color:whit!important;">{{ buff.artifact.name }}</h6>
-            </router-link>
-          </div>
-        </div>
-        <div class="buff-card" v-if="buff.weapon">
-          <div class="card-body">
-            <router-link
-              id="BuffRouter"
-              :to="{ name: 'WeaponShow', params: { id: item.weapon['@id'] } }"
-            >
-              <h5 class="card-title">
-                <img :src="buff.weapon.img" style="width:106px;" id="BuffImg" />
-              </h5>
-              <h6 class="card-subtitle mt-3" style="color:whit!important;">{{ buff.weapon.name }}</h6>
-            </router-link>
-          </div>
-        </div>
         </div>
       </div>
-
-        </div>
-        <div class="col-lg-2 col-md-1"></div>
-
-      </div>
-
+      <div class="col-lg-2 col-md-1"></div>
+    </div>
   </div>
 </template>
 
@@ -1329,8 +1880,8 @@ export default {
       buffs: false,
       character1: true,
       character2: false,
-      character3: false
-    }
+      character3: false,
+    };
   },
   computed: {
     ...mapFields("character/show", {
@@ -1376,24 +1927,20 @@ export default {
       this.character1 = true;
       this.character2 = false;
       this.character3 = false;
-      var el = document.getElementById('SelectedChar1')
-
-
+      var el = document.getElementById("SelectedChar1");
     },
     showChar2() {
       this.character1 = false;
       this.character2 = true;
       this.character3 = false;
-      var el = document.getElementById('SelectedChar2')
-
+      var el = document.getElementById("SelectedChar2");
     },
     showChar3() {
       this.character1 = false;
       this.character2 = false;
       this.character3 = true;
-      var el = document.getElementById('SelectedChar3')
-
-    }
+      var el = document.getElementById("SelectedChar3");
+    },
   },
 };
 </script>
