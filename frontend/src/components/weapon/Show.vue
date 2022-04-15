@@ -33,6 +33,11 @@
                 style="width:8%"
                 src="https://static.wikia.nocookie.net/gensin-impact/images/7/77/Icon_4_Stars.png"
               />
+              <img
+                v-if="item['rarity'] == 3"
+                style="width:8%"
+                src="https://static.wikia.nocookie.net/gensin-impact/images/1/11/Icon_3_Stars.png"
+              />
             </div>
           </li>
           <li class="mb-4">
