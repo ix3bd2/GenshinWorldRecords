@@ -100,6 +100,10 @@ class Team
     #[ORM\ManyToMany(targetEntity: Artifact::class, inversedBy: 'teams')]
     private $artifact;
 
+    #[Groups("character")]
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $rarity;
+
     public function __construct()
     {
         $this->artifact = new ArrayCollection();
@@ -358,6 +362,18 @@ class Team
     public function removeArtifact(Artifact $artifact): self
     {
         $this->artifact->removeElement($artifact);
+
+        return $this;
+    }
+
+    public function getRarity(): ?int
+    {
+        return $this->rarity;
+    }
+
+    public function setRarity(?int $rarity): self
+    {
+        $this->rarity = $rarity;
 
         return $this;
     }

@@ -244,13 +244,14 @@
                 <br />{{ item["talentQ"] }}
               </div>
             </div>
+
             <div
               class="row justify-content-center character-info-rows"
               v-if="item.artifact[1]"
             >
+              <h4 class="title-show">Artifacts</h4>
+              <hr />
               <div class="col-6 artifact-card nopadding">
-                <h4 class="title-show">Artifacts</h4>
-                <hr />
                 <router-link
                   id="ArtifactRouter"
                   :to="{
@@ -268,8 +269,6 @@
               </div>
 
               <div class="col-6 artifact-card nopadding">
-                <h4 class="title-show">Artifacts</h4>
-                <hr />
                 <router-link
                   id="ArtifactRouter"
                   :to="{
@@ -552,7 +551,9 @@
                   >{{ item.cons }}</span
                 >
               </h4>
-              <span :style="{ color: getElementColor(item['element']['name']) }"
+              <span
+                v-if="item.rarity == 5"
+                :style="{ color: getElementColor(item['element']['name']) }"
                 >* Constellations dont effect Damage</span
               >
             </div>
@@ -729,6 +730,7 @@
                   C{{ item["team"]["0"].cons }}
                 </h4>
                 <span
+                  v-if="item['team']['0']['rarity'] == 5"
                   :style="{
                     color: getElementColor(
                       item['team']['0']['element']['name']
@@ -748,6 +750,7 @@
                   C{{ item["team"]["1"].cons }}
                 </h4>
                 <span
+                  v-if="item['team']['1']['rarity'] == 5"
                   :style="{
                     color: getElementColor(
                       item['team']['1']['element']['name']
@@ -767,6 +770,7 @@
                   C{{ item["team"]["2"].cons }}
                 </h4>
                 <span
+                  v-if="item['team']['2']['rarity'] == 5"
                   :style="{
                     color: getElementColor(
                       item['team']['2']['element']['name']
@@ -784,52 +788,51 @@
               <hr />
               <div v-if="character1">
                 <router-link
-                                    id="ArtifactRouter"
-
+                  id="ArtifactRouter"
                   :to="{
                     name: 'WeaponShow',
                     params: { id: item['team']['0'].weapon['@id'] },
                   }"
                 >
-                <img
-                  v-if="character1"
-                  class="artifacts-character-show"
-                  :src="item['team']['0']['weapon']['img']"
-                />
-                <br />
-                {{ item["team"]["0"]["weapon"]["name"] }}
+                  <img
+                    v-if="character1"
+                    class="artifacts-character-show"
+                    :src="item['team']['0']['weapon']['img']"
+                  />
+                  <br />
+                  {{ item["team"]["0"]["weapon"]["name"] }}
                 </router-link>
               </div>
               <div v-if="character2">
                 <router-link
-                                    id="ArtifactRouter"
-
+                  id="ArtifactRouter"
                   :to="{
                     name: 'WeaponShow',
                     params: { id: item['team']['1'].weapon['@id'] },
-                  }">
-                <img
-                  class="artifacts-character-show"
-                  :src="item['team']['1']['weapon']['img']"
-                />
-                <br />
-                {{ item["team"]["1"]["weapon"]["name"] }}
+                  }"
+                >
+                  <img
+                    class="artifacts-character-show"
+                    :src="item['team']['1']['weapon']['img']"
+                  />
+                  <br />
+                  {{ item["team"]["1"]["weapon"]["name"] }}
                 </router-link>
               </div>
               <div v-if="character3">
                 <router-link
-                                    id="ArtifactRouter"
-
+                  id="ArtifactRouter"
                   :to="{
                     name: 'WeaponShow',
                     params: { id: item['team']['2'].weapon['@id'] },
-                  }">
-                <img
-                  class="artifacts-character-show"
-                  :src="item['team']['2']['weapon']['img']"
-                />
-                <br />
-                {{ item["team"]["2"]["weapon"]["name"] }}
+                  }"
+                >
+                  <img
+                    class="artifacts-character-show"
+                    :src="item['team']['2']['weapon']['img']"
+                  />
+                  <br />
+                  {{ item["team"]["2"]["weapon"]["name"] }}
                 </router-link>
               </div>
             </div>
@@ -864,12 +867,14 @@
                       />
                     </svg>
                     <span>Hp</span>
-                     <span
+                    <span
                       :style="{
-                        color: getElementColor(item['team'][0]['element']['name']),
+                        color: getElementColor(
+                          item['team'][0]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][0].hp}}</span
+                      >{{ item["team"][0].hp }}</span
                     >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
@@ -889,12 +894,14 @@
                       />
                     </svg>
                     <span>Atk</span>
-                     <span
+                    <span
                       :style="{
-                        color: getElementColor(item['team'][0]['element']['name']),
+                        color: getElementColor(
+                          item['team'][0]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][0].atk}}</span
+                      >{{ item["team"][0].atk }}</span
                     >
                   </div>
                 </div>
@@ -916,12 +923,14 @@
                       />
                     </svg>
                     <span>Def</span>
-                     <span
+                    <span
                       :style="{
-                        color: getElementColor(item['team'][0]['element']['name']),
+                        color: getElementColor(
+                          item['team'][0]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][0].def}}</span
+                      >{{ item["team"][0].def }}</span
                     >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
@@ -941,12 +950,14 @@
                       />
                     </svg>
                     <span>Elemental Mastery</span>
-                     <span
+                    <span
                       :style="{
-                        color: getElementColor(item['team'][0]['element']['name']),
+                        color: getElementColor(
+                          item['team'][0]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][0].em}}</span
+                      >{{ item["team"][0].em }}</span
                     >
                   </div>
                 </div>
@@ -968,12 +979,14 @@
                       />
                     </svg>
                     <span>Crit Rate</span>
-                     <span
+                    <span
                       :style="{
-                        color: getElementColor(item['team'][0]['element']['name']),
+                        color: getElementColor(
+                          item['team'][0]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][0].cr}}%</span
+                      >{{ item["team"][0].cr }}%</span
                     >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
@@ -993,12 +1006,14 @@
                       />
                     </svg>
                     <span>Crit DMG</span>
-                     <span
+                    <span
                       :style="{
-                        color: getElementColor(item['team'][0]['element']['name']),
+                        color: getElementColor(
+                          item['team'][0]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][0].cd}}%</span
+                      >{{ item["team"][0].cd }}%</span
                     >
                   </div>
                 </div>
@@ -1020,12 +1035,14 @@
                       />
                     </svg>
                     <span>Energie Recharge</span>
-                     <span
+                    <span
                       :style="{
-                        color: getElementColor(item['team'][0]['element']['name']),
+                        color: getElementColor(
+                          item['team'][0]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][0].er}}%</span
+                      >{{ item["team"][0].er }}%</span
                     >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
@@ -1037,12 +1054,14 @@
                       }"
                     />
                     <span>Elemental DMG</span>
-                     <span
+                    <span
                       :style="{
-                        color: getElementColor(item['team'][0]['element']['name']),
+                        color: getElementColor(
+                          item['team'][0]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][0].ed}}%</span
+                      >{{ item["team"][0].ed }}%</span
                     >
                   </div>
                 </div>
@@ -1078,10 +1097,12 @@
                     <span>Hp</span>
                     <span
                       :style="{
-                        color: getElementColor(item['team'][1]['element']['name']),
+                        color: getElementColor(
+                          item['team'][1]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][1].hp}}</span
+                      >{{ item["team"][1].hp }}</span
                     >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
@@ -1103,10 +1124,12 @@
                     <span>Atk</span>
                     <span
                       :style="{
-                        color: getElementColor(item['team'][1]['element']['name']),
+                        color: getElementColor(
+                          item['team'][1]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][1].atk}}</span
+                      >{{ item["team"][1].atk }}</span
                     >
                   </div>
                 </div>
@@ -1130,10 +1153,12 @@
                     <span>Def</span>
                     <span
                       :style="{
-                        color: getElementColor(item['team'][1]['element']['name']),
+                        color: getElementColor(
+                          item['team'][1]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][1].def}}</span
+                      >{{ item["team"][1].def }}</span
                     >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
@@ -1155,10 +1180,12 @@
                     <span>Elemental Mastery</span>
                     <span
                       :style="{
-                        color: getElementColor(item['team'][1]['element']['name']),
+                        color: getElementColor(
+                          item['team'][1]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][1].em}}</span
+                      >{{ item["team"][1].em }}</span
                     >
                   </div>
                 </div>
@@ -1182,10 +1209,12 @@
                     <span>Crit Rate</span>
                     <span
                       :style="{
-                        color: getElementColor(item['team'][1]['element']['name']),
+                        color: getElementColor(
+                          item['team'][1]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][1].cr}}%</span
+                      >{{ item["team"][1].cr }}%</span
                     >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
@@ -1207,10 +1236,12 @@
                     <span>Crit DMG</span>
                     <span
                       :style="{
-                        color: getElementColor(item['team'][1]['element']['name']),
+                        color: getElementColor(
+                          item['team'][1]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][1].cd}}%</span
+                      >{{ item["team"][1].cd }}%</span
                     >
                   </div>
                 </div>
@@ -1234,10 +1265,12 @@
                     <span>Energie Recharge</span>
                     <span
                       :style="{
-                        color: getElementColor(item['team'][1]['element']['name']),
+                        color: getElementColor(
+                          item['team'][1]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][1].er}}%</span
+                      >{{ item["team"][1].er }}%</span
                     >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
@@ -1251,10 +1284,12 @@
                     <span>Elemental DMG</span>
                     <span
                       :style="{
-                        color: getElementColor(item['team'][1]['element']['name']),
+                        color: getElementColor(
+                          item['team'][1]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][1].ed}}%</span
+                      >{{ item["team"][1].ed }}%</span
                     >
                   </div>
                 </div>
@@ -1291,10 +1326,12 @@
                     <span>Hp</span>
                     <span
                       :style="{
-                        color: getElementColor(item['team'][2]['element']['name']),
+                        color: getElementColor(
+                          item['team'][2]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][2].hp}}</span
+                      >{{ item["team"][2].hp }}</span
                     >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
@@ -1316,10 +1353,12 @@
                     <span>Atk</span>
                     <span
                       :style="{
-                        color: getElementColor(item['team'][2]['element']['name']),
+                        color: getElementColor(
+                          item['team'][2]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][2].atk}}</span
+                      >{{ item["team"][2].atk }}</span
                     >
                   </div>
                 </div>
@@ -1343,10 +1382,12 @@
                     <span>Def</span>
                     <span
                       :style="{
-                        color: getElementColor(item['team'][2]['element']['name']),
+                        color: getElementColor(
+                          item['team'][2]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][2].def}}</span
+                      >{{ item["team"][2].def }}</span
                     >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
@@ -1368,10 +1409,12 @@
                     <span>Elemental Mastery</span>
                     <span
                       :style="{
-                        color: getElementColor(item['team'][2]['element']['name']),
+                        color: getElementColor(
+                          item['team'][2]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][2].em}}</span
+                      >{{ item["team"][2].em }}</span
                     >
                   </div>
                 </div>
@@ -1395,10 +1438,12 @@
                     <span>Crit Rate</span>
                     <span
                       :style="{
-                        color: getElementColor(item['team'][2]['element']['name']),
+                        color: getElementColor(
+                          item['team'][2]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][2].cr}}%</span
+                      >{{ item["team"][2].cr }}%</span
                     >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
@@ -1420,10 +1465,12 @@
                     <span>Crit DMG</span>
                     <span
                       :style="{
-                        color: getElementColor(item['team'][2]['element']['name']),
+                        color: getElementColor(
+                          item['team'][2]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][2].cd}}%</span
+                      >{{ item["team"][2].cd }}%</span
                     >
                   </div>
                 </div>
@@ -1447,10 +1494,12 @@
                     <span>Energie Recharge</span>
                     <span
                       :style="{
-                        color: getElementColor(item['team'][2]['element']['name']),
+                        color: getElementColor(
+                          item['team'][2]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][2].er}}%</span
+                      >{{ item["team"][2].er }}%</span
                     >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
@@ -1464,10 +1513,12 @@
                     <span>Elemental DMG</span>
                     <span
                       :style="{
-                        color: getElementColor(item['team'][2]['element']['name']),
+                        color: getElementColor(
+                          item['team'][2]['element']['name']
+                        ),
                       }"
                       style="float: right"
-                      >{{ item['team'][2].ed}}%</span
+                      >{{ item["team"][2].ed }}%</span
                     >
                   </div>
                 </div>
@@ -1477,9 +1528,12 @@
               <h4 class="title-show">Talents</h4>
               <hr />
 
-              <div class="col-4 nopadding" :style="{
-                        color: getElementColor(item['team'][0]['element']['name']),
-                      }">
+              <div
+                class="col-4 nopadding"
+                :style="{
+                  color: getElementColor(item['team'][0]['element']['name']),
+                }"
+              >
                 <img
                   class="talents-show"
                   v-bind:src="item['team']['0']['AAimg']"
@@ -1487,9 +1541,12 @@
                 <br />
                 {{ item["team"]["0"]["talentAA"] }}
               </div>
-              <div class="col-4 nopadding" :style="{
-                        color: getElementColor(item['team'][0]['element']['name']),
-                      }">
+              <div
+                class="col-4 nopadding"
+                :style="{
+                  color: getElementColor(item['team'][0]['element']['name']),
+                }"
+              >
                 <img
                   class="talents-show"
                   v-bind:src="item['team']['0']['talentEimg']"
@@ -1497,9 +1554,12 @@
                 <br />
                 {{ item["team"]["0"]["talentE"] }}
               </div>
-              <div class="col-4 nopadding" :style="{
-                        color: getElementColor(item['team'][0]['element']['name']),
-                      }">
+              <div
+                class="col-4 nopadding"
+                :style="{
+                  color: getElementColor(item['team'][0]['element']['name']),
+                }"
+              >
                 <img
                   class="talents-show"
                   v-bind:src="item['team']['0']['talentQimg']"
@@ -1512,9 +1572,12 @@
               <h4 class="title-show">Talents</h4>
               <hr />
 
-              <div class="col-4 nopadding" :style="{
-                        color: getElementColor(item['team'][1]['element']['name']),
-                      }">
+              <div
+                class="col-4 nopadding"
+                :style="{
+                  color: getElementColor(item['team'][1]['element']['name']),
+                }"
+              >
                 <img
                   class="talents-show"
                   v-bind:src="item['team']['1']['AAimg']"
@@ -1522,9 +1585,12 @@
                 <br />
                 {{ item["team"]["1"]["talentAA"] }}
               </div>
-              <div class="col-4 nopadding" :style="{
-                        color: getElementColor(item['team'][1]['element']['name']),
-                      }">
+              <div
+                class="col-4 nopadding"
+                :style="{
+                  color: getElementColor(item['team'][1]['element']['name']),
+                }"
+              >
                 <img
                   class="talents-show"
                   v-bind:src="item['team']['1']['talentEimg']"
@@ -1532,9 +1598,12 @@
                 <br />
                 {{ item["team"]["1"]["talentE"] }}
               </div>
-              <div class="col-4 nopadding" :style="{
-                        color: getElementColor(item['team'][1]['element']['name']),
-                      }">
+              <div
+                class="col-4 nopadding"
+                :style="{
+                  color: getElementColor(item['team'][1]['element']['name']),
+                }"
+              >
                 <img
                   class="talents-show"
                   v-bind:src="item['team']['1']['talentQimg']"
@@ -1547,9 +1616,12 @@
               <h4 class="title-show">Talents</h4>
               <hr />
 
-              <div class="col-4 nopadding" :style="{
-                        color: getElementColor(item['team'][2]['element']['name']),
-                      }">
+              <div
+                class="col-4 nopadding"
+                :style="{
+                  color: getElementColor(item['team'][2]['element']['name']),
+                }"
+              >
                 <img
                   class="talents-show"
                   v-bind:src="item['team']['2']['AAimg']"
@@ -1557,9 +1629,12 @@
                 <br />
                 {{ item["team"]["2"]["talentAA"] }}
               </div>
-              <div class="col-4 nopadding" :style="{
-                        color: getElementColor(item['team'][2]['element']['name']),
-                      }">
+              <div
+                class="col-4 nopadding"
+                :style="{
+                  color: getElementColor(item['team'][2]['element']['name']),
+                }"
+              >
                 <img
                   class="talents-show"
                   v-bind:src="item['team']['2']['talentEimg']"
@@ -1567,9 +1642,12 @@
                 <br />
                 {{ item["team"]["2"]["talentE"] }}
               </div>
-              <div class="col-4 nopadding" :style="{
-                        color: getElementColor(item['team'][2]['element']['name']),
-                      }">
+              <div
+                class="col-4 nopadding"
+                :style="{
+                  color: getElementColor(item['team'][2]['element']['name']),
+                }"
+              >
                 <img
                   class="talents-show"
                   v-bind:src="item['team']['2']['talentQimg']"
