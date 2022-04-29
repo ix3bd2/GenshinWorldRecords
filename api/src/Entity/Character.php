@@ -8,12 +8,17 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
+use ApiPlatform\Core\Annotation\ApiFilter;
 
 #[ORM\Entity(repositoryClass: CharacterRepository::class)]
 #[ApiResource(
     
     attributes: ["pagination_enabled" => false],normalizationContext: ['groups' => ['character']])
+    
 ]
+#[ApiFilter(OrderFilter::class, properties: ['rarity' => 'ASC'])]
+
 
 class Character
 {
