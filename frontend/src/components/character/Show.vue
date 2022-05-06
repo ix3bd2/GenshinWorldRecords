@@ -116,8 +116,28 @@
           />
         </div>
         <div class="row"></div>
+        <div v-if="!item.active" class="row info-section nopadding">
+          <h5 class="mt-4">
+            There is no top damage for
+            <span
+            class="fw-bold"
+              :style="{
+                color: getElementColor(item['element']['name']),
+              }"
+              >{{ filterName(item["name"]) }}</span
+            >. If you have high dmg with
+            <span
+            class="fw-bold"
+              :style="{
+                color: getElementColor(item['element']['name']),
+              }"
+              >{{ filterName(item["name"]) }}</span
+            >
+            Please don't hesitate to share it with us.
+          </h5>
+        </div>
         <!-- info -->
-        <div v-if="info" class="row info-section nopadding">
+        <div v-if="info && item.active == 1" class="row info-section nopadding">
           <div class="col-lg-4 col-sm-12">
             <div class="row character-info-rows">
               <h4 class="title-show">Player Info</h4>

@@ -138,7 +138,8 @@ class Character
     #[Groups("character")]
     #[ORM\ManyToMany(targetEntity: Buff::class, inversedBy: 'characters')]
     private $allBuffs;
-
+    
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $active;
 
