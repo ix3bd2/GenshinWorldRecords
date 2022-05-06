@@ -17,7 +17,7 @@ use ApiPlatform\Core\Annotation\ApiFilter;
     attributes: ["pagination_enabled" => false],normalizationContext: ['groups' => ['character']])
     
 ]
-#[ApiFilter(OrderFilter::class, properties: ['rarity' => 'ASC'])]
+#[ApiFilter(OrderFilter::class, properties: ['rarity' => 'ASC','active' => 'ASC'])]
 
 
 class Character
@@ -138,6 +138,9 @@ class Character
     #[Groups("character")]
     #[ORM\ManyToMany(targetEntity: Buff::class, inversedBy: 'characters')]
     private $allBuffs;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $active;
 
     public function __construct()
     {
@@ -563,6 +566,18 @@ class Character
     public function removeAllBuff(Buff $allBuff): self
     {
         $this->allBuffs->removeElement($allBuff);
+
+        return $this;
+    }
+
+    public function getActive(): ?int
+    {
+        return $this->active;
+    }
+
+    public function setActive(?int $active): self
+    {
+        $this->active = $active;
 
         return $this;
     }
