@@ -143,6 +143,21 @@ class Character
     #[ORM\Column(type: 'integer', nullable: true)]
     private $active;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $playerName;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $ar;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $abyssClear;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $mainChar;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $highestDmg;
+
     public function __construct()
     {
         $this->team = new ArrayCollection();
@@ -579,6 +594,66 @@ class Character
     public function setActive(?int $active): self
     {
         $this->active = $active;
+
+        return $this;
+    }
+
+    public function getPlayerName(): ?string
+    {
+        return $this->playerName;
+    }
+
+    public function setPlayerName(?string $playerName): self
+    {
+        $this->playerName = $playerName;
+
+        return $this;
+    }
+
+    public function getAr(): ?string
+    {
+        return $this->ar;
+    }
+
+    public function setAr(?string $ar): self
+    {
+        $this->ar = $ar;
+
+        return $this;
+    }
+
+    public function getAbyssClear(): ?string
+    {
+        return $this->abyssClear;
+    }
+
+    public function setAbyssClear(?string $abyssClear): self
+    {
+        $this->abyssClear = $abyssClear;
+
+        return $this;
+    }
+
+    public function getMainChar(): ?string
+    {
+        return $this->mainChar;
+    }
+
+    public function setMainChar(?string $mainChar): self
+    {
+        $this->mainChar = $mainChar;
+
+        return $this;
+    }
+
+    public function getHighestDmg(): ?int
+    {
+        return $this->highestDmg;
+    }
+
+    public function setHighestDmg(?int $highestDmg): self
+    {
+        $this->highestDmg = $highestDmg;
 
         return $this;
     }
