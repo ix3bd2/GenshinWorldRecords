@@ -107,16 +107,17 @@
             id="banner"
             :src="require('@/assets/img/fullBanners/' + item['name'] + '.jpg')"
           />
-           <div class="card highest-damage-card bb" >
-             
-  <div class="card-body">
-    <h2 class="card-title">Highest Damage</h2>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-</div>
-             </div>
+
+          <div class="card highest-damage-card">
+            <div class="card-header">Featured</div>
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">
+                With supporting text below as a natural lead-in to additional
+                content.
+              </p>
+            </div>
+          </div>
           <img
             class="character-icon-show nopadding"
             :src="require('@/assets/img/pPicture/' + item['name'] + '.jpg')"
@@ -130,14 +131,14 @@
           <h5 class="mt-4">
             There is no top damage for
             <span
-            class="fw-bold"
+              class="fw-bold"
               :style="{
                 color: getElementColor(item['element']['name']),
               }"
               >{{ filterName(item["name"]) }}</span
             >. If you have high dmg with
             <span
-            class="fw-bold"
+              class="fw-bold"
               :style="{
                 color: getElementColor(item['element']['name']),
               }"
@@ -499,7 +500,29 @@
                     >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
-                   <svg aria-hidden="true" focusable="false" data-prefix="faga" data-icon="CritDMG" class="svg-inline--fa fa-CritDMG fa-w-16 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"><g class="fa-group"><path class="fa-secondary" fill="currentColor" d="M 7.0449219 0.18945312 C 5.818965 0.18945312 4.6894337 0.5018163 3.71875 1.046875 L 7.3320312 2.4394531 L 10.167969 0.96679688 C 9.2331569 0.47117828 8.1707623 0.18945312 7.0449219 0.18945312 z M 1.5019531 3.0742188 C 0.74552119 4.1742335 0.30859375 5.5104369 0.30859375 6.9472656 C 0.30859375 7.872232 0.49756027 8.7546827 0.83789062 9.5585938 L 2.4394531 6.0039062 L 1.5019531 3.0742188 z M 13.132812 4.0722656 L 11.560547 7.3320312 L 12.636719 10.693359 C 13.358287 9.620801 13.779297 8.3313984 13.779297 6.9472656 C 13.779297 5.9218433 13.546433 4.9465735 13.132812 4.0722656 z M 7.3320312 11.560547 L 4.2226562 13.060547 C 5.0819109 13.459787 6.0386367 13.683594 7.0449219 13.683594 C 8.3730449 13.683594 9.6123694 13.294296 10.658203 12.625 L 7.3320312 11.560547 z "></path><path class="fa-primary" fill="currentColor" d="m0 14 3.5-7.764-1.527-4.772L7.255 3.5 14 0l-3.5 7.255 1.527 4.772L7.255 10.5 0 14"></path></g></svg>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="faga"
+                      data-icon="CritDMG"
+                      class="svg-inline--fa fa-CritDMG fa-w-16"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 14 14"
+                    >
+                      <g class="fa-group">
+                        <path
+                          class="fa-secondary"
+                          fill="currentColor"
+                          d="M 7.0449219 0.18945312 C 5.818965 0.18945312 4.6894337 0.5018163 3.71875 1.046875 L 7.3320312 2.4394531 L 10.167969 0.96679688 C 9.2331569 0.47117828 8.1707623 0.18945312 7.0449219 0.18945312 z M 1.5019531 3.0742188 C 0.74552119 4.1742335 0.30859375 5.5104369 0.30859375 6.9472656 C 0.30859375 7.872232 0.49756027 8.7546827 0.83789062 9.5585938 L 2.4394531 6.0039062 L 1.5019531 3.0742188 z M 13.132812 4.0722656 L 11.560547 7.3320312 L 12.636719 10.693359 C 13.358287 9.620801 13.779297 8.3313984 13.779297 6.9472656 C 13.779297 5.9218433 13.546433 4.9465735 13.132812 4.0722656 z M 7.3320312 11.560547 L 4.2226562 13.060547 C 5.0819109 13.459787 6.0386367 13.683594 7.0449219 13.683594 C 8.3730449 13.683594 9.6123694 13.294296 10.658203 12.625 L 7.3320312 11.560547 z "
+                        ></path>
+                        <path
+                          class="fa-primary"
+                          fill="currentColor"
+                          d="m0 14 3.5-7.764-1.527-4.772L7.255 3.5 14 0l-3.5 7.255 1.527 4.772L7.255 10.5 0 14"
+                        ></path>
+                      </g>
+                    </svg>
                     <span>Crit DMG</span>
                     <span
                       style="float: right"
@@ -1006,7 +1029,29 @@
                     >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
-                    <svg aria-hidden="true" focusable="false" data-prefix="faga" data-icon="CritDMG" class="svg-inline--fa fa-CritDMG fa-w-16 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"><g class="fa-group"><path class="fa-secondary" fill="currentColor" d="M 7.0449219 0.18945312 C 5.818965 0.18945312 4.6894337 0.5018163 3.71875 1.046875 L 7.3320312 2.4394531 L 10.167969 0.96679688 C 9.2331569 0.47117828 8.1707623 0.18945312 7.0449219 0.18945312 z M 1.5019531 3.0742188 C 0.74552119 4.1742335 0.30859375 5.5104369 0.30859375 6.9472656 C 0.30859375 7.872232 0.49756027 8.7546827 0.83789062 9.5585938 L 2.4394531 6.0039062 L 1.5019531 3.0742188 z M 13.132812 4.0722656 L 11.560547 7.3320312 L 12.636719 10.693359 C 13.358287 9.620801 13.779297 8.3313984 13.779297 6.9472656 C 13.779297 5.9218433 13.546433 4.9465735 13.132812 4.0722656 z M 7.3320312 11.560547 L 4.2226562 13.060547 C 5.0819109 13.459787 6.0386367 13.683594 7.0449219 13.683594 C 8.3730449 13.683594 9.6123694 13.294296 10.658203 12.625 L 7.3320312 11.560547 z "></path><path class="fa-primary" fill="currentColor" d="m0 14 3.5-7.764-1.527-4.772L7.255 3.5 14 0l-3.5 7.255 1.527 4.772L7.255 10.5 0 14"></path></g></svg>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="faga"
+                      data-icon="CritDMG"
+                      class="svg-inline--fa fa-CritDMG fa-w-16"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 14 14"
+                    >
+                      <g class="fa-group">
+                        <path
+                          class="fa-secondary"
+                          fill="currentColor"
+                          d="M 7.0449219 0.18945312 C 5.818965 0.18945312 4.6894337 0.5018163 3.71875 1.046875 L 7.3320312 2.4394531 L 10.167969 0.96679688 C 9.2331569 0.47117828 8.1707623 0.18945312 7.0449219 0.18945312 z M 1.5019531 3.0742188 C 0.74552119 4.1742335 0.30859375 5.5104369 0.30859375 6.9472656 C 0.30859375 7.872232 0.49756027 8.7546827 0.83789062 9.5585938 L 2.4394531 6.0039062 L 1.5019531 3.0742188 z M 13.132812 4.0722656 L 11.560547 7.3320312 L 12.636719 10.693359 C 13.358287 9.620801 13.779297 8.3313984 13.779297 6.9472656 C 13.779297 5.9218433 13.546433 4.9465735 13.132812 4.0722656 z M 7.3320312 11.560547 L 4.2226562 13.060547 C 5.0819109 13.459787 6.0386367 13.683594 7.0449219 13.683594 C 8.3730449 13.683594 9.6123694 13.294296 10.658203 12.625 L 7.3320312 11.560547 z "
+                        ></path>
+                        <path
+                          class="fa-primary"
+                          fill="currentColor"
+                          d="m0 14 3.5-7.764-1.527-4.772L7.255 3.5 14 0l-3.5 7.255 1.527 4.772L7.255 10.5 0 14"
+                        ></path>
+                      </g>
+                    </svg>
                     <span>Crit DMG</span>
                     <span
                       :style="{
@@ -1220,7 +1265,29 @@
                     >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
-                    <svg aria-hidden="true" focusable="false" data-prefix="faga" data-icon="CritDMG" class="svg-inline--fa fa-CritDMG fa-w-16 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"><g class="fa-group"><path class="fa-secondary" fill="currentColor" d="M 7.0449219 0.18945312 C 5.818965 0.18945312 4.6894337 0.5018163 3.71875 1.046875 L 7.3320312 2.4394531 L 10.167969 0.96679688 C 9.2331569 0.47117828 8.1707623 0.18945312 7.0449219 0.18945312 z M 1.5019531 3.0742188 C 0.74552119 4.1742335 0.30859375 5.5104369 0.30859375 6.9472656 C 0.30859375 7.872232 0.49756027 8.7546827 0.83789062 9.5585938 L 2.4394531 6.0039062 L 1.5019531 3.0742188 z M 13.132812 4.0722656 L 11.560547 7.3320312 L 12.636719 10.693359 C 13.358287 9.620801 13.779297 8.3313984 13.779297 6.9472656 C 13.779297 5.9218433 13.546433 4.9465735 13.132812 4.0722656 z M 7.3320312 11.560547 L 4.2226562 13.060547 C 5.0819109 13.459787 6.0386367 13.683594 7.0449219 13.683594 C 8.3730449 13.683594 9.6123694 13.294296 10.658203 12.625 L 7.3320312 11.560547 z "></path><path class="fa-primary" fill="currentColor" d="m0 14 3.5-7.764-1.527-4.772L7.255 3.5 14 0l-3.5 7.255 1.527 4.772L7.255 10.5 0 14"></path></g></svg>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="faga"
+                      data-icon="CritDMG"
+                      class="svg-inline--fa fa-CritDMG fa-w-16"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 14 14"
+                    >
+                      <g class="fa-group">
+                        <path
+                          class="fa-secondary"
+                          fill="currentColor"
+                          d="M 7.0449219 0.18945312 C 5.818965 0.18945312 4.6894337 0.5018163 3.71875 1.046875 L 7.3320312 2.4394531 L 10.167969 0.96679688 C 9.2331569 0.47117828 8.1707623 0.18945312 7.0449219 0.18945312 z M 1.5019531 3.0742188 C 0.74552119 4.1742335 0.30859375 5.5104369 0.30859375 6.9472656 C 0.30859375 7.872232 0.49756027 8.7546827 0.83789062 9.5585938 L 2.4394531 6.0039062 L 1.5019531 3.0742188 z M 13.132812 4.0722656 L 11.560547 7.3320312 L 12.636719 10.693359 C 13.358287 9.620801 13.779297 8.3313984 13.779297 6.9472656 C 13.779297 5.9218433 13.546433 4.9465735 13.132812 4.0722656 z M 7.3320312 11.560547 L 4.2226562 13.060547 C 5.0819109 13.459787 6.0386367 13.683594 7.0449219 13.683594 C 8.3730449 13.683594 9.6123694 13.294296 10.658203 12.625 L 7.3320312 11.560547 z "
+                        ></path>
+                        <path
+                          class="fa-primary"
+                          fill="currentColor"
+                          d="m0 14 3.5-7.764-1.527-4.772L7.255 3.5 14 0l-3.5 7.255 1.527 4.772L7.255 10.5 0 14"
+                        ></path>
+                      </g>
+                    </svg>
                     <span>Crit DMG</span>
                     <span
                       :style="{
@@ -1435,7 +1502,29 @@
                     >
                   </div>
                   <div class="col-lg-5 col-sm-12 m-2">
-                    <svg aria-hidden="true" focusable="false" data-prefix="faga" data-icon="CritDMG" class="svg-inline--fa fa-CritDMG fa-w-16 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"><g class="fa-group"><path class="fa-secondary" fill="currentColor" d="M 7.0449219 0.18945312 C 5.818965 0.18945312 4.6894337 0.5018163 3.71875 1.046875 L 7.3320312 2.4394531 L 10.167969 0.96679688 C 9.2331569 0.47117828 8.1707623 0.18945312 7.0449219 0.18945312 z M 1.5019531 3.0742188 C 0.74552119 4.1742335 0.30859375 5.5104369 0.30859375 6.9472656 C 0.30859375 7.872232 0.49756027 8.7546827 0.83789062 9.5585938 L 2.4394531 6.0039062 L 1.5019531 3.0742188 z M 13.132812 4.0722656 L 11.560547 7.3320312 L 12.636719 10.693359 C 13.358287 9.620801 13.779297 8.3313984 13.779297 6.9472656 C 13.779297 5.9218433 13.546433 4.9465735 13.132812 4.0722656 z M 7.3320312 11.560547 L 4.2226562 13.060547 C 5.0819109 13.459787 6.0386367 13.683594 7.0449219 13.683594 C 8.3730449 13.683594 9.6123694 13.294296 10.658203 12.625 L 7.3320312 11.560547 z "></path><path class="fa-primary" fill="currentColor" d="m0 14 3.5-7.764-1.527-4.772L7.255 3.5 14 0l-3.5 7.255 1.527 4.772L7.255 10.5 0 14"></path></g></svg>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="faga"
+                      data-icon="CritDMG"
+                      class="svg-inline--fa fa-CritDMG fa-w-16"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 14 14"
+                    >
+                      <g class="fa-group">
+                        <path
+                          class="fa-secondary"
+                          fill="currentColor"
+                          d="M 7.0449219 0.18945312 C 5.818965 0.18945312 4.6894337 0.5018163 3.71875 1.046875 L 7.3320312 2.4394531 L 10.167969 0.96679688 C 9.2331569 0.47117828 8.1707623 0.18945312 7.0449219 0.18945312 z M 1.5019531 3.0742188 C 0.74552119 4.1742335 0.30859375 5.5104369 0.30859375 6.9472656 C 0.30859375 7.872232 0.49756027 8.7546827 0.83789062 9.5585938 L 2.4394531 6.0039062 L 1.5019531 3.0742188 z M 13.132812 4.0722656 L 11.560547 7.3320312 L 12.636719 10.693359 C 13.358287 9.620801 13.779297 8.3313984 13.779297 6.9472656 C 13.779297 5.9218433 13.546433 4.9465735 13.132812 4.0722656 z M 7.3320312 11.560547 L 4.2226562 13.060547 C 5.0819109 13.459787 6.0386367 13.683594 7.0449219 13.683594 C 8.3730449 13.683594 9.6123694 13.294296 10.658203 12.625 L 7.3320312 11.560547 z "
+                        ></path>
+                        <path
+                          class="fa-primary"
+                          fill="currentColor"
+                          d="m0 14 3.5-7.764-1.527-4.772L7.255 3.5 14 0l-3.5 7.255 1.527 4.772L7.255 10.5 0 14"
+                        ></path>
+                      </g>
+                    </svg>
                     <span>Crit DMG</span>
                     <span
                       :style="{
@@ -1997,7 +2086,7 @@ export default {
 };
 </script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 .character-icon-show {
   width: 110px;
   position: absolute;
@@ -2152,13 +2241,13 @@ export default {
   transition: ease-out 0.3s;
 }
 
-.highest-damage-card{
+.highest-damage-card {
   position: absolute;
-  left: 56%;
-  bottom: 50%;
+  left: 68%;
+  top: 27rem;
   width: 25%;
   height: 150px;
-  background-color: #19232f;
+  background-color: #19232f7d;
+  transform: translate(-50%, -50%);
 }
-
 </style>
