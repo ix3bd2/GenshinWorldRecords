@@ -109,14 +109,7 @@
           />
 
           <div class="card highest-damage-card">
-            <div class="card-header">Featured</div>
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">
-                With supporting text below as a natural lead-in to additional
-                content.
-              </p>
-            </div>
+            <div class="card-header">1231233 DMG</div>
           </div>
           <img
             class="character-icon-show nopadding"
@@ -2245,9 +2238,18 @@ export default {
   position: absolute;
   left: 68%;
   top: 27rem;
-  width: 25%;
-  height: 150px;
-  background-color: #19232f7d;
-  transform: translate(-50%, -50%);
+  width: 300px;
+  background-color: #111111b3;
+  transform: translate(-40%, -50%);
+  border: 2px solid #ffffff50;
+  border-radius: 3px;
+  box-shadow: rgb(73 71 71 / 56%) -4px 0px 5px 1px;
+}
+@media (max-width: 530px) {
+  .highest-damage-card {
+    left: 50%;
+    top: 27rem;
+    transform: translate(-50%, -50%);
+  }
 }
 </style>
