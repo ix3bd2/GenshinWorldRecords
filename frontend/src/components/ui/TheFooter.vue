@@ -26,7 +26,7 @@
 					<a href="/artifacts">Artifacts&nbsp;</a>
 
 					<a href="/buffs">Buffs&nbsp;</a>
-          <a href="/patreon">Patreon&nbsp;</a>
+          <!-- <a href="/patreon">Patreon&nbsp;</a> -->
 				</p>
 
 				<p>Genshin World Records &copy; 2021</p>

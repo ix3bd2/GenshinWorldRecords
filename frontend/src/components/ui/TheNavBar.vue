@@ -66,14 +66,14 @@
               />&nbsp;Buffs</a
             >
           </li>
-          <li class="nav-item">
+         <!--  <li class="nav-item">
             <a class="nav-link" href="/patreon"
               ><img
                 style="width:21px"
                 src="@/assets/img/patreon-logo.png"
               />&nbsp;Patreon</a
             >
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
