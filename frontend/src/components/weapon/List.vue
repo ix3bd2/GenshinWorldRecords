@@ -98,6 +98,8 @@ export default {
   padding: 4%;
 }
 #WeaponImg {
+  width:106px;
+  
   -webkit-filter: drop-shadow(1px 1px 0 #f5f5f5d7)
     drop-shadow(-1px -1px 0 #f5f5f5d7);
   filter: drop-shadow(1px 1px 0 #f5f5f5d7) drop-shadow(-1px -1px 0 #f5f5f5d7);
