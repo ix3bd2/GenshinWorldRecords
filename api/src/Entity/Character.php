@@ -143,18 +143,23 @@ class Character
     #[ORM\Column(type: 'integer', nullable: true)]
     private $active;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $playerName;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $ar;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $abyssClear;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $mainChar;
 
+    #[Groups("character")]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $highestDmg;
 

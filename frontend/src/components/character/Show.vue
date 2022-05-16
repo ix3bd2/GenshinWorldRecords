@@ -109,7 +109,10 @@
           />
 
           <div class="card highest-damage-card">
-            <div class="card-header">1231233 DMG</div>
+            <div v-if="item.highestDmg" class="card-header">
+              {{ addcommas(item.highestDmg) }} DMG
+            </div>
+            <div v-if="!item.highestDmg" class="card-header">Coming Soon</div>
           </div>
           <img
             class="character-icon-show nopadding"
@@ -163,11 +166,20 @@
                       >
                     </div>
                     <div
+                      v-if="item.playerName"
                       :style="{
                         color: getElementColor(item['element']['name']),
                       }"
                     >
-                      ArchoNix
+                      {{ item.playerName }}
+                    </div>
+                    <div
+                      v-if="!item.playerName"
+                      :style="{
+                        color: getElementColor(item['element']['name']),
+                      }"
+                    >
+                      Unknown
                     </div>
                   </li>
 
@@ -186,11 +198,20 @@
                       >
                     </div>
                     <div
+                      v-if="item.ar"
                       :style="{
                         color: getElementColor(item['element']['name']),
                       }"
                     >
-                      57
+                      {{ item.ar }}
+                    </div>
+                    <div
+                      v-if="!item.ar"
+                      :style="{
+                        color: getElementColor(item['element']['name']),
+                      }"
+                    >
+                      Unknown
                     </div>
                   </li>
 
@@ -209,11 +230,20 @@
                       >
                     </div>
                     <div
+                      v-if="item.abyssClear"
                       :style="{
                         color: getElementColor(item['element']['name']),
                       }"
                     >
-                      12
+                      {{ item.abyssClear }}
+                    </div>
+                    <div
+                      v-if="!item.abyssClear"
+                      :style="{
+                        color: getElementColor(item['element']['name']),
+                      }"
+                    >
+                      Unknown
                     </div>
                   </li>
 
@@ -232,11 +262,20 @@
                       >
                     </div>
                     <div
+                      v-if="item.mainChar"
                       :style="{
                         color: getElementColor(item['element']['name']),
                       }"
                     >
-                      Eula
+                      {{ item.mainChar }}
+                    </div>
+                    <div
+                      v-if="!item.mainChar"
+                      :style="{
+                        color: getElementColor(item['element']['name']),
+                      }"
+                    >
+                      Unknown
                     </div>
                   </li>
                 </ul>
@@ -2040,7 +2079,12 @@ export default {
       retrieve: "character/show/retrieve",
     }),
     filterName(name) {
+      console.log(this.item)
       return name.replace("-", " ");
+    
+    },
+    addcommas(number){
+      return number.toLocaleString("en-US")
     },
     showInfo() {
       this.info = true;
