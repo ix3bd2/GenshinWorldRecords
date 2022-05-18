@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "twitter-widgets": "^2.0.0",
+    "vue-tweet-embed": "^2.4.0"
+  }
+}

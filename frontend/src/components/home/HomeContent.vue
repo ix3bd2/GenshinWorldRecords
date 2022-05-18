@@ -19,23 +19,23 @@
      >
               <img
                 class="card-img-top char-element char-element-header"
-                src="https://static.wikia.nocookie.net/gensin-impact/images/a/a4/Element_Anemo.png"
+                src="https://static.wikia.nocookie.net/gensin-impact/images/3/35/Element_Hydro.png"
                 alt="Card image cap"
-                v-bind:style="{ border: '2px solid #95ecc2' }"
+                v-bind:style="{ border: getElementBorderColor('Hydro') }"
               />
               <img
                 class="card-img card-main-img"
-                src="../../assets/img/fullBanners/Xiao.jpg"
+                src="../../assets/img/fullBanners/Kamisato-Ayato.jpg"
                 alt="Card image"
               />
 
               <div
                 class="card-img-overlay"
-                v-bind:style="{ border: getElementBorderColor('Anemo') }"
+                v-bind:style="{ border: getElementBorderColor('Hydro') }"
               >
                 <div class="card-body-custom">
                   <h3 class="card-text card-text-custom">
-                    Highest Plunge Damage
+                    Hydro DPS
                   </h3>
 
                   <h3 class="card-title card-title-custom">C0 Damage</h3>
@@ -68,6 +68,9 @@
       </div>
     </div>
   </div>
+  <div class="home-genshin-tweets">
+    <home-genshin-tweets/>
+  </div>
   <div class="home-categorie">
     <home-categorie/>
   </div>
@@ -80,13 +83,15 @@ import { mapFields } from "vuex-map-fields";
 import HomePatchChar from "./HomePatchChar.vue";
 import { charactersMixin } from "../../mixins/charactersMixin";
 import HomeCategorie from "./HomeCategorie.vue";
+import HomeGenshinTweets from "./HomeGenshinTweets.vue"
 import TheSendClip from "../ui/TheSendClip.vue"
 export default {
   mixins: [charactersMixin],
   components: {
     "home-patch-char": HomePatchChar,
     "home-categorie":HomeCategorie,
-    "the-send-clip":TheSendClip
+    "the-send-clip":TheSendClip,
+    "home-genshin-tweets":HomeGenshinTweets,
   },
   computed: {
     ...mapFields("patchchar/del", {
@@ -181,6 +186,10 @@ export default {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }
 .home-categorie{
-  background-color: #1f1f1f;
+  background-color: #171332;
+}
+.home-genshin-tweets{
+    background-color: #1f1f1f;
+    border-bottom: 0.25rem solid #7c82c8;
 }
 </style>
