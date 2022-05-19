@@ -13,7 +13,7 @@
         >
           <router-link
             style="color: white"
-            :to="{ name: 'CharacterShow', params: { id: 'characters/20' } }"
+            :to="{ name: 'CharacterShow', params: { id: 'characters/47' } }"
           >
             <div class="card card-main w-100" 
      >
