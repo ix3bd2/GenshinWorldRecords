@@ -1,6 +1,10 @@
 <template>
   <div class="home-header">
-    <div class="header-bg"></div>
+    <div class="header-bg">
+      <div class="row top3-dmg">
+        
+      </div>
+    </div>
     <home-content />
   </div>
 </template>
@@ -20,5 +24,11 @@ export default {
   height: 532px;
   background-size: cover;
   background-position: 50%;
+      position: relative;
+
+}
+.top3-dmg{
+  position:absolute;
+  bottom: 10%;
 }
 </style>
