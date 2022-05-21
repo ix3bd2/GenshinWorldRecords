@@ -25,10 +25,10 @@ class Character
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    #[Groups(["character","buffs"])]
+    #[Groups(["character","buffs"."top3dmg"])]
     private $id;
 
-    #[Groups(["character","patchChar","buffs"])]
+    #[Groups(["character","patchChar","buffs","top3dmg"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $name;
 
@@ -88,7 +88,7 @@ class Character
     #[ORM\Column(type: 'text', nullable: true)]
     private $videoUrl;
 
-    #[Groups(["character","patchChar","buffs"])]
+    #[Groups(["character","patchChar","buffs","top3dmg"])]
     #[ORM\ManyToOne(targetEntity: Element::class, inversedBy: 'characters')]
     private $element;
 
@@ -104,7 +104,7 @@ class Character
     #[ORM\Column(type: 'array', nullable: true)]
     private $buff = [];
     
-    #[Groups(["character","patchChar"])]
+    #[Groups(["character","patchChar","top3dmg"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $nation;
 
@@ -159,9 +159,12 @@ class Character
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $mainChar;
 
-    #[Groups("character")]
+    #[Groups(["character","patchChar","top3dmg"])]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $highestDmg;
+
+    #[ORM\OneToMany(mappedBy: 'character', targetEntity: Top3dmg::class)]
+    private $top3dmgs;
 
     public function __construct()
     {
@@ -170,6 +173,7 @@ class Character
         $this->buffs = new ArrayCollection();
         $this->artifact = new ArrayCollection();
         $this->allBuffs = new ArrayCollection();
+        $this->top3dmgs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -659,6 +663,36 @@ class Character
     public function setHighestDmg(?int $highestDmg): self
     {
         $this->highestDmg = $highestDmg;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Top3dmg[]
+     */
+    public function getTop3dmgs(): Collection
+    {
+        return $this->top3dmgs;
+    }
+
+    public function addTop3dmg(Top3dmg $top3dmg): self
+    {
+        if (!$this->top3dmgs->contains($top3dmg)) {
+            $this->top3dmgs[] = $top3dmg;
+            $top3dmg->setCharacter($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTop3dmg(Top3dmg $top3dmg): self
+    {
+        if ($this->top3dmgs->removeElement($top3dmg)) {
+            // set the owning side to null (unless already changed)
+            if ($top3dmg->getCharacter() === $this) {
+                $top3dmg->setCharacter(null);
+            }
+        }
 
         return $this;
     }
