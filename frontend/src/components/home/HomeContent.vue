@@ -132,8 +132,8 @@ export default {
   font-size: 3rem;
   font-weight: 800;
   text-align: left;
-  margin-bottom: 4.5rem;
-  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  margin-top: 2.5rem;
 }
 .new-patch {
   width: 100%;

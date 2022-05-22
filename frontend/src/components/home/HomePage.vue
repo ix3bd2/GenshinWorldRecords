@@ -2,16 +2,18 @@
   <div class="home-header">
     <div class="header-bg">
       <div
-        style="width: 100%"
+        style="width: 100%; padding-left: 1.5rem; padding-bottom: 30px"
         class="row top3-dmg d-flex justify-content-center"
       >
         <div
-          class="col-lg-3 col-md-4 m-2 top3cards"
+          class="col-xl-3 col-lg-4 col-md-5 m-2 col-sm-12 top3cards"
           v-for="item in fullData"
           :key="item['@id']"
-          v-bind:style="{
-            border: getElementBorderColor(item.character['element']['name']),
-          }"
+          v-bind:style="[{
+            border: getElementBorderColor(item.character['element']['name']),backgroundImage: 'url(' + '@/assets/img/homePage/HomePageHeader.jpeg' + ')'
+          
+          }]"
+          
         >
           <img
             class="top3dmg-pp"
@@ -25,10 +27,19 @@
           />
           <p
             class="top3dmg-name fw-bold"
-            :style="{ color: getElementColor(item.character['element']['name']) }"
+            :style="{
+              color: getElementColor(item.character['element']['name']),
+            }"
           >
             {{ filterName(item.character.name) }}
           </p>
+          <img
+            id="top3dmg-element"
+            v-bind:src="item.character['element']['img']"
+            v-bind:style="{
+              border: getElementBorderColor(item.character['element']['name']),
+            }"
+          />
           <p v-if="item.id == 1" class="top1dmg-number fw-bold">
             <sup data-v-38f61d99="" data-v-4b32071d="">#</sup>
             {{ item.id }}
@@ -88,6 +99,8 @@ export default {
   height: 122px;
   position: relative;
   border-radius: 0.25rem;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
+    0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
 .header-bg {
   background-image: url("../../assets/img/homePage/HomePageHeader.jpeg");
@@ -99,7 +112,7 @@ export default {
 }
 .top3-dmg {
   position: absolute;
-  bottom: -10%;
+  bottom: -70px;
   z-index: 2;
 }
 .top3dmg-pp {
@@ -163,5 +176,16 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-40%, -50%);
+}
+#top3dmg-element {
+  width: 30px;
+  background-color: #19232f;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
+    0 6px 20px 0 rgba(255, 255, 255, 0.19);
+  transform: translate(-50%, -50%);
+  left: 1.5rem;
+  top: 23%;
 }
 </style>
