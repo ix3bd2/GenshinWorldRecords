@@ -16,6 +16,7 @@ class Top3dmg
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups("top3dmg")]
     private $id;
 
     #[ORM\ManyToOne(targetEntity: Character::class, inversedBy: 'top3dmgs')]

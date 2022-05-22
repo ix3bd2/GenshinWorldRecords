@@ -1,8 +1,50 @@
 <template>
   <div class="home-header">
     <div class="header-bg">
-      <div class="row top3-dmg">
-          <div class="col" v-for="item in fullData" :key="item['@id']">{{ item.character.name }}</div>
+      <div
+        style="width: 100%"
+        class="row top3-dmg d-flex justify-content-center"
+      >
+        <div
+          class="col-lg-3 col-md-4 m-2 top3cards"
+          v-for="item in fullData"
+          :key="item['@id']"
+          v-bind:style="{
+            border: getElementBorderColor(item.character['element']['name']),
+          }"
+        >
+          <img
+            class="top3dmg-pp"
+            :src="
+              require('@/assets/img/pPicture/' + item.character.name + '.jpg')
+            "
+            alt="Card image cap"
+            v-bind:style="{
+              border: getElementBorderColor(item.character['element']['name']),
+            }"
+          />
+          <p
+            class="top3dmg-name fw-bold"
+            :style="{ color: getElementColor(item.character['element']['name']) }"
+          >
+            {{ filterName(item.character.name) }}
+          </p>
+          <p v-if="item.id == 1" class="top1dmg-number fw-bold">
+            <sup data-v-38f61d99="" data-v-4b32071d="">#</sup>
+            {{ item.id }}
+          </p>
+          <p v-if="item.id == 2" class="top2dmg-number fw-bold">
+            <sup data-v-38f61d99="" data-v-4b32071d="">#</sup>
+            {{ item.id }}
+          </p>
+          <p v-if="item.id == 3" class="top3dmg-number fw-bold">
+            <sup data-v-38f61d99="" data-v-4b32071d="">#</sup>
+            {{ item.id }}
+          </p>
+          <p class="top3dmg-damage fw-bold">
+            {{ addcommas(item.character.highestDmg) }} Damage
+          </p>
+        </div>
       </div>
     </div>
     <home-content />
@@ -10,10 +52,12 @@
 </template>
 <script>
 import HomeContent from "./HomeContent.vue";
-import axios from 'axios';
-import { ENTRYPOINT } from '../../config/entrypoint';
+import axios from "axios";
+import { ENTRYPOINT } from "../../config/entrypoint";
+import { charactersMixin } from "../../mixins/charactersMixin";
 
 export default {
+  mixins: [charactersMixin],
   components: {
     "home-content": HomeContent,
   },
@@ -22,25 +66,102 @@ export default {
       fullData: null,
     };
   },
-  created(){
-        axios.get(ENTRYPOINT + '/top3dmgs?pagination=false')
-      .then(response => (this.fullData = response.data['hydra:member']))
-  }
+  created() {
+    axios
+      .get(ENTRYPOINT + "/top3dmgs?pagination=false")
+      .then((response) => (this.fullData = response.data["hydra:member"]));
+  },
+  methods: {
+    filterName(name) {
+      return name.replace("-", " ");
+    },
+    addcommas(number) {
+      return number.toLocaleString("en-US");
+    },
+  },
 };
 </script>
 
 <style>
+.top3cards {
+  background-color: #1f1f1f;
+  height: 122px;
+  position: relative;
+  border-radius: 0.25rem;
+}
 .header-bg {
   background-image: url("../../assets/img/homePage/HomePageHeader.jpeg");
   width: 100%;
   height: 532px;
   background-size: cover;
   background-position: 50%;
-      position: relative;
-
+  position: relative;
 }
-.top3-dmg{
-  position:absolute;
-  bottom: 10%;
+.top3-dmg {
+  position: absolute;
+  bottom: -10%;
+  z-index: 2;
+}
+.top3dmg-pp {
+  width: 89px;
+  position: absolute;
+  left: 3.5rem;
+  top: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.top3dmg-name {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+}
+.top1dmg-number {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(180deg, #ffeb99, #ad801c);
+  color: #111;
+  height: 2.5rem;
+  width: 2.5rem;
+  padding: 0.5rem;
+  border-bottom-left-radius: 1.5rem;
+  font-size: 1.19rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+.top2dmg-number {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(180deg, #d3d3d3, #2d3436);
+  color: #111;
+  height: 2.5rem;
+  width: 2.5rem;
+  padding: 0.5rem;
+  border-bottom-left-radius: 1.5rem;
+  font-size: 1.19rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+.top3dmg-number {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(180deg, #d58936, #69140e);
+  color: #111;
+  height: 2.5rem;
+  width: 2.5rem;
+  padding: 0.5rem;
+  border-bottom-left-radius: 1.5rem;
+  font-size: 1.19rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+.top3dmg-damage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
 }
 </style>
