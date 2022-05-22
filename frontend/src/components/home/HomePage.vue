@@ -9,12 +9,22 @@
           class="col-xl-3 col-lg-4 col-md-5 m-2 col-sm-12 top3cards"
           v-for="item in fullData"
           :key="item['@id']"
-          v-bind:style="[{
-            border: getElementBorderColor(item.character['element']['name']),backgroundImage: 'url(' + '@/assets/img/homePage/HomePageHeader.jpeg' + ')'
-          
-          }]"
-          
+          v-bind:style="[
+            {
+              border: getElementBorderColor(item.character['element']['name']),
+              backgroundImage:
+                'url(' + '@/assets/img/homePage/HomePageHeader.jpeg' + ')',
+            },
+          ]"
         >
+          <img
+            class="top-3-background-img"
+            :src="
+              require('@/assets/img/miniBanners/' +
+                item.character.name +
+                '.jpg')
+            "
+          />
           <img
             class="top3dmg-pp"
             :src="
@@ -101,6 +111,7 @@ export default {
   border-radius: 0.25rem;
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
     0 6px 20px 0 rgba(255, 255, 255, 0.19);
+    --bs-gutter-x: 0rem!important;
 }
 .header-bg {
   background-image: url("../../assets/img/homePage/HomePageHeader.jpeg");
@@ -109,6 +120,17 @@ export default {
   background-size: cover;
   background-position: 50%;
   position: relative;
+}
+.top-3-background-img {
+  width: 100%;
+  object-fit: cover;
+  -o-object-position: 0%;
+      object-position: top left;
+ -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+
+opacity: 0.4;
+  height: 118px;
 }
 .top3-dmg {
   position: absolute;
