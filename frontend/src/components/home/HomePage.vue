@@ -17,6 +17,8 @@
             },
           ]"
         >
+                <router-link id="top3a" :to="{ name: 'CharacterShow', params: { id:  item.character['@id'] } }">
+
           <img
             class="top-3-background-img"
             :src="
@@ -65,9 +67,14 @@
           <p class="top3dmg-damage fw-bold">
             {{ addcommas(item.character.highestDmg) }} Damage
           </p>
+                          </router-link>
+
         </div>
+
       </div>
+      
     </div>
+    
     <home-content />
   </div>
 </template>
@@ -104,6 +111,9 @@ export default {
 </script>
 
 <style>
+#top3a:hover{
+  color: #9b90e3;
+}
 .top3cards {
   background-color: #1f1f1f;
   height: 122px;
