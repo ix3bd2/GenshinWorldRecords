@@ -110,7 +110,7 @@ blockquote{
   margin-top: 1rem;
 }
 .twitter-tweet iframe{
-  max-height: 530px;
+  max-height: 520px;
     border-radius:3px;
 
 } 
