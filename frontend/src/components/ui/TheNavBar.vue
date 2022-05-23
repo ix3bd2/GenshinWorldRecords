@@ -7,7 +7,7 @@
         href="/"
       >
         <img
-          src="../../assets/img/logo.png"
+          src="@/assets/img/logo.webp"
           style="width: 85px; padding-top: 0rem; margin-right: 0rem"
         />
       </a>
