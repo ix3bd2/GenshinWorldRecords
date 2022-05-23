@@ -7,6 +7,7 @@
 /public/bundles/
 /var/
 /vendor/
+!/var/app.db
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
