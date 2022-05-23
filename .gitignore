@@ -29,6 +29,7 @@ package-lock.json
 **/resized/*
 
 # Lock files
+*.jpeg.lock
 
 # Local Settings
 _settings.js
