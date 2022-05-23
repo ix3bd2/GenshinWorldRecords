@@ -1,1 +1,1 @@
-export const ENTRYPOINT = "api.genshinworldrecords.com";
+export const ENTRYPOINT = "http://api.genshinworldrecords.com";
