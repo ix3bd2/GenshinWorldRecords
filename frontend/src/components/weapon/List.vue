@@ -1,5 +1,8 @@
 <template>
   <div class="weapons-list">
+    <title>
+        Weapons | Genshin World Records
+    </title>
     <h1>Weapon List</h1>
     <hr />
     <div class="row">

@@ -1,5 +1,9 @@
 <template>
+
   <div class="character-list">
+    <title>
+        Characters | Genshin World Records
+    </title>
     <h1>Character List</h1>
     <hr />
     <div class="row">

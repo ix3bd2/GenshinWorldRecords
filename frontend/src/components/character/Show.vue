@@ -1,5 +1,9 @@
 <template>
+
   <div v-if="item">
+    <title>
+        {{ filterName(item.name)}} | Genshin World Records
+    </title>
     <div class="header-bg-show"></div>
     <div class="header-inv-row"></div>
     <div class="row">

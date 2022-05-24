@@ -1,5 +1,8 @@
 <template>
   <div v-if="item" class="buff-show">
+     <title>
+        {{ filterName(item.character.name) }} | Genshin World Records
+    </title>
     <div>
       <img
         id="CharacterElementBuffsList"
@@ -13,7 +16,7 @@
         class="character-buff-icon"
         v-bind:style="{ border: getElementBorderColor(item.character['element']['name']) }"
       />
-      <h5 class="mt-2">{{ item.character.name }}</h5>
+      <h5 class="mt-2">{{ filterName(item.character.name) }}</h5>
     </div>
     <div class="row">
       <div class="col-lg-2"></div>
@@ -72,6 +75,10 @@ export default {
       if (window.confirm('Are you sure you want to delete this item?')) {
         this.del(item).then(() => this.$router.push({ name: 'BuffList' }));
       }
+      
+    },
+     filterName(name) {
+      return name.replace("-", " ");
     },
   },
 };

@@ -1,5 +1,8 @@
 <template>
   <div class="artifacts-list">
+    <title>
+        Artifacts | Genshin World Records
+    </title>
     <h1>Artifacts List</h1>
     <hr />
     <div class="row">

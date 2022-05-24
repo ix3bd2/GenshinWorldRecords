@@ -69,6 +69,9 @@
           </div>
         </div>
         <div class="buff-card" v-if="item.artifact">
+          <title>
+        Buffs | Genshin World Records
+    </title>
           <div class="card-body">
             <router-link
               id="BuffRouter"

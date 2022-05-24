@@ -1,5 +1,8 @@
 <template>
   <div class="home-header">
+     <title>
+        Home | Genshin World Records
+    </title>
     <div class="header-bg">
       <div
         style="width: 100%; padding-left: 1.5rem; padding-bottom: 30px"

@@ -1,5 +1,8 @@
 <template>
   <div v-if="item" class="weapon-show">
+    <title>
+        {{item.name}} | Genshin World Records
+    </title>
     <div>
       <img id="WeaponImgShow" :src="item['img']" />
       <h5 class="mt-2">{{ item.name }}</h5>
