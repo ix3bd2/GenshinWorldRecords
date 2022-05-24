@@ -28,7 +28,7 @@
                     href="#"
                     :style="{ color: getElementColor(item['element']['name']) }"
                     style="
-                      padding-top: 13%;
+                      padding-top: 13px;
                       padding-left: 0px;
                       font-size: 1.3rem;
                     "
