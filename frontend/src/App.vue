@@ -21,12 +21,17 @@
 import TheNavBar from "./components/ui/TheNavBar.vue";
 import TheSendClip from "./components/ui/TheSendClip.vue";
 import TheFooter from "./components/ui/TheFooter.vue";
+var TwitterWidgetsLoader = require("twitter-widgets");
+
 export default {
   name: "App",
   components: {
     "the-nav-bar": TheNavBar,
     "the-send-clip": TheSendClip,
     "the-footer": TheFooter,
+  },
+  mounted() {
+    TwitterWidgetsLoader.load();
   },
 };
 </script>

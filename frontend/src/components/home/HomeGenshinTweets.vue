@@ -17,24 +17,8 @@
       </div>
       <div class="col-lg-3 col-md-12">
         <h2 class="title-tweet mb-4">Latest Tweet</h2>
-        <div class="first-tweet d-flex justify-content-center">
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">
-              &quot;Doushin Shikanoin has admirable wit and insight. While he is
-              unfettered and unrestrained in demeanor, one should not dismiss
-              his talents. The Tenryou Commission is incredibly fortunate to
-              have such a man in their ranks.&quot; - Kamisato Ayato<a
-                href="https://twitter.com/hashtag/GenshinImpact?src=hash&amp;ref_src=twsrc%5Etfw"
-                >#GenshinImpact</a
-              >
-              <a href="https://t.co/lM0HNfZktr">pic.twitter.com/lM0HNfZktr</a>
-            </p>
-            &mdash; Genshin Impact (@GenshinImpact)
-            <a
-              href="https://twitter.com/GenshinImpact/status/1526141366031376384?ref_src=twsrc%5Etfw"
-              >May 16, 2022</a
-            >
-          </blockquote>
+        <div class="first-tweet d-flex justify-content-center" v-html="embData">
+          
         </div>
       </div>
     </div>
@@ -43,30 +27,31 @@
 
 <script>
 import axios from "axios";
+import { ENTRYPOINT } from '../../config/entrypoint';
 var TwitterWidgetsLoader = require("twitter-widgets");
 
 export default {
+  data() {
+    return {
+      embData: null,
+    };
+  },
   async created() {
-    /*   axios.defaults.headers.common[
-        "Authorization"
-      ] = `Bearer ${sessionStorage.getItem("token")}`; */
-    await axios
-      .get(
-        "https://publish.twitter.com/oembed?url=" +
-          "https://twitter.com/GenshinImpact/status/1526141366031376384"
-      )
+      await axios
+            .get(ENTRYPOINT + '/latest_socials')
+
       .then(
         (response) => {
-          console.log(response);
+         this.embData = response.data['hydra:member'][0].tweets[0]
+         console.log(this.embData)
+
         },
         (error) => {
           error;
         }
       );
   },
-  mounted() {
-    TwitterWidgetsLoader.load();
-  },
+  
 };
 </script>
 Your Vue app should now compile without any errors. 🙂
