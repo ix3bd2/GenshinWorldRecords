@@ -7,7 +7,7 @@
           width="100%"
           height="90%"
           class="youtube-iframe"
-          src="https://www.youtube.com/embed/tgbNymZ7vqY"
+          :src="'https://www.youtube.com/embed/' +embYoutube"
         ></iframe>
       </div>
 
@@ -34,6 +34,7 @@ export default {
   data() {
     return {
       embData: null,
+      embYoutube:null
     };
   },
   async created() {
@@ -43,8 +44,7 @@ export default {
       .then(
         (response) => {
          this.embData = response.data['hydra:member'][0].tweets[0]
-         console.log(this.embData)
-
+         this.embYoutube = response.data['hydra:member'][0].youtubeVideo
         },
         (error) => {
           error;
