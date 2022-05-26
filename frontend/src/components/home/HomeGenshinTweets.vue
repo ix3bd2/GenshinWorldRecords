@@ -1,3 +1,4 @@
+
 <template>
   <div class="socials">
     <div class="row">
@@ -7,7 +8,7 @@
           width="100%"
           height="90%"
           class="youtube-iframe"
-          :src="'https://www.youtube.com/embed/' +embYoutube"
+          :src="'https://www.youtube.com/embed/' + embYoutube"
         ></iframe>
       </div>
 
@@ -17,8 +18,9 @@
       </div>
       <div class="col-lg-3 col-md-12">
         <h2 class="title-tweet mb-4">Latest Tweet</h2>
-        <div class="first-tweet d-flex justify-content-center" v-html="embData">
-          
+
+        <div class="first-tweet d-flex justify-content-center">
+          <Tweet :id="embYoutube"></Tweet>
         </div>
       </div>
     </div>
@@ -27,38 +29,33 @@
 
 <script>
 import axios from "axios";
-import { ENTRYPOINT } from '../../config/entrypoint';
-var TwitterWidgetsLoader = require("twitter-widgets");
+import { ENTRYPOINT } from "../../config/entrypoint";
+import { Tweet, Moment, Timeline } from "vue-tweet-embed";
 
 export default {
+  components: {
+    Tweet,
+  },
   data() {
     return {
       embData: null,
-      embYoutube:null
+      embYoutube: null,
     };
   },
   async created() {
-      await axios
-            .get(ENTRYPOINT + '/latest_socials')
+    await axios
+      .get(ENTRYPOINT + "/latest_socials")
 
       .then(
         (response) => {
-         this.embData = response.data['hydra:member'][0].tweets[0]
-         this.embYoutube = response.data['hydra:member'][0].youtubeVideo
+          this.embData = response.data["hydra:member"][0].tweets[0];
+          this.embYoutube = response.data["hydra:member"][0].youtubeVideo;
         },
         (error) => {
           error;
         }
       );
   },
-  
-};
-</script>
-Your Vue app should now compile without any errors. 🙂
-
-Hope this helps someone!
-
-
 };
 </script>
 
@@ -94,6 +91,7 @@ blockquote {
 .twitter-tweet iframe {
   max-height: 520px;
   border-radius: 3px;
+  width: 370px !important;
 }
 
 .vr {

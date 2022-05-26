@@ -21,7 +21,6 @@
 import TheNavBar from "./components/ui/TheNavBar.vue";
 import TheSendClip from "./components/ui/TheSendClip.vue";
 import TheFooter from "./components/ui/TheFooter.vue";
-var TwitterWidgetsLoader = require("twitter-widgets");
 
 export default {
   name: "App",
@@ -29,9 +28,6 @@ export default {
     "the-nav-bar": TheNavBar,
     "the-send-clip": TheSendClip,
     "the-footer": TheFooter,
-  },
-  mounted() {
-    TwitterWidgetsLoader.load();
   },
 };
 </script>
@@ -42,7 +38,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: white;
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 body {
   background-color: #1f1f1f;
@@ -58,20 +54,19 @@ body {
   background-color: #ebebeb;
 }
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
-#MainContent{
+#MainContent {
   margin-top: 50px;
 }
-a{
+a {
   color: white;
   text-decoration: none;
 }
-a:hover{
+a:hover {
   color: #54489e;
-
 }
 .input-container {
   position: relative;
