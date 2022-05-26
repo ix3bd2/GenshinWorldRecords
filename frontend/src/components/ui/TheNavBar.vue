@@ -25,48 +25,58 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/characters"
-              ><img
-                class="navbar-items-icon"
-                src="@/assets/img/characters-icon.webp"
-              />&nbsp;Characters</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/"
-              ><img
-                class="navbar-items-icon"
-                src="@/assets/img/spiral-abyss-icon.webp"
-              />Abyss Teams<sup
-                > <span class="badge bg-danger">soon</span></sup
+            <router-link to="/characters">
+              <a class="nav-link"
+                ><img
+                  class="navbar-items-icon"
+                  src="@/assets/img/characters-icon.webp"
+                />&nbsp;Characters</a
               >
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/weapons"
-              ><img
-                class="navbar-items-icon"
-                src="@/assets/img/weapons-icon.webp"
-              />Weapons</a
-            >
+            <router-link to="/">
+              <a class="nav-link"
+                ><img
+                  class="navbar-items-icon"
+                  src="@/assets/img/spiral-abyss-icon.webp"
+                />Abyss Teams<sup>
+                  <span class="badge bg-danger">soon</span></sup
+                >
+              </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/artifacts"
-              ><img
-                class="navbar-items-icon"
-                src="@/assets/img/artifacts-icon.webp"
-              />Artifacts</a
-            >
+            <router-link to="/weapons">
+              <a class="nav-link"
+                ><img
+                  class="navbar-items-icon"
+                  src="@/assets/img/weapons-icon.webp"
+                />Weapons</a
+              >
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/buffs"
-              ><img
-                class="navbar-items-icon"
-                src="@/assets/img/atk-up-icon.webp"
-              />&nbsp;Buffs</a
-            >
+            <router-link to="/artifacts">
+              <a class="nav-link"
+                ><img
+                  class="navbar-items-icon"
+                  src="@/assets/img/artifacts-icon.webp"
+                />Artifacts</a
+              >
+            </router-link>
           </li>
-         <!--  <li class="nav-item">
+          <li class="nav-item">
+            <router-link to="/buffs">
+              <a class="nav-link"
+                ><img
+                  class="navbar-items-icon"
+                  src="@/assets/img/atk-up-icon.webp"
+                />&nbsp;Buffs</a
+              >
+            </router-link>
+          </li>
+          <!--  <li class="nav-item">
             <a class="nav-link" href="/patreon"
               ><img
                 style="width:21px"
@@ -95,13 +105,13 @@ export default {};
   width: 26px;
 }
 sup {
-    top: -.5em;
-    position: relative;
-    font-size: 75%;
-    line-height: 0;
-    vertical-align: baseline;
+  top: -0.5em;
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
 }
-.badge{
+.badge {
   margin: 1px;
   padding: 0.25em 0.35em !important;
 }
