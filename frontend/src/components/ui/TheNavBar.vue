@@ -1,16 +1,15 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
-      <a
-        class="navbar-brand"
-        style="padding-top: 0rem; margin-right: 0rem"
-        href="/"
-      >
-        <img
-          src="@/assets/img/logo.webp"
-          style="width: 85px; padding-top: 0rem; margin-right: 0rem"
-        />
-      </a>
+      <router-link to="/">
+        <a class="navbar-brand" style="padding-top: 0rem; margin-right: 0rem">
+          <img
+            src="@/assets/img/logo.webp"
+            style="width: 85px; padding-top: 0rem; margin-right: 0rem"
+          />
+        </a>
+      </router-link>
+
       <button
         class="navbar-toggler"
         type="button"
