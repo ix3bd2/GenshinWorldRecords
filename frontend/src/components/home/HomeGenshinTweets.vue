@@ -2,7 +2,7 @@
 <template>
   <div class="socials">
     <div class="row">
-      <div class="col-xl-7 col-lg-12">
+      <div class="col-lg-7 col-md-12">
         <h2 class="title-video mb-4">Latest video</h2>
         <iframe
           width="100%"
@@ -12,14 +12,14 @@
         ></iframe>
       </div>
 
-      <div class="col-xl-1 col-lg-12 social-split">
+      <div class="col-lg-1 col-md-12 social-split">
         <hr class="vr" />
         <hr class="hr" />
       </div>
-      <div class="col-xl-3 col-lg-12">
+      <div class="col-lg-3 col-md-12">
         <h2 class="title-tweet mb-4">Latest Tweet</h2>
 
-        <div class="first-tweet d-flex justify-content-center">
+        <div class="first-tweet">
           <Tweet v-if="embData" :id="embData"></Tweet>
         </div>
       </div>
@@ -103,7 +103,7 @@ blockquote {
   padding-bottom: 5%;
   padding-top: 5%;
 }
-@media (max-width: 1200px) {
+@media (max-width: 991px) {
   .hr {
     display: block;
   }
