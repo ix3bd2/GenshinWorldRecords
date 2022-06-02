@@ -13,7 +13,7 @@
         >
           <router-link
             style="color: white"
-            :to="{ name: 'CharacterShow', params: { id: 'characters/47' } }"
+            :to="{ name: 'CharacterShow', params: { id: 'characters/48' } }"
           >
             <div class="card card-main w-100" 
      >
@@ -25,7 +25,7 @@
               />
               <img
                 class="card-img card-main-img"
-                src="../../assets/img/fullBanners/Kamisato-Ayato.jpg"
+                src="../../assets/img/fullBanners/Yelan.jpg"
                 alt="Card image"
               />
 
@@ -35,7 +35,7 @@
               >
                 <div class="card-body-custom">
                   <h3 class="card-text card-text-custom">
-                    Hydro DPS
+                    Hydro SUP DPS
                   </h3>
 
                   <h3 class="card-title card-title-custom">C0 Damage</h3>
