@@ -1,9 +1,6 @@
 <template>
-
   <div v-if="item">
-    <title>
-        {{ filterName(item.name)}} | Genshin World Records
-    </title>
+    <title>{{ filterName(item.name) }} | Genshin World Records</title>
     <div class="header-bg-show"></div>
     <div class="header-inv-row"></div>
     <div class="row">
@@ -641,7 +638,7 @@
               <iframe
                 width="420"
                 height="315"
-                src="https://www.youtube.com/embed/tgbNymZ7vqY"
+                :src="'https://www.youtube.com/embed/' + item.videoUrl"
               ></iframe>
             </div>
           </div>
@@ -2083,12 +2080,11 @@ export default {
       retrieve: "character/show/retrieve",
     }),
     filterName(name) {
-      console.log(this.item)
+      console.log(this.item);
       return name.replace("-", " ");
-    
     },
-    addcommas(number){
-      return number.toLocaleString("en-US")
+    addcommas(number) {
+      return number.toLocaleString("en-US");
     },
     showInfo() {
       this.info = true;
