@@ -1,44 +1,52 @@
 <template>
-
   <footer class="footer-distributed">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-			<div class="footer-right">
+    <div class="footer-right">
+      <a href="https://www.youtube.com/channel/UCDEFao833e_vQmsTZ0dslTg"
+        ><i class="fa fa-youtube"></i
+      ></a>
+      <a href="https://twitter.com/ix3bd2"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/ix3bd2"><i class="fa fa-github"></i></a>
+      <a href="https://www.reddit.com/r/Genshin_Impact/"
+        ><i class="fa fa-reddit"></i
+      ></a>
+    </div>
 
-				<a href="#"><i class="fa fa-youtube"></i></a>
-				<a href="#"><i class="fa fa-twitter"></i></a>
-				<a href="#"><i class="fa fa-linkedin"></i></a>
-				<a href="#"><i class="fa fa-reddit"></i></a>
+    <div class="footer-left">
+      <p class="footer-links">
+        <router-link to="/">
+          <a class="link-1">Home&nbsp;</a>
+        </router-link>
+        <router-link to="/characters">
+          <a class="link-1" href="/characters">Characters&nbsp;</a>
+        </router-link>
+        <router-link to="/">
+          <a class="link-1">Spiral Abyss Teams&nbsp;</a>
+        </router-link>
+        <router-link to="/weapons">
+          <a class="link-1">Weapons&nbsp;</a>
+        </router-link>
+        <router-link to="/artifacts">
+          <a class="link-1">Artifacts&nbsp;</a>
+        </router-link>
+        <router-link to="/buffs">
+          <a>Buffs&nbsp;</a>
+        </router-link>
 
-			</div>
+        <!-- <a href="/patreon">Patreon&nbsp;</a> -->
+      </p>
 
-			<div class="footer-left">
-
-				<p class="footer-links">
-					<a class="link-1" href="#">Home&nbsp;</a>
-
-					<a href="/characters">Characters&nbsp;</a>
-
-					<a href="#">Spiral Abyss Teams&nbsp;</a>
-
-					<a href="/weapons">Weapons&nbsp;</a>
-
-					<a href="/artifacts">Artifacts&nbsp;</a>
-
-					<a href="/buffs">Buffs&nbsp;</a>
-          <!-- <a href="/patreon">Patreon&nbsp;</a> -->
-				</p>
-
-				<p>Genshin World Records &copy; 2021</p>
-			</div>
-
-		</footer>
+      <p>Genshin World Records &copy; 2021</p>
+    </div>
+  </footer>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
@@ -64,7 +72,7 @@ export default {
   color: #ffffff;
   margin: 0 0 10px;
   padding: 0;
-  transition: ease .25s;
+  transition: ease 0.25s;
 }
 
 .footer-distributed p.footer-links a {
@@ -72,10 +80,10 @@ export default {
   line-height: 1.8;
   text-decoration: none;
   color: inherit;
-  transition: ease .25s;
+  transition: ease 0.25s;
 }
 
-.footer-distributed .footer-links a:before {
+.footer-links .link-1:after {
   content: "·";
   font-size: 20px;
   left: 0;
@@ -105,17 +113,23 @@ export default {
   text-align: center;
   line-height: 35px;
   margin-left: 3px;
-  transition:all .25s;
+  transition: all 0.25s;
 }
 
-.footer-distributed .footer-right a:hover{transform:scale(1.1); -webkit-transform:scale(1.1);}
+.footer-distributed .footer-right a:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+}
 
-.footer-distributed p.footer-links a:hover{text-decoration:underline;}
+.footer-distributed p.footer-links a:hover {
+  text-decoration: underline;
+}
 
 /* Media Queries */
 
 @media (max-width: 600px) {
-  .footer-distributed .footer-left, .footer-distributed .footer-right {
+  .footer-distributed .footer-left,
+  .footer-distributed .footer-right {
     text-align: center;
   }
   .footer-distributed .footer-right {

@@ -1,6 +1,6 @@
 <template>
-  <div class="row" id="SendClipSection" >
-    <div class="col-lg-6 col-md-12" >
+  <div class="row" id="SendClipSection">
+    <div class="col-lg-6 col-md-12">
       <h2 id="SendClipsTitle">Share Your Clip With Us!</h2>
       <p class="SendClipReq">
         Do you have higher record? than Please read the requirements below.
@@ -17,9 +17,13 @@
       </ul>
       <!-- HTML !-->
       <div class="d-flex justify-content-center">
-        <button class="button-64" role="button">
-          <span class="text">Send Now!</span>
-        </button>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLScHSDVEqlytQ1d4OiyAgkmByFgoKqYxeMRD4I2qt5JTcMW5Ug/viewform?usp=sf_link"
+        >
+          <button class="button-64" role="button">
+            <span class="text">Send Now!</span>
+          </button>
+        </a>
       </div>
     </div>
     <div class="col-lg-6 col-md-12">
