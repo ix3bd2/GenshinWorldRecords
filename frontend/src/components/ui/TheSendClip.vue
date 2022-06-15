@@ -3,10 +3,12 @@
     <div class="col-lg-6 col-md-12">
       <h2 id="SendClipsTitle">Share Your Clips With Us!</h2>
       <p class="SendClipReq">
-        Do you have higher record? than Please read the requirements below.
+        Do you have higher record? than please read the requirements below.
       </p>
       <ul class="list" id="SenClipList">
         <li class="list-item-clips one">5 star characters must be C0.</li>
+        <li class="list-item-clips one">Enemy must be a world boss.</li>
+        <li class="list-item-clips one">No food</li>
         <li class="list-item-clips two">
           Only two 5 star weapons in the party (refine 1).
         </li>
