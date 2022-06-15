@@ -1,14 +1,14 @@
 <template>
   <div class="row" id="SendClipSection">
     <div class="col-lg-6 col-md-12">
-      <h2 id="SendClipsTitle">Share Your Clip With Us!</h2>
+      <h2 id="SendClipsTitle">Share Your Clips With Us!</h2>
       <p class="SendClipReq">
         Do you have higher record? than Please read the requirements below.
       </p>
       <ul class="list" id="SenClipList">
         <li class="list-item-clips one">5 star characters must be C0.</li>
         <li class="list-item-clips two">
-          only one 5 start weapon in the party (refine 1).
+          Only two 5 star weapons in the party (refine 1).
         </li>
         <li class="list-item-clips three">Video must be atleast 720p.</li>
         <li class="list-item-clips four">
