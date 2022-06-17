@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <the-toast/>
     <the-nav-bar class="fixed-top" />
     <div id="MainContent" class="container-fluid">
       <div class="row">
@@ -21,13 +22,15 @@
 import TheNavBar from "./components/ui/TheNavBar.vue";
 import TheSendClip from "./components/ui/TheSendClip.vue";
 import TheFooter from "./components/ui/TheFooter.vue";
-
+import TheToast from "./components/ui/TheToast.vue"
 export default {
   name: "App",
   components: {
     "the-nav-bar": TheNavBar,
     "the-send-clip": TheSendClip,
     "the-footer": TheFooter,
+    "the-toast": TheToast,
+
   },
 };
 </script>
