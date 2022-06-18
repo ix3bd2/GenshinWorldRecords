@@ -1,8 +1,6 @@
 <template>
   <div class="home-header">
-     <title>
-        Home | Genshin World Records
-    </title>
+    <title>Home | Genshin World Records</title>
     <div class="header-bg">
       <div
         style="width: 100%; padding-left: 1.5rem; padding-bottom: 30px"
@@ -20,64 +18,81 @@
             },
           ]"
         >
-                <router-link id="top3a" :to="{ name: 'CharacterShow', params: { id:  item.character['@id'] } }">
-
-          <img
-            class="top-3-background-img"
-            :src="
-              require('@/assets/img/miniBanners/' +
-                item.character.name +
-                '.jpg')
-            "
-          />
-          <img
-            class="top3dmg-pp"
-            :src="
-              require('@/assets/img/pPicture/' + item.character.name + '.jpg')
-            "
-            alt="Card image cap"
-            v-bind:style="{
-              border: getElementBorderColor(item.character['element']['name']),
-            }"
-          />
-          <p
-            class="top3dmg-name fw-bold"
-            :style="{
-              color: getElementColor(item.character['element']['name']),
+          <router-link
+            id="top3a"
+            :to="{
+              name: 'CharacterShow',
+              params: { id: item.character['@id'] },
             }"
           >
-            {{ filterName(item.character.name) }}
-          </p>
-          <img
-            id="top3dmg-element"
-            v-bind:src="item.character['element']['img']"
-            v-bind:style="{
-              border: getElementBorderColor(item.character['element']['name']),
-            }"
-          />
-          <p v-if="item.id == 1" class="top1dmg-number fw-bold">
-            <sup data-v-38f61d99="" data-v-4b32071d="">#</sup>
-            {{ item.id }}
-          </p>
-          <p v-if="item.id == 2" class="top2dmg-number fw-bold">
-            <sup data-v-38f61d99="" data-v-4b32071d="">#</sup>
-            {{ item.id }}
-          </p>
-          <p v-if="item.id == 3" class="top3dmg-number fw-bold">
-            <sup data-v-38f61d99="" data-v-4b32071d="">#</sup>
-            {{ item.id }}
-          </p>
-          <p class="top3dmg-damage fw-bold">
-            {{ addcommas(item.character.highestDmg) }} Damage
-          </p>
-                          </router-link>
+            <img
+              class="top-3-background-img"
+              :src="
+                require('@/assets/img/miniBanners/' +
+                  item.character.name +
+                  '.jpg')
+              "
+            />
+            <img
+              class="top3dmg-pp"
+              :src="
+                require('@/assets/img/pPicture/' + item.character.name + '.jpg')
+              "
+              alt="Card image cap"
+              v-bind:style="{
+                border: getElementBorderColor(
+                  item.character['element']['name']
+                ),
+              }"
+            />
+            <p
+              v-if="item.id == 1"
+              class="top3dmg-title fw-bold"
+            >
+              Top Singel-Hit Damage
+            </p>
+            <p
+              v-if="item.id == 2"
+              class="top3dmg-title fw-bold"
+            >
+              Top Multi-Hit Damage
+            </p>
+            <p
+              v-if="item.id == 3"
+              class="top3dmg-title fw-bold"
+            >
+              Top Elemental skill Damage
+            </p>
+            <p
+              class="top3dmg-name fw-bold"
+              :style="{
+                color: getElementColor(item.character['element']['name']),
+              }"
+            >
+              {{ filterName(item.character.name) }}
+            </p>
+            <img
+              id="top3dmg-element"
+              v-bind:src="item.character['element']['img']"
+              v-bind:style="{
+                border: getElementBorderColor(
+                  item.character['element']['name']
+                ),
+              }"
+            />
+            <p class="top1dmg-number fw-bold">
+              <sup data-v-38f61d99="" data-v-4b32071d="">#</sup>
+              1
+            </p>
 
+            <p class="top3dmg-damage fw-bold">
+              {{ addcommas(item.character.highestDmg) }} Damage
+            </p>
+          </router-link>
         </div>
-
       </div>
-      
     </div>
-    
+
     <home-content />
   </div>
 </template>
@@ -114,7 +129,7 @@ export default {
 </script>
 
 <style>
-#top3a:hover{
+#top3a:hover {
   color: #9b90e3;
 }
 .top3cards {
@@ -124,7 +139,7 @@ export default {
   border-radius: 0.25rem;
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
     0 6px 20px 0 rgba(255, 255, 255, 0.19);
-    --bs-gutter-x: 0rem!important;
+  --bs-gutter-x: 0rem !important;
 }
 .header-bg {
   background-image: url("../../assets/img/homePage/HomePageHeader.jpeg");
@@ -138,11 +153,11 @@ export default {
   width: 100%;
   object-fit: cover;
   -o-object-position: 0%;
-      object-position: top left;
- -webkit-transform: scaleX(-1);
+  object-position: top left;
+  -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 
-opacity: 0.4;
+  opacity: 0.4;
   height: 118px;
 }
 .top3-dmg {
@@ -160,7 +175,15 @@ opacity: 0.4;
 }
 .top3dmg-name {
   position: absolute;
-  top: 20%;
+  top: 25%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+}
+.top3dmg-title{
+   position: absolute;
+   font-size: .75rem;
+   color: #cbb765;
+  top: 45%;
   left: 50%;
   transform: translate(-40%, -50%);
 }
@@ -208,7 +231,7 @@ opacity: 0.4;
 }
 .top3dmg-damage {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-40%, -50%);
 }
