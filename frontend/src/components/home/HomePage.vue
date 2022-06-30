@@ -61,7 +61,7 @@
               v-if="item.id == 3"
               class="top3dmg-title fw-bold"
             >
-              Top Elemental skill Damage
+              Top Normal/Charge Attack Damage
             </p>
             <p
               class="top3dmg-name fw-bold"
@@ -69,7 +69,7 @@
                 color: getElementColor(item.character['element']['name']),
               }"
             >
-              {{ filterName(item.character.name) }}
+              C0 {{ filterName(item.character.name) }}
             </p>
             <img
               id="top3dmg-element"
