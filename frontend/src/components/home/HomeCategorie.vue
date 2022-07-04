@@ -22,7 +22,7 @@
         data-aos="fade-left"
   
       >
-        <router-link to="/spiralabyss">
+        <router-link to="/spiralAbyss">
           <div id="CategorieCard" class="card bg-dark text-white">
             <img
               class="card-img categorie-img"

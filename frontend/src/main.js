@@ -13,6 +13,8 @@ import weapon from './store/modules/weapon/';
 import artifactRoutes from './router/artifact';
 import artifact from './store/modules/artifact/';
 import buffRoutes from './router/buff';
+import spiralAbyssRoutes from './router/spiralAbyss';
+
 import buff from './store/modules/buff/';
 
 Vue.use(Vuex)
@@ -23,6 +25,7 @@ const routes = [
     ...artifactRoutes,
     ...weaponRoutes,
     ...buffRoutes,
+    ...spiralAbyssRoutes,
     { path: '/', name: 'Home', component: homePage },
 
 

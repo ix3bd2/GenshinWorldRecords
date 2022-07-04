@@ -24,8 +24,8 @@
         <router-link to="/characters">
           <a class="link-1" href="/characters">Characters&nbsp;</a>
         </router-link>
-        <router-link to="/">
-          <a class="link-1">Spiral Abyss Teams&nbsp;</a>
+        <router-link to="/spiralAbyss">
+          <a class="link-1">Abyss Teams&nbsp;</a>
         </router-link>
         <router-link to="/weapons">
           <a class="link-1">Weapons&nbsp;</a>

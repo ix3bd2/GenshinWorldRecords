@@ -34,7 +34,7 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/">
+            <router-link to="/spiralAbyss">
               <a class="nav-link"
                 ><img
                   class="navbar-items-icon"
