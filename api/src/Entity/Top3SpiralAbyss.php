@@ -18,6 +18,7 @@ class Top3SpiralAbyss
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups(["abyssTeam","top3team"])]
     private $id;
 
     #[ORM\OneToMany(mappedBy: 'top3SpiralAbyss', targetEntity: SpiralAbyssTeams::class)]
