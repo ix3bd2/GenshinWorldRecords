@@ -22,14 +22,14 @@ class Weapon
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    #[Groups(["character","buffs"])]
+    #[Groups(["character","buffs","top3team"])]
     private $id;
 
-    #[Groups(["character","buffs"])]
+    #[Groups(["character","buffs","top3team"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $name;
 
-    #[Groups(["character","buffs"])]
+    #[Groups(["character","buffs","top3team"])]
     #[ORM\Column(type: 'text', nullable: true)]
     private $img;
 

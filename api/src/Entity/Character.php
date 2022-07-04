@@ -25,10 +25,10 @@ class Character
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    #[Groups(["character","buffs","top3dmg","abyssTeam"])]
+    #[Groups(["character","buffs","top3dmg","abyssTeam","top3team"])]
     private $id;
 
-    #[Groups(["character","patchChar","buffs","top3dmg","abyssTeam"])]
+    #[Groups(["character","patchChar","buffs","top3dmg","abyssTeam","top3team"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $name;
 
@@ -88,7 +88,7 @@ class Character
     #[ORM\Column(type: 'text', nullable: true)]
     private $videoUrl;
 
-    #[Groups(["character","patchChar","buffs","top3dmg","abyssTeam"])]
+    #[Groups(["character","patchChar","buffs","top3dmg","abyssTeam","top3team"])]
     #[ORM\ManyToOne(targetEntity: Element::class, inversedBy: 'characters')]
     private $element;
 
@@ -96,7 +96,7 @@ class Character
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $weaponRefine;
 
-    #[Groups(["character","patchChar","abyssTeam"])]
+    #[Groups(["character","patchChar","abyssTeam","top3team"])]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $rarity;
 
@@ -104,22 +104,22 @@ class Character
     #[ORM\Column(type: 'array', nullable: true)]
     private $buff = [];
     
-    #[Groups(["character","patchChar","top3dmg","abyssTeam"])]
+    #[Groups(["character","patchChar","top3dmg","abyssTeam","top3team"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $nation;
 
     #[ORM\OneToMany(mappedBy: 'characters', targetEntity: PatchChar::class)]
     private $patchChars;
 
-    #[Groups(["character","buffs","abyssTeam"])]
+    #[Groups(["character","buffs","abyssTeam","top3team"])]
     #[ORM\Column(type: 'text', nullable: true)]
     private $AAimg;
 
-    #[Groups(["character","buffs","abyssTeam"])]
+    #[Groups(["character","buffs","abyssTeam","top3team"])]
     #[ORM\Column(type: 'text', nullable: true)]
     private $talentEimg;
     
-    #[Groups(["character","buffs","abyssTeam"])]
+    #[Groups(["character","buffs","abyssTeam","top3team"])]
     #[ORM\Column(type: 'text', nullable: true)]
     private $talentQimg;
 

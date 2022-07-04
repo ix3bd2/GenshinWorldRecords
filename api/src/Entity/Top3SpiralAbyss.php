@@ -21,7 +21,7 @@ class Top3SpiralAbyss
     private $id;
 
     #[ORM\OneToMany(mappedBy: 'top3SpiralAbyss', targetEntity: SpiralAbyssTeams::class)]
-    #[Groups("top3team")]
+    #[Groups(["abyssTeam","top3team"])]
     private $team;
 
     public function __construct()
