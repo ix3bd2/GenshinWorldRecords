@@ -61,7 +61,7 @@
               v-if="item.id == 3"
               class="top3dmg-title fw-bold"
             >
-              Top Normal/Charge Attack Damage
+              Top Charge Attack Damage
             </p>
             <p
               class="top3dmg-name fw-bold"
