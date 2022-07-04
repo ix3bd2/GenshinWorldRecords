@@ -87,6 +87,10 @@ class SpiralAbyssTeams
     #[Groups(["abyssTeam","top3team"])]
     private $top3SpiralAbyss;
 
+    #[ORM\Column(type: 'integer', nullable: true)]
+    #[Groups(["abyssTeam","top3team"])]
+    private $half;
+
     public function __construct()
     {
         $this->artifact = new ArrayCollection();
@@ -297,6 +301,18 @@ class SpiralAbyssTeams
     public function setTop3SpiralAbyss(?Top3SpiralAbyss $top3SpiralAbyss): self
     {
         $this->top3SpiralAbyss = $top3SpiralAbyss;
+
+        return $this;
+    }
+
+    public function getHalf(): ?int
+    {
+        return $this->half;
+    }
+
+    public function setHalf(?int $half): self
+    {
+        $this->half = $half;
 
         return $this;
     }
