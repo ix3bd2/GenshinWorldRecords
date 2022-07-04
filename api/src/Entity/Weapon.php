@@ -62,11 +62,15 @@ class Weapon
     #[ORM\OneToMany(mappedBy: 'weapon', targetEntity: Buff::class)]
     private $buffs;
 
+    #[ORM\OneToMany(mappedBy: 'weapon', targetEntity: SpiralAbyssTeams::class)]
+    private $spiralAbyssTeams;
+
     public function __construct()
     {
         $this->character = new ArrayCollection();
         $this->teams = new ArrayCollection();
         $this->buffs = new ArrayCollection();
+        $this->spiralAbyssTeams = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -242,6 +246,36 @@ class Weapon
             // set the owning side to null (unless already changed)
             if ($buff->getWeapon() === $this) {
                 $buff->setWeapon(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, SpiralAbyssTeams>
+     */
+    public function getSpiralAbyssTeams(): Collection
+    {
+        return $this->spiralAbyssTeams;
+    }
+
+    public function addSpiralAbyssTeam(SpiralAbyssTeams $spiralAbyssTeam): self
+    {
+        if (!$this->spiralAbyssTeams->contains($spiralAbyssTeam)) {
+            $this->spiralAbyssTeams[] = $spiralAbyssTeam;
+            $spiralAbyssTeam->setWeapon($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpiralAbyssTeam(SpiralAbyssTeams $spiralAbyssTeam): self
+    {
+        if ($this->spiralAbyssTeams->removeElement($spiralAbyssTeam)) {
+            // set the owning side to null (unless already changed)
+            if ($spiralAbyssTeam->getWeapon() === $this) {
+                $spiralAbyssTeam->setWeapon(null);
             }
         }
 

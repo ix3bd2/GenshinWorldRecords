@@ -25,10 +25,10 @@ class Character
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    #[Groups(["character","buffs"."top3dmg"])]
+    #[Groups(["character","buffs","top3dmg","abyssTeam"])]
     private $id;
 
-    #[Groups(["character","patchChar","buffs","top3dmg"])]
+    #[Groups(["character","patchChar","buffs","top3dmg","abyssTeam"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $name;
 
@@ -88,7 +88,7 @@ class Character
     #[ORM\Column(type: 'text', nullable: true)]
     private $videoUrl;
 
-    #[Groups(["character","patchChar","buffs","top3dmg"])]
+    #[Groups(["character","patchChar","buffs","top3dmg","abyssTeam"])]
     #[ORM\ManyToOne(targetEntity: Element::class, inversedBy: 'characters')]
     private $element;
 
@@ -96,7 +96,7 @@ class Character
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $weaponRefine;
 
-    #[Groups(["character","patchChar"])]
+    #[Groups(["character","patchChar","abyssTeam"])]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $rarity;
 
@@ -104,22 +104,22 @@ class Character
     #[ORM\Column(type: 'array', nullable: true)]
     private $buff = [];
     
-    #[Groups(["character","patchChar","top3dmg"])]
+    #[Groups(["character","patchChar","top3dmg","abyssTeam"])]
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $nation;
 
     #[ORM\OneToMany(mappedBy: 'characters', targetEntity: PatchChar::class)]
     private $patchChars;
 
-    #[Groups(["character","buffs"])]
+    #[Groups(["character","buffs","abyssTeam"])]
     #[ORM\Column(type: 'text', nullable: true)]
     private $AAimg;
 
-    #[Groups(["character","buffs"])]
+    #[Groups(["character","buffs","abyssTeam"])]
     #[ORM\Column(type: 'text', nullable: true)]
     private $talentEimg;
     
-    #[Groups(["character","buffs"])]
+    #[Groups(["character","buffs","abyssTeam"])]
     #[ORM\Column(type: 'text', nullable: true)]
     private $talentQimg;
 
@@ -159,12 +159,15 @@ class Character
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $mainChar;
 
-    #[Groups(["character","patchChar","top3dmg"])]
+    #[Groups(["character","patchChar","top3dmg","abyssTeam"])]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $highestDmg;
 
     #[ORM\OneToMany(mappedBy: 'character', targetEntity: Top3dmg::class)]
     private $top3dmgs;
+
+    #[ORM\OneToMany(mappedBy: 'character', targetEntity: SpiralAbyssTeams::class)]
+    private $spiralAbyssTeams;
 
     public function __construct()
     {
@@ -174,6 +177,7 @@ class Character
         $this->artifact = new ArrayCollection();
         $this->allBuffs = new ArrayCollection();
         $this->top3dmgs = new ArrayCollection();
+        $this->spiralAbyssTeams = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -691,6 +695,36 @@ class Character
             // set the owning side to null (unless already changed)
             if ($top3dmg->getCharacter() === $this) {
                 $top3dmg->setCharacter(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, SpiralAbyssTeams>
+     */
+    public function getSpiralAbyssTeams(): Collection
+    {
+        return $this->spiralAbyssTeams;
+    }
+
+    public function addSpiralAbyssTeam(SpiralAbyssTeams $spiralAbyssTeam): self
+    {
+        if (!$this->spiralAbyssTeams->contains($spiralAbyssTeam)) {
+            $this->spiralAbyssTeams[] = $spiralAbyssTeam;
+            $spiralAbyssTeam->setCharacter($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpiralAbyssTeam(SpiralAbyssTeams $spiralAbyssTeam): self
+    {
+        if ($this->spiralAbyssTeams->removeElement($spiralAbyssTeam)) {
+            // set the owning side to null (unless already changed)
+            if ($spiralAbyssTeam->getCharacter() === $this) {
+                $spiralAbyssTeam->setCharacter(null);
             }
         }
 

@@ -47,11 +47,15 @@ class Artifact
     #[ORM\ManyToMany(targetEntity: Team::class, mappedBy: 'artifact')]
     private $teams;
 
+    #[ORM\ManyToMany(targetEntity: SpiralAbyssTeams::class, mappedBy: 'artifact')]
+    private $spiralAbyssTeams;
+
     public function __construct()
     {
         $this->characters = new ArrayCollection();
         $this->buffs = new ArrayCollection();
         $this->teams = new ArrayCollection();
+        $this->spiralAbyssTeams = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -186,6 +190,33 @@ class Artifact
     {
         if ($this->teams->removeElement($team)) {
             $team->removeArtifact($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, SpiralAbyssTeams>
+     */
+    public function getSpiralAbyssTeams(): Collection
+    {
+        return $this->spiralAbyssTeams;
+    }
+
+    public function addSpiralAbyssTeam(SpiralAbyssTeams $spiralAbyssTeam): self
+    {
+        if (!$this->spiralAbyssTeams->contains($spiralAbyssTeam)) {
+            $this->spiralAbyssTeams[] = $spiralAbyssTeam;
+            $spiralAbyssTeam->addArtifact($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpiralAbyssTeam(SpiralAbyssTeams $spiralAbyssTeam): self
+    {
+        if ($this->spiralAbyssTeams->removeElement($spiralAbyssTeam)) {
+            $spiralAbyssTeam->removeArtifact($this);
         }
 
         return $this;
