@@ -1,1 +1,1 @@
-export const ENTRYPOINT = "https://127.0.0.1:8000";
+export const ENTRYPOINT = "https://api.genshinworldrecords.com";
