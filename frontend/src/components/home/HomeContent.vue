@@ -13,32 +13,32 @@
         >
           <router-link
             style="color: white"
-            :to="{ name: 'CharacterShow', params: { id: 'characters/50' } }"
+            :to="{ name: 'CharacterShow', params: { id: 'characters/48' } }"
           >
             <div class="card card-main w-100" 
      >
               <img
                 class="card-img-top char-element char-element-header"
-                src="https://static.wikia.nocookie.net/gensin-impact/images/a/a4/Element_Anemo.png"
+                src="https://static.wikia.nocookie.net/gensin-impact/images/3/35/Element_Hydro.png"
                 alt="Card image cap"
-                v-bind:style="{ border: getElementBorderColor('Anemo') }"
+                v-bind:style="{ border: getElementBorderColor('Hydro') }"
               />
               <img
                 class="card-img card-main-img"
-                src="../../assets/img/fullBanners/Shikanoin-Heizou.jpg"
+                src="../../assets/img/fullBanners/Yelan.jpg"
                 alt="Card image"
               />
 
               <div
                 class="card-img-overlay"
-                v-bind:style="{ border: getElementBorderColor('Anemo') }"
+                v-bind:style="{ border: getElementBorderColor('Hydro') }"
               >
                 <div class="card-body-custom">
                   <h3 class="card-text card-text-custom">
-                    Anemo DPS
+                    Hydro SUP DPS
                   </h3>
 
-                  <h3 class="card-title card-title-custom">New</h3>
+                  <h3 class="card-title card-title-custom">C0 Damage</h3>
                 </div>
               </div>
             </div>
