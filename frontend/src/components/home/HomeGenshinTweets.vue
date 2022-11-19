@@ -5,14 +5,11 @@
       <div class="col-lg-7 col-md-12">
         <h2 class="title-video mb-4">Latest video</h2>
         <iframe
-    id="existing-iframe-example"
-    width="640" height="360"
-    src="https://www.youtube.com/embed/IzB09UCTo8s?autoplay=1&mute=1&enablejsapi=1&modestbranding=1"
-    frameborder="0"
-    style="border: solid 4px #37474F"
-></iframe>
-
-        
+          width="100%"
+          height="90%"
+          class="youtube-iframe"
+          :src="'https://www.youtube.com/embed/' + embYoutube"
+        ></iframe>
       </div>
 
       <div class="col-lg-1 col-md-12 social-split">
